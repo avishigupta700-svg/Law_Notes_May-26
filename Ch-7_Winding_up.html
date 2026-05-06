@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Winding Up — Strategic Framework | CA Final Law</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0e0e0e;
+    --paper: #f5f0e8;
+    --accent: #b8341b;
+    --accent2: #1a4a6b;
+    --accent3: #2d6a2d;
+    --muted: #6b6460;
+    --rule: #c8bfb0;
+    --highlight: #fff3cd;
+    --chip-bg: #e8e2d8;
+    --fr-color: #1a4a6b;
+    --audit-color: #2d6a2d;
+    --dt-color: #7a3b00;
+    --tag-radius: 3px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  /* ── HEADER ── */
+  .doc-header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 40px 48px 32px;
+    border-bottom: 4px solid var(--accent);
+    position: relative;
+    overflow: hidden;
+  }
+  .doc-header::before {
+    content: "§";
+    font-family: 'Playfair Display', serif;
+    font-size: 260px;
+    position: absolute;
+    right: -20px;
+    top: -40px;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+    pointer-events: none;
+  }
+  .badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .doc-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .doc-header .subtitle {
+    font-size: 13px;
+    color: rgba(245,240,232,0.55);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+  }
+  .header-meta {
+    display: flex;
+    gap: 24px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .meta-chip {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 4px 10px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+  }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 32px 60px; }
+  
+  /* ── SECTION HEADERS ── */
+  .framework-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 48px 0 6px;
+  }
+  .framework-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--accent);
+    opacity: 0.3;
+  }
+
+  .framework-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: white;
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--accent);
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    border-radius: 2px;
+  }
+  .card.accent2 { border-left-color: var(--accent2); }
+  .card.accent3 { border-left-color: var(--accent3); }
+  .card.warning { border-left-color: #d4a017; background: #fffdf5; }
+  .card.danger  { border-left-color: var(--accent); background: #fff8f6; }
+
+  .card-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  /* ── GRID ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  @media(max-width: 720px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+  /* ── TABLES ── */
+  .strat-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: 13px;
+    background: white;
+  }
+  .strat-table thead th {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+  }
+  .strat-table tbody tr { border-bottom: 1px solid var(--rule); }
+  .strat-table tbody tr:hover { background: #faf8f4; }
+  .strat-table tbody td { padding: 10px 14px; vertical-align: top; }
+  .strat-table tbody td:first-child { font-weight: 600; color: var(--accent2); font-family: 'IBM Plex Mono', monospace; font-size: 12px; }
+
+  /* ── DECISION TREE ── */
+  .dtree {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 24px;
+    margin: 16px 0;
+  }
+  .dtree-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .dtree-step {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    margin-bottom: 6px;
+    padding: 8px 12px;
+    border-radius: 2px;
+  }
+  .dtree-step.if-block   { background: #eef4fb; border-left: 3px solid var(--accent2); }
+  .dtree-step.then-block { background: #eef6ee; border-left: 3px solid var(--accent3); margin-left: 24px; }
+  .dtree-step.else-block { background: #fff5f3; border-left: 3px solid var(--accent); margin-left: 24px; }
+  .dtree-step.note-block { background: var(--highlight); border-left: 3px solid #d4a017; }
+  .dtree-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: var(--tag-radius);
+    white-space: nowrap;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .tag-if   { background: var(--accent2); color: white; }
+  .tag-then { background: var(--accent3); color: white; }
+  .tag-else { background: var(--accent); color: white; }
+  .tag-note { background: #d4a017; color: white; }
+
+  /* ── CROSS-SUBJECT LINKS ── */
+  .cross-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .cross-link {
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 2px;
+    font-weight: 500;
+    border: 1px solid;
+    line-height: 1.3;
+  }
+  .cross-link .subject-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: block;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .cl-fr   { background: #eef4fb; border-color: #9bb8d4; color: var(--fr-color); }
+  .cl-fr   .subject-label { color: var(--fr-color); }
+  .cl-aud  { background: #eef6ee; border-color: #9bc49b; color: var(--audit-color); }
+  .cl-aud  .subject-label { color: var(--audit-color); }
+  .cl-dt   { background: #fdf4e8; border-color: #d4a88c; color: var(--dt-color); }
+  .cl-dt   .subject-label { color: var(--dt-color); }
+
+  /* ── NON-NEGOTIABLES ── */
+  .non-neg-box {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 24px 28px;
+    border-radius: 2px;
+    margin: 20px 0;
+  }
+  .non-neg-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--accent);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .nn-item {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+    margin-bottom: 8px;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .nn-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  /* ── IRAC ── */
+  .irac-box {
+    border: 2px solid var(--accent);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 20px 0;
+  }
+  .irac-header {
+    background: var(--accent);
+    color: white;
+    padding: 10px 18px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .irac-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    border-bottom: 1px solid var(--rule);
+  }
+  .irac-row:last-child { border-bottom: none; }
+  .irac-label {
+    background: var(--chip-bg);
+    padding: 12px 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-right: 1px solid var(--rule);
+    display: flex;
+    align-items: flex-start;
+    padding-top: 14px;
+  }
+  .irac-content {
+    padding: 12px 16px;
+    background: white;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* ── COMPLIANCE INDICATOR PILLS ── */
+  .pill {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 20px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    vertical-align: middle;
+  }
+  .pill-red   { background: #fde8e4; color: var(--accent); border: 1px solid #f5b8b0; }
+  .pill-blue  { background: #e4edf7; color: var(--accent2); border: 1px solid #b0c8e0; }
+  .pill-green { background: #e4f0e4; color: var(--accent3); border: 1px solid #b0d4b0; }
+  .pill-gold  { background: #fdf4e0; color: #7a5a00; border: 1px solid #e0c878; }
+
+  /* ── TIMELINE / STEPS ── */
+  .timeline { margin: 16px 0; }
+  .tl-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 4px;
+    align-items: flex-start;
+  }
+  .tl-marker {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent2);
+    color: white;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  .tl-content { flex: 1; padding-bottom: 14px; border-bottom: 1px dashed var(--rule); }
+  .tl-item:last-child .tl-content { border-bottom: none; }
+  .tl-title { font-weight: 600; font-size: 13px; margin-bottom: 2px; }
+  .tl-desc  { font-size: 12.5px; color: var(--muted); }
+
+  /* ── LIST STYLES ── */
+  ul.clean { list-style: none; padding: 0; margin: 8px 0; }
+  ul.clean li {
+    padding: 5px 0 5px 18px;
+    position: relative;
+    font-size: 13px;
+    border-bottom: 1px dotted var(--rule);
+  }
+  ul.clean li:last-child { border-bottom: none; }
+  ul.clean li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 10px;
+    top: 7px;
+  }
+
+  b { font-weight: 600; }
+  .mono { font-family: 'IBM Plex Mono', monospace; font-size: 12px; }
+  .muted { color: var(--muted); font-size: 12px; }
+
+  /* ── DIVIDER ── */
+  .section-divider {
+    border: none;
+    border-top: 2px solid var(--rule);
+    margin: 40px 0 0;
+  }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    background: var(--ink);
+    color: rgba(245,240,232,0.4);
+    text-align: center;
+    padding: 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-top: 60px;
+  }
+
+  /* ── TOC ── */
+  .toc {
+    background: white;
+    border: 1px solid var(--rule);
+    padding: 20px 24px;
+    margin: 28px 0 0;
+  }
+  .toc-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .toc-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 24px;
+    list-style: none;
+  }
+  .toc-list li { font-size: 13px; }
+  .toc-list li a {
+    color: var(--accent2);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .toc-list li a:hover { text-decoration: underline; }
+  .toc-list li .toc-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    margin-right: 6px;
+  }
+  @media(max-width:600px) { .toc-list { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     DOCUMENT HEADER
+══════════════════════════════════════════ -->
+<div class="doc-header">
+  <span class="badge">CA Final · Paper 4: Corporate & Economic Laws · Chapter 7</span>
+  <h1>Winding Up</h1>
+  <div class="subtitle">Strategic Framework Note-Set · IBS Integration Edition · Companies Act, 2013 | IBC, 2016</div>
+  <div class="header-meta">
+    <span class="meta-chip">§§ 270–358 | 324–358</span>
+    <span class="meta-chip">Part I: Tribunal Wind-up</span>
+    <span class="meta-chip">Part III: All Modes</span>
+    <span class="meta-chip">SCPM-Style Summaries</span>
+    <span class="meta-chip">IRAC Templates</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- TABLE OF CONTENTS -->
+  <div class="toc">
+    <div class="toc-title">Strategic Frameworks in This Note-Set</div>
+    <ul class="toc-list">
+      <li><span class="toc-num">F-01</span><a href="#f01">Jurisdictional Clarity Framework</a></li>
+      <li><span class="toc-num">F-02</span><a href="#f02">Grounds &amp; Petition Framework</a></li>
+      <li><span class="toc-num">F-03</span><a href="#f03">Tribunal Powers &amp; Order Framework</a></li>
+      <li><span class="toc-num">F-04</span><a href="#f04">Liquidator Appointment Framework</a></li>
+      <li><span class="toc-num">F-05</span><a href="#f05">Winding-Up Procedure Framework</a></li>
+      <li><span class="toc-num">F-06</span><a href="#f06">Contributory &amp; Asset Framework</a></li>
+      <li><span class="toc-num">F-07</span><a href="#f07">Payment Priority Framework</a></li>
+      <li><span class="toc-num">F-08</span><a href="#f08">Avoidance of Transactions Framework</a></li>
+      <li><span class="toc-num">F-09</span><a href="#f09">Offences &amp; Penalties Framework</a></li>
+      <li><span class="toc-num">F-10</span><a href="#f10">Non-Negotiables &amp; IRAC</a></li>
+    </ul>
+  </div>
+
+<!-- ══════════════════════════════════════════
+     F-01 · JURISDICTIONAL CLARITY
+══════════════════════════════════════════ -->
+<div class="framework-label" id="f01">Framework 01</div>
+<h2 class="framework-title">Jurisdictional Clarity Framework — What Counts as "Winding Up"?</h2>
+
+<div class="grid-2">
+  <div class="card accent2">
+    <div class="card-title">§ 2(94A) — Statutory Definition</div>
+    <b>"Winding Up"</b> = either of two tracks:
+    <ul class="clean" style="margin-top:10px">
+      <li><b>Track A:</b> Winding up under <b>Companies Act, 2013</b> (Chapter XX)</li>
+      <li><b>Track B:</b> Liquidation under <b>Insolvency and Bankruptcy Code, 2016</b> (IBC)</li>
+    </ul>
+    <p style="margin-top:10px;font-size:12px;color:var(--muted)">Note: "Inability to pay debts" as a standalone ground stands <b>omitted</b> post-IBC. IBC now governs that route.</p>
+  </div>
+  <div class="card">
+    <div class="card-title">Modes — § 270</div>
+    <b>Only one active mode remains under CA 2013:</b>
+    <ul class="clean" style="margin-top:10px">
+      <li><b>Part I (§§ 271–303):</b> Winding Up by the Tribunal (NCLT)</li>
+      <li><b>Part II (§§ 304–323):</b> Voluntary winding up — <span class="pill pill-red">OMITTED</span> — now §59 IBC</li>
+      <li><b>Part III (§§ 324–358):</b> Provisions applicable to <b>every</b> mode</li>
+    </ul>
+  </div>
+</div>
+
+<div class="cross-links">
+  <div class="cross-link cl-fr">
+    <span class="subject-label">FR Link</span>
+    Liquidation triggers derecognition of assets/liabilities; going-concern assumption collapses → Ind AS 1 disclosure of material uncertainty
+  </div>
+  <div class="cross-link cl-aud">
+    <span class="subject-label">Audit Link</span>
+    SA 570 (Going Concern) — auditor must evaluate winding-up petition as an indicator of going-concern doubt; report under CARO 2020 (clause on defaults)
+  </div>
+  <div class="cross-link cl-dt">
+    <span class="subject-label">DT/IDT Link</span>
+    On liquidation, capital gains may arise on distribution of assets in excess of cost; IBC resolution plan can carry-forward losses subject to S.79A conditions
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     F-02 · GROUNDS & PETITION
+══════════════════════════════════════════ -->
+<hr class="section-divider">
+<div class="framework-label" id="f02">Framework 02</div>
+<h2 class="framework-title">Grounds &amp; Petition Framework — §§ 271–272</h2>
+
+<table class="strat-table">
+  <thead>
+    <tr>
+      <th>Ground (§271)</th>
+      <th>Context / Trigger</th>
+      <th>Who Can Petition (§272)</th>
+      <th>Strategic Note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>(a) Special Resolution</td>
+      <td>Members voluntarily choose tribunal winding-up</td>
+      <td>Company; Contributories; Registrar; CG/SG authorised person</td>
+      <td>Company cannot petition alone if no SR passed</td>
+    </tr>
+    <tr>
+      <td>(b) National Interest</td>
+      <td>Acts against sovereignty, integrity, security, public order, decency</td>
+      <td><b>Only CG or SG</b> for this ground (§272(f))</td>
+      <td><span class="pill pill-red">Exclusive</span> CG/SG standing for this ground</td>
+    </tr>
+    <tr>
+      <td>(c) Fraud / Misfeasance</td>
+      <td>Registrar or CG-authorised person finds fraudulent conduct/formation</td>
+      <td>Registrar (with prior CG sanction); CG-authorised person</td>
+      <td>Company must be given reasonable opportunity before CG sanctions RoC</td>
+    </tr>
+    <tr>
+      <td>(d) Default in Filing — <span class="pill pill-red">5 years</span></td>
+      <td>Non-filing of FS or Annual Returns for <b>5 consecutive preceding FYs</b></td>
+      <td>Registrar; Any person authorised by CG</td>
+      <td><span class="pill pill-red">Exam Trap:</span> 4 years NOT sufficient — must be FIVE</td>
+    </tr>
+    <tr>
+      <td>(e) Just &amp; Equitable</td>
+      <td>Deadlock, fraud, loss of substratum, oppression</td>
+      <td>Company; Contributories; Registrar; CG/SG person</td>
+      <td>Tribunal may refuse if other remedy is available &amp; petitioner acts unreasonably</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="card warning">
+  <div class="card-title">Contributory's Right to Petition — Decision Tree</div>
+  <div class="dtree">
+    <div class="dtree-title">§ 272(2) — Is a Contributory Eligible to Petition?</div>
+    <div class="dtree-step if-block">
+      <span class="dtree-tag tag-if">IF</span>
+      <span>Shares were <b>originally allotted</b> OR held &amp; registered in name for ≥ <b>6 months</b> out of 18 months preceding winding-up commencement</span>
+    </div>
+    <div class="dtree-step then-block">
+      <span class="dtree-tag tag-then">THEN</span>
+      <span><b>Eligible to petition</b> — even if shares fully paid up, even if company has no assets, even if no surplus remains</span>
+    </div>
+    <div class="dtree-step else-block">
+      <span class="dtree-tag tag-else">ELSE</span>
+      <span>Not eligible — unless shares devolved through <b>death of a former holder</b></span>
+    </div>
+    <div class="dtree-step note-block" style="margin-top:8px">
+      <span class="dtree-tag tag-note">NOTE</span>
+      <span>Registrar needs <b>prior CG sanction</b> before presenting petition; company must get reasonable opportunity to represent</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">Petition Formalities — §272(4) &amp; (5)</div>
+  <div class="grid-2">
+    <div>
+      <b>Petition by Company:</b>
+      <ul class="clean">
+        <li>Must be accompanied by <b>Statement of Affairs</b> (prescribed form)</li>
+        <li>Tribunal admits <b>only if</b> statement is attached</li>
+      </ul>
+    </div>
+    <div>
+      <b>Copy to Registrar:</b>
+      <ul class="clean">
+        <li>A copy must be filed with <b>Registrar</b></li>
+        <li>Registrar submits views to Tribunal within <b>60 days</b></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     F-03 · TRIBUNAL POWERS
+══════════════════════════════════════════ -->
+<hr class="section-divider">
+<div class="framework-label" id="f03">Framework 03</div>
+<h2 class="framework-title">Tribunal Powers &amp; Order Framework — §§ 273–274</h2>
+
+<div class="grid-2">
+  <div class="card accent2">
+    <div class="card-title">§273 — Orders the Tribunal Can Pass</div>
+    <ul class="clean">
+      <li>Dismiss the petition (with/without costs)</li>
+      <li>Make any <b>interim order</b></li>
+      <li>Appoint a <b>Provisional Liquidator</b> (until winding-up order)</li>
+      <li>Make a <b>Winding-Up Order</b> (with/without costs)</li>
+      <li>Any other order as it thinks fit</li>
+    </ul>
+    <p style="margin-top:12px;padding:8px;background:var(--highlight);font-size:12px">
+      <b>Time Limit:</b> Order must be made within <b>90 days</b> from date of petition.
+    </p>
+  </div>
+  <div class="card">
+    <div class="card-title">Key Rules for Tribunal</div>
+    <ul class="clean">
+      <li>Cannot refuse winding-up order <b>merely because assets are mortgaged</b> or company has no assets</li>
+      <li>Before appointing Provisional Liquidator → <b>notice to company</b> + reasonable opportunity (unless special written reasons to skip)</li>
+      <li>On just &amp; equitable ground → may refuse if <b>other remedy available</b> &amp; petitioner is acting unreasonably</li>
+    </ul>
+  </div>
+</div>
+
+<table class="strat-table">
+  <thead>
+    <tr>
+      <th>Context</th>
+      <th>Trigger Point</th>
+      <th>Legal Requirement</th>
+      <th>Strategic Impact</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>§274 — Statement of Affairs</td>
+      <td>Petition filed by person <i>other than</i> company; prima facie case exists</td>
+      <td>Tribunal directs company to file objections + Statement of Affairs within <b>30 days</b> (extendable by 30 more days)</td>
+      <td>Failure → company <b>forfeits right to oppose</b>; directors face personal liability</td>
+    </tr>
+    <tr>
+      <td>§274(3) — Books to Liquidator</td>
+      <td>Winding-up order passed under §273(1)(d)</td>
+      <td>Directors/officers must submit <b>completed &amp; audited</b> books within <b>30 days</b></td>
+      <td>Non-compliance → imprisonment up to 6 months OR fine ₹25,000–₹5 lakh OR both</td>
+    </tr>
+    <tr>
+      <td>§274(2) — Penalty</td>
+      <td>Failure to file Statement of Affairs</td>
+      <td>Imprisonment ≤ 6 months / Fine ₹25K–₹5L / Both (directors/officers responsible)</td>
+      <td>Complaint filed before Special Court by Registrar / Liquidator / Tribunal-authorised person</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ══════════════════════════════════════════
+     F-04 · LIQUIDATOR APPOINTMENT
+══════════════════════════════════════════ -->
+<hr class="section-divider">
+<div class="framework-label" id="f04">Framework 04</div>
+<h2 class="framework-title">Liquidator Appointment, Removal &amp; Replacement Framework — §§ 275–276</h2>
+
+<div class="grid-3">
+  <div class="card">
+    <div class="card-title">Appointment — §275</div>
+    <ul class="clean">
+      <li>Appointed by Tribunal <b>at the time</b> of winding-up order</li>
+      <li>Must be an <b>Insolvency Professional</b> registered under IBC 2016</li>
+      <li>Tribunal specifies <b>terms, conditions &amp; fee</b> (based on task, experience, qualification, company size)</li>
+      <li>On appointment → file <b>Declaration within 7 days</b> (conflict of interest / lack of independence)</li>
+    </ul>
+  </div>
+  <div class="card accent3">
+    <div class="card-title">Provisional Liquidator</div>
+    <ul class="clean">
+      <li>Tribunal may <b>restrict powers</b> by appointment order or subsequent order</li>
+      <li>Otherwise has <b>same powers as Company Liquidator</b></li>
+      <li>Can be elevated to <b>Company Liquidator</b> when winding-up order is passed</li>
+    </ul>
+  </div>
+  <div class="card danger">
+    <div class="card-title">Removal Grounds — §276</div>
+    <ul class="clean">
+      <li>Misconduct</li>
+      <li>Fraud or misfeasance</li>
+      <li>Professional incompetence / failure of due care &amp; diligence</li>
+      <li>Inability to act</li>
+      <li>Conflict of interest / lack of independence</li>
+    </ul>
+    <p style="font-size:12px;margin-top:8px;color:var(--muted)">Tribunal must give <b>reasonable opportunity of hearing</b> before removal</p>
+  </div>
+</div>
+
+<div class="dtree">
+  <div class="dtree-title">§276 — What Happens When Liquidator Exits?</div>
+  <div class="dtree-step if-block">
+    <span class="dtree-tag tag-if">IF</span>
+    <span>Liquidator dies / resigns / is removed</span>
+  </div>
+  <div class="dtree-step then-block">
+    <span class="dtree-tag tag-then">THEN</span>
+    <span>Tribunal <b>transfers the work</b> to another Company Liquidator (reasons in writing)</span>
+  </div>
+  <div class="dtree-step if-block" style="margin-top:8px">
+    <span class="dtree-tag tag-if">IF</span>
+    <span>Liquidator caused loss/damage to company due to <b>fraud or misfeasance or failure of due care</b></span>
+  </div>
+  <div class="dtree-step then-block">
+    <span class="dtree-tag tag-then">THEN</span>
+    <span>Tribunal may <b>recover such loss from the liquidator</b> personally + pass other orders</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     F-05 · WINDING-UP PROCEDURE
+══════════════════════════════════════════ -->
+<hr class="section-divider">
+<div class="framework-label" id="f05">Framework 05</div>
+<h2 class="framework-title">Winding-Up Procedure Framework — §§ 277–284 &amp; §288</h2>
+
+<div class="timeline">
+  <div class="tl-item">
+    <div class="tl-marker">1</div>
+    <div class="tl-content">
+      <div class="tl-title">Tribunal Passes Winding-Up Order → §277</div>
+      <div class="tl-desc">Within <b>7 days</b>: Tribunal sends intimation to Company Liquidator / PL and Registrar. Registrar endorses records &amp; notifies Official Gazette. For <b>listed companies</b>: Registrar also intimates stock exchanges.</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-marker">2</div>
+    <div class="tl-content">
+      <div class="tl-title">Effect: Notice of Discharge → §277(3)</div>
+      <div class="tl-desc">Winding-up order = <b>deemed notice of discharge</b> to all officers, employees, workmen — <i>except</i> when business is continued.</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-marker">3</div>
+    <div class="tl-content">
+      <div class="tl-title">Winding-Up Committee Constituted → §277(4) — Within 3 Weeks</div>
+      <div class="tl-desc">Company Liquidator applies to Tribunal for committee comprising: (i) Official Liquidator attached to Tribunal; (ii) Nominee of secured creditors; (iii) Professional nominated by Tribunal. Liquidator is <b>convener</b>.</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-marker">4</div>
+    <div class="tl-content">
+      <div class="tl-title">Company Liquidator Submits Report → §281 — Within 60 Days</div>
+      <div class="tl-desc">Report covers: assets (valued by <b>Registered Valuers</b>), capital, liabilities, debts due, guarantees, contributory list, trademarks/IP, subsisting contracts, holding/subsidiary details, legal cases, fraud investigation findings, viability of business.</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-marker">5</div>
+    <div class="tl-content">
+      <div class="tl-title">Tribunal Directions on Report → §282</div>
+      <div class="tl-desc">Tribunal fixes <b>time limit</b> for entire proceedings &amp; dissolution. May order sale as going concern. May order fraud investigation (§210). May appoint Sale Committee.</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-marker">6</div>
+    <div class="tl-content">
+      <div class="tl-title">Periodical Reports → §288 — Each Quarter</div>
+      <div class="tl-desc">Company Liquidator submits quarterly progress reports. Tribunal may review &amp; modify its own orders on Liquidator's application.</div>
+    </div>
+  </div>
+  <div class="tl-item">
+    <div class="tl-marker">7</div>
+    <div class="tl-content">
+      <div class="tl-title">Dissolution Order → §302</div>
+      <div class="tl-desc">When affairs completely wound up → Liquidator applies for dissolution. Tribunal orders dissolution. Within <b>30 days</b>: copy forwarded to Registrar who records the minute of dissolution.</div>
+    </div>
+  </div>
+</div>
+
+<div class="card warning">
+  <div class="card-title">§279 — Stay of Suits on Winding-Up Order — Decision Tree</div>
+  <div class="dtree">
+    <div class="dtree-step if-block">
+      <span class="dtree-tag tag-if">IF</span>
+      <span>Winding-up order passed OR Provisional Liquidator appointed</span>
+    </div>
+    <div class="dtree-step then-block">
+      <span class="dtree-tag tag-then">THEN</span>
+      <span>No suit / legal proceeding can be <b>commenced or continued</b> against the company without Tribunal's leave (application disposed within <b>60 days</b>)</span>
+    </div>
+    <div class="dtree-step else-block">
+      <span class="dtree-tag tag-else">EXCEPT</span>
+      <span>Proceedings <b>pending in appeal before Supreme Court or High Court</b> — no stay applies (§279(2))</span>
+    </div>
+  </div>
+</div>
+
+<div class="cross-links">
+  <div class="cross-link cl-fr">
+    <span class="subject-label">FR Link</span>
+    Registered Valuer required for asset valuation in Liquidator's report → Ind AS 113 (Fair Value) considerations; impairment writedowns
+  </div>
+  <div class="cross-link cl-aud">
+    <span class="subject-label">Audit Link</span>
+    Directors must submit audited books to Liquidator within 30 days → SA 250 (Laws &amp; Regulations); CARO 2020 clause on assets
+  </div>
+  <div class="cross-link cl-dt">
+    <span class="subject-label">DT/IDT Link</span>
+    GST implications: Liquidator is a "taxable person" for supply of goods/services during winding-up; needs GST registration (§29 CGST Act)
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     F-06 · CONTRIBUTORY & ASSET
+══════════════════════════════════════════ -->
+<hr class="section-divider">
+<div class="framework-label" id="f06">Framework 06</div>
+<h2 class="framework-title">Contributory &amp; Asset Settlement Framework — §§ 285–287</h2>
+
+<table class="strat-table">
+  <thead>
+    <tr>
+      <th>Scenario</th>
+      <th>Liability to Contribute?</th>
+      <th>Condition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Former member who left</td>
+      <td><span class="pill pill-red">No Liability</span></td>
+      <td>Ceased to be member ≥ <b>1 year</b> before winding-up commencement</td>
+    </tr>
+    <tr>
+      <td>Former member — specific debt</td>
+      <td><span class="pill pill-red">No Liability</span></td>
+      <td>Debt/liability contracted <b>after</b> he ceased to be a member</td>
+    </tr>
+    <tr>
+      <td>Former member — present members can't pay</td>
+      <td><span class="pill pill-green">Liable</span></td>
+      <td>When Tribunal finds present members unable to satisfy contributions</td>
+    </tr>
+    <tr>
+      <td>Company limited by shares</td>
+      <td><span class="pill pill-gold">Limited</span></td>
+      <td>Contribution capped at <b>amount unpaid on shares</b> held</td>
+    </tr>
+    <tr>
+      <td>Company limited by guarantee (with share capital)</td>
+      <td><span class="pill pill-gold">Limited</span></td>
+      <td>Contribute to extent of sum unpaid on shares held (as if company were limited by shares)</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="card accent2">
+  <div class="card-title">Advisory Committee — §287 (IBS High-Yield)</div>
+  <div class="grid-2">
+    <div>
+      <b>Composition:</b>
+      <ul class="clean">
+        <li>Maximum <b>12 members</b> — creditors + contributories or other persons</li>
+        <li><b>Chairperson:</b> Company Liquidator (always)</li>
+        <li>Meeting convened within <b>30 days</b> of winding-up order by Liquidator</li>
+      </ul>
+    </div>
+    <div>
+      <b>Rights &amp; Role:</b>
+      <ul class="clean">
+        <li>Right to <b>inspect books, assets, properties</b> at reasonable time</li>
+        <li>Advise Company Liquidator on distribution &amp; administration</li>
+        <li>Report to Tribunal on directed matters</li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top:12px;padding:10px;background:var(--highlight);border-radius:2px;font-size:12.5px">
+    <b>⚠️ Exam Trap (Example 2):</b> Advisory Committee of <b>13 members is INVALID</b> — ceiling is 12. This is a direct examiner favourite.
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     F-07 · PAYMENT PRIORITY
+══════════════════════════════════════════ -->
+<hr class="section-divider">
+<div class="framework-label" id="f07">Framework 07</div>
+<h2 class="framework-title">Payment Priority Framework — §§ 326–327</h2>
+
+<div class="card danger">
+  <div class="card-title">§326 — Overriding Preferential Payments (Trumps Everything)</div>
+  <p style="font-size:13px;margin-bottom:12px">These <b>override secured creditors</b> — paid FIRST before anyone else:</p>
+  <div class="grid-2">
+    <div>
+      <b>(a) Workmen's Dues</b> — paid in priority to ALL other debts<br>
+      <span class="muted">Including wages, holiday remuneration, compensation, PF/pension/gratuity</span>
+    </div>
+    <div>
+      <b>(b) Pari Passu with Secured Creditor's Shortfall</b><br>
+      <span class="muted">Where secured creditor couldn't fully realise security → workmen's portion of security ranked equally</span>
+    </div>
+  </div>
+  <div style="margin-top:14px;background:var(--ink);color:var(--paper);padding:12px;border-radius:2px;font-size:12.5px">
+    <b style="color:var(--accent)">Workmen's Portion Formula:</b><br>
+    Workmen's Portion = (Value of Security) × [Workmen's Dues ÷ (Workmen's Dues + Debts to Secured Creditors)]<br><br>
+    <b style="color:#aad4ff">Exam Example:</b> Security = ₹1L | Workmen = ₹1L | Secured Debt = ₹3L → Aggregate = ₹4L → Workmen's Portion = ₹1L × (1L/4L) = <b>₹25,000</b>
+  </div>
+</div>
+
+<table class="strat-table">
+  <thead>
+    <tr>
+      <th>Priority Rank</th>
+      <th>Category (§327)</th>
+      <th>Period / Limit</th>
+      <th>Strategic Impact</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="pill pill-red">1st</span></td>
+      <td>Workmen's dues (§326) — wages, holiday pay, PF, compensation</td>
+      <td>2 years before winding-up order (Proviso §326)</td>
+      <td>Paid within 30 days of asset sale; pari passu with secured creditors on security</td>
+    </tr>
+    <tr>
+      <td><span class="pill pill-blue">2nd</span></td>
+      <td>Government revenues, taxes, cesses, rates</td>
+      <td>Due in 12 months before relevant date</td>
+      <td>Relevant date = date of PL appointment or winding-up order (if no PL)</td>
+    </tr>
+    <tr>
+      <td><span class="pill pill-blue">2nd</span></td>
+      <td>Wages / salary of employees (not workmen)</td>
+      <td>≤ 4 months within 12 months before relevant date</td>
+      <td>Statutory cap per employee as notified</td>
+    </tr>
+    <tr>
+      <td><span class="pill pill-blue">2nd</span></td>
+      <td>ESI contributions, holiday remuneration, compensation, PF/gratuity</td>
+      <td>12 months before relevant date</td>
+      <td>These debts rank equally &amp; paid in full; abate proportionally if assets insufficient</td>
+    </tr>
+    <tr>
+      <td><span class="pill pill-blue">2nd</span></td>
+      <td>Expenses of investigation (§§ 213, 216)</td>
+      <td>As applicable</td>
+      <td>Classified as preferential — comes before unsecured creditors</td>
+    </tr>
+    <tr>
+      <td><span class="pill pill-green">3rd</span></td>
+      <td>Secured Creditors (on their security)</td>
+      <td>After §326 satisfied</td>
+      <td>Floating charge created within 12 months → invalid unless company was solvent at creation (§332)</td>
+    </tr>
+    <tr>
+      <td><span class="pill pill-gold">4th</span></td>
+      <td>Unsecured Creditors</td>
+      <td>Pari passu from residue</td>
+      <td>Often recover nil in practice</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="card">
+  <div class="card-title">§327(7) — Inapplicability Note</div>
+  <p>Sections 326 &amp; 327 <b>do NOT apply</b> to liquidation under the <b>IBC, 2016</b>. IBC has its own waterfall mechanism (§53 IBC). This is a critical distinction for IBS case studies involving IBC resolution vs CA-2013 winding up.</p>
+</div>
+
+<div class="cross-links">
+  <div class="cross-link cl-fr">
+    <span class="subject-label">FR Link</span>
+    Preferential creditors create financial liabilities classified under IAS 32 / Ind AS 32 — liquidation value ≠ carrying amount; disclosure of liquidation basis accounting required
+  </div>
+  <div class="cross-link cl-aud">
+    <span class="subject-label">Audit Link</span>
+    Auditor verifying adequacy of provision for liquidation expenses; CARO 2020 — clause on dues to employees &amp; PF/ESI
+  </div>
+  <div class="cross-link cl-dt">
+    <span class="subject-label">DT/IDT Link</span>
+    Tax dues rank as preferential under §327(a); however IBC §53 overrides and tax authorities rank lower — significant tension; IBC prevails per SC ruling in Ghanashyam Mishra
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     F-08 · AVOIDANCE OF TRANSACTIONS
+══════════════════════════════════════════ -->
+<hr class="section-divider">
+<div class="framework-label" id="f08">Framework 08</div>
+<h2 class="framework-title">Avoidance of Transactions Framework — §§ 328–335</h2>
+
+<table class="strat-table">
+  <thead>
+    <tr>
+      <th>Section</th>
+      <th>Transaction Type</th>
+      <th>Time Trigger</th>
+      <th>Effect / Remedy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>§328</td>
+      <td><b>Fraudulent Preference</b> — putting creditor/surety in better position than they would be in liquidation</td>
+      <td>Within <b>6 months</b> before winding-up application</td>
+      <td>Tribunal may declare <b>invalid &amp; restore position</b>; SC in IDBI Bank v. Official Liquidator confirmed this</td>
+    </tr>
+    <tr>
+      <td>§329</td>
+      <td><b>Transfers Not in Good Faith</b> — not in ordinary course of business &amp; not to bona fide purchaser for value</td>
+      <td>Within <b>1 year</b> before presentation of winding-up petition</td>
+      <td>Void against Company Liquidator</td>
+    </tr>
+    <tr>
+      <td>§330</td>
+      <td><b>Assignment of all assets to trustees</b> for benefit of all creditors</td>
+      <td>Any time</td>
+      <td>Absolutely <b>void</b> — no time condition</td>
+    </tr>
+    <tr>
+      <td>§332</td>
+      <td><b>Floating Charge</b> on undertaking/property</td>
+      <td>Created within <b>12 months</b> preceding commencement of winding up</td>
+      <td>Invalid — unless company was <b>solvent immediately after</b> creation; valid only for fresh cash consideration + 5% p.a. interest</td>
+    </tr>
+    <tr>
+      <td>§334</td>
+      <td><b>Post-Commencement Disposals</b> — property, share transfers, member status changes</td>
+      <td>After commencement of winding up</td>
+      <td>Void — unless Tribunal orders otherwise</td>
+    </tr>
+    <tr>
+      <td>§335</td>
+      <td><b>Attachments / Executions / Sales</b> after winding-up commencement (without Tribunal leave)</td>
+      <td>After commencement</td>
+      <td>Void — <i>except</i> proceedings for recovery of <b>tax/dues payable to Government</b></td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="dtree">
+  <div class="dtree-title">§328 Fraudulent Preference — Applicability Test (IBS Problem-Solving)</div>
+  <div class="dtree-step if-block">
+    <span class="dtree-tag tag-if">IF</span>
+    <span>Transaction is a transfer of property / delivery of goods / payment / execution</span>
+  </div>
+  <div class="dtree-step if-block" style="margin-left:24px">
+    <span class="dtree-tag tag-if">AND IF</span>
+    <span>Done within <b>6 months before winding-up application</b></span>
+  </div>
+  <div class="dtree-step if-block" style="margin-left:24px">
+    <span class="dtree-tag tag-if">AND IF</span>
+    <span>Puts a creditor / surety / guarantor in a <b>better position</b> than in a normal liquidation</span>
+  </div>
+  <div class="dtree-step then-block">
+    <span class="dtree-tag tag-then">THEN</span>
+    <span>= <b>Fraudulent Preference</b> → Tribunal can declare <b>invalid</b> &amp; restore pre-transaction position</span>
+  </div>
+  <div class="dtree-step note-block" style="margin-top:8px">
+    <span class="dtree-tag tag-note">EXAM TIP</span>
+    <span>Descriptive Q1 in this chapter: Sale on Oct 15, 2021 → Winding-up Mar 10, 2022 = <b>within 6 months</b> → §328 applies → Sale declared invalid</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     F-09 · OFFENCES & PENALTIES
+══════════════════════════════════════════ -->
+<hr class="section-divider">
+<div class="framework-label" id="f09">Framework 09</div>
+<h2 class="framework-title">Offences &amp; Penalties Framework — §§ 336, 344, 352</h2>
+
+<table class="strat-table">
+  <thead>
+    <tr>
+      <th>Section</th>
+      <th>Offence</th>
+      <th>Who</th>
+      <th>Punishment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>§336</td>
+      <td>Non-disclosure of assets; fraudulent removal/concealment of property (≥₹1,000); falsification of books; false entries; false representations to creditors; fictitious losses</td>
+      <td>Officer of company in liquidation (includes shadow directors)</td>
+      <td>Imprisonment <b>3–5 years</b> + Fine <b>₹1L–₹3L</b>. Defence: no intent to defraud</td>
+    </tr>
+    <tr>
+      <td>§336(2)</td>
+      <td>Receiving property pawned/pledged knowing it to be improperly disposed</td>
+      <td>Third party receiver</td>
+      <td>Imprisonment <b>3–5 years</b> + Fine <b>₹3L–₹5L</b></td>
+    </tr>
+    <tr>
+      <td>§344</td>
+      <td>Failure to state "Company is being wound up" on every invoice/business letter</td>
+      <td>Company + every officer + Liquidator + receiver/manager who willfully permits</td>
+      <td>Fine <b>₹50,000–₹3 lakh</b></td>
+    </tr>
+    <tr>
+      <td>§352(8)(a)</td>
+      <td>Retaining undistributed dividends / assets instead of depositing into <b>Company Liquidation Dividend &amp; Undistributed Assets Account</b></td>
+      <td>Liquidator</td>
+      <td>Interest @ <b>12% p.a.</b> on retained amount + penalty by Registrar + potential removal by Tribunal</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="card warning">
+  <div class="card-title">§352 — Company Liquidation Dividend &amp; Undistributed Assets Account — Key Numbers</div>
+  <div class="grid-2">
+    <ul class="clean">
+      <li>Trigger: dividends unpaid / assets undistributed for <b>6 months</b> → deposit forthwith into CLDUA Account (scheduled bank)</li>
+      <li>Claimant applies to <b>Registrar</b> (not Tribunal)</li>
+      <li>Registrar must settle within <b>60 days</b>; else report to Regional Director</li>
+    </ul>
+    <ul class="clean">
+      <li>Unclaimed for <b>15 years</b> → transferred to <b>General Revenue Account of CG</b></li>
+      <li>Penalty for non-deposit: <b>12% p.a.</b> interest (not 15%) <span class="pill pill-red">Exam Trap — Example 5</span></li>
+      <li>Tribunal can disallow Liquidator's remuneration + remove from office</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     F-10 · NON-NEGOTIABLES & IRAC
+══════════════════════════════════════════ -->
+<hr class="section-divider">
+<div class="framework-label" id="f10">Framework 10</div>
+<h2 class="framework-title">Non-Negotiables &amp; IRAC Template</h2>
+
+<div class="non-neg-box">
+  <h3>⚡ Compliance Indicators — High-Yield IBS Non-Negotiables</h3>
+  <div class="nn-item"><span class="nn-num">N-01</span><span><b>5 consecutive FY default</b> (not 4) triggers winding-up ground under §271(d) — a one-year shortfall defeats the entire petition.</span></div>
+  <div class="nn-item"><span class="nn-num">N-02</span><span><b>Advisory Committee ≤ 12 members</b> — any formation with 13+ is void ab initio. Liquidator chairs it. Must be convened within 30 days.</span></div>
+  <div class="nn-item"><span class="nn-num">N-03</span><span><b>Fraudulent preference window = 6 months</b> (§328); Good faith transfer void = <b>1 year</b> (§329); Floating charge void = <b>12 months</b> (§332) — never confuse these three windows.</span></div>
+  <div class="nn-item"><span class="nn-num">N-04</span><span><b>Workmen's dues rank pari passu with secured creditors</b> on their security — they do NOT merely rank second; the security itself is subject to workmen's portion charge.</span></div>
+  <div class="nn-item"><span class="nn-num">N-05</span><span><b>Liquidator's declaration</b> must be filed within <b>7 days</b> of appointment and continues throughout the appointment — obligation is ongoing, not a one-time act.</span></div>
+  <div class="nn-item"><span class="nn-num">N-06</span><span><b>§279 stay of suits</b> does NOT apply to Supreme Court / High Court appeals pending at date of winding-up order — Tribunal leave not needed for those.</span></div>
+  <div class="nn-item"><span class="nn-num">N-07</span><span><b>§334</b> — any post-commencement disposition of property is void unless Tribunal orders otherwise. Share transfers too. Commencement = date of petition (§357).</span></div>
+  <div class="nn-item"><span class="nn-num">N-08</span><span>CLDUA Account — undistributed assets for <b>6 months</b> → deposit; unclaimed for <b>15 years</b> → CG General Revenue. Interest penalty @ <b>12% p.a.</b> (not 15%).</span></div>
+  <div class="nn-item"><span class="nn-num">N-09</span><span><b>§278 — Effect of Winding-Up Order</b>: operates in favour of ALL creditors AND contributories as if made on their joint petition — cannot be selective.</span></div>
+  <div class="nn-item"><span class="nn-num">N-10</span><span>§§ 326 &amp; 327 <b>do NOT apply</b> under IBC liquidation — §53 IBC waterfall applies instead. This is a critical IBS crossover point.</span></div>
+</div>
+
+<!-- IRAC TEMPLATE -->
+<div class="irac-box">
+  <div class="irac-header">IRAC Ready-to-Use Template — §328 Fraudulent Preference (Most Examined Section)</div>
+  <div class="irac-row">
+    <div class="irac-label">ISSUE</div>
+    <div class="irac-content">
+      Whether the sale/transfer of company property made by [MD/Director] to [related party] on [date], within six months before the winding-up order dated [date], constitutes a <b>Fraudulent Preference</b> under §328 of the Companies Act, 2013, and whether the Official Liquidator can recover such assets.
+    </div>
+  </div>
+  <div class="irac-row">
+    <div class="irac-label">RULE</div>
+    <div class="irac-content">
+      Under <b>§328, Companies Act, 2013</b>, any transfer of property (movable/immovable), delivery of goods, payment, or execution made by or against a company within <b>six months before the winding-up application</b>, which places a creditor / surety / guarantor in a <b>better position</b> than they would have been in a normal liquidation, shall be treated as a Fraudulent Preference. The Tribunal may declare such transaction <b>invalid</b> and restore the pre-transaction position. The SC in <i>IDBI Bank Ltd. v. Official Liquidator</i> affirmed this principle.
+    </div>
+  </div>
+  <div class="irac-row">
+    <div class="irac-label">APPLICATION</div>
+    <div class="irac-content">
+      In the present case, the sale occurred on <b>[date]</b> and the winding-up order was passed on <b>[date]</b> — a gap of <b>[X months]</b>, which falls within the six-month window. The property was transferred to [related party] in which [MD's son] had an interest, causing a loss of ₹[amount] to the company. This constitutes a clear preferential treatment of an interested party at the expense of general creditors, satisfying the test of fraudulent preference.
+    </div>
+  </div>
+  <div class="irac-row">
+    <div class="irac-label">CONCLUSION</div>
+    <div class="irac-content">
+      The transaction is a <b>Fraudulent Preference under §328</b>. The Official Liquidator can apply to the Tribunal to have the transaction declared invalid and the position restored, effectively reversing the transfer and recovering ₹[amount] for the benefit of all creditors.
+    </div>
+  </div>
+</div>
+
+<!-- MASTER TIMEFRAMES TABLE -->
+<div class="framework-label" style="margin-top:40px">Quick Reference</div>
+<h2 class="framework-title">Master Timeframes &amp; Numbers Table</h2>
+
+<table class="strat-table">
+  <thead>
+    <tr><th>Time Limit / Number</th><th>Context</th><th>Section</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>90 days</td><td>Tribunal must pass order after receipt of winding-up petition</td><td>§273</td></tr>
+    <tr><td>60 days</td><td>Registrar submits views on petition; Tribunal disposes leave applications; CL submits first report</td><td>§§272, 279, 281</td></tr>
+    <tr><td>30 days</td><td>Company files Statement of Affairs; directors submit books to liquidator; Tribunal forwards dissolution order to Registrar; CL convenes advisory committee meeting; Tribunal forwards order to Registrar post-dissolution</td><td>§§274, 302, 287</td></tr>
+    <tr><td>7 days</td><td>Tribunal sends intimation of winding-up order to CL &amp; Registrar; CL files declaration of appointment</td><td>§§275, 277</td></tr>
+    <tr><td>3 weeks (21 days)</td><td>CL applies to Tribunal for constitution of Winding-Up Committee</td><td>§277(4)</td></tr>
+    <tr><td>6 months</td><td>Fraudulent preference window (§328); Undistributed assets/dividends trigger CLDUA deposit (§352); Contributory's share holding period qualification</td><td>§§272, 328, 352</td></tr>
+    <tr><td>1 year</td><td>Good-faith transfer void if within 1 year of petition; Former member liability cut-off</td><td>§§285, 329</td></tr>
+    <tr><td>12 months</td><td>Floating charge avoidance window; Preferential payments period (taxes, wages)</td><td>§§327, 332</td></tr>
+    <tr><td>15 years</td><td>CLDUA unclaimed funds → transferred to CG General Revenue Account</td><td>§352(7)</td></tr>
+    <tr><td>2 years</td><td>Tribunal may declare dissolution void within 2 years of dissolution date</td><td>§356</td></tr>
+    <tr><td>5 years</td><td>No responsibility for missing books after 5 years of dissolution; Filing default for winding-up ground</td><td>§§271, 347</td></tr>
+    <tr><td>12 members</td><td>Maximum size of Advisory Committee</td><td>§287</td></tr>
+    <tr><td>12% p.a.</td><td>Interest on amount retained by Liquidator instead of depositing in CLDUA</td><td>§352(8)</td></tr>
+    <tr><td>₹1,000</td><td>Minimum value of property concealment / fraudulent removal to constitute offence</td><td>§336</td></tr>
+  </tbody>
+</table>
+
+</div><!-- /container -->
+
+<div class="doc-footer">
+  CA FINAL · PAPER 4: CORPORATE &amp; ECONOMIC LAWS · CHAPTER 7: WINDING UP · STRATEGIC FRAMEWORK NOTE-SET<br>
+  ICAI STUDY MATERIAL REFERENCE · COMPANIES ACT 2013 §§270–358 · IBC 2016 INTERFACE<br>
+  Prepared for IBS Integration · All section references are to Companies Act, 2013
+</div>
+
+</body>
+</html>

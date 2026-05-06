@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Directors — Strategic Framework | CA Final IBS</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #0f1117;
+    --paper:     #f5f2eb;
+    --rule:      #d4cfc4;
+    --green:     #1a5c38;
+    --green-lt:  #e8f2ec;
+    --amber:     #c47a1e;
+    --amber-lt:  #fdf3e1;
+    --red:       #9b2335;
+    --red-lt:    #faeaec;
+    --blue:      #1b3a6b;
+    --blue-lt:   #e8eef7;
+    --purple:    #4a2080;
+    --purple-lt: #f0eaf8;
+    --teal:      #125a5a;
+    --teal-lt:   #e5f3f3;
+    --accent:    #1a5c38;
+    --mono:      'DM Mono', monospace;
+    --serif:     'DM Serif Display', serif;
+    --sans:      'DM Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  /* ── COVER BAND ── */
+  .cover {
+    background: var(--green);
+    color: #fff;
+    padding: 36px 48px 28px;
+    border-bottom: 4px solid var(--amber);
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.06);
+    pointer-events: none;
+  }
+  .cover-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.65);
+    margin-bottom: 8px;
+  }
+  .cover h1 {
+    font-family: var(--serif);
+    font-size: 32px;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  .cover-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,.75);
+    font-weight: 300;
+  }
+  .cover-meta {
+    margin-top: 18px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,.15);
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .08em;
+  }
+
+  /* ── LAYOUT ── */
+  .page { max-width: 1080px; margin: 0 auto; padding: 36px 32px 64px; }
+
+  /* ── TOC ── */
+  .toc {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 8px;
+    margin: 28px 0 40px;
+  }
+  .toc-item {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--green);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 12.5px;
+    font-weight: 500;
+    cursor: default;
+    transition: box-shadow .15s;
+  }
+  .toc-item:hover { box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+  .toc-num {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--green);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .sec-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 4px;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: 22px;
+    color: var(--green);
+    border-bottom: 2px solid var(--green);
+    padding-bottom: 6px;
+    margin-bottom: 18px;
+    margin-top: 44px;
+  }
+  h3 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 20px 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  h3 .pill {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    background: var(--green-lt);
+    color: var(--green);
+  }
+
+  /* ── CALLOUT BOXES ── */
+  .box {
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    border-left: 4px solid;
+  }
+  .box-def   { background: var(--blue-lt);   border-color: var(--blue);   }
+  .box-warn  { background: var(--amber-lt);  border-color: var(--amber);  }
+  .box-alert { background: var(--red-lt);    border-color: var(--red);    }
+  .box-tip   { background: var(--green-lt);  border-color: var(--green);  }
+  .box-cross { background: var(--purple-lt); border-color: var(--purple); }
+  .box-irac  { background: var(--teal-lt);   border-color: var(--teal);   }
+
+  .box-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .box-def   .box-title { color: var(--blue);   }
+  .box-warn  .box-title { color: var(--amber);  }
+  .box-alert .box-title { color: var(--red);    }
+  .box-tip   .box-title { color: var(--green);  }
+  .box-cross .box-title { color: var(--purple); }
+  .box-irac  .box-title { color: var(--teal);   }
+
+  /* ── TABLES ── */
+  .tbl-wrap { overflow-x: auto; margin: 14px 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  thead tr {
+    background: var(--ink);
+    color: #fff;
+  }
+  thead th {
+    padding: 10px 14px;
+    text-align: left;
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  tbody tr { border-bottom: 1px solid var(--rule); }
+  tbody tr:nth-child(even) { background: rgba(0,0,0,.025); }
+  tbody td { padding: 9px 14px; vertical-align: top; }
+  .td-context { font-weight: 600; min-width: 140px; }
+  .tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin: 1px;
+  }
+  .tag-sec  { background: var(--blue-lt);   color: var(--blue);   }
+  .tag-pen  { background: var(--red-lt);    color: var(--red);    }
+  .tag-days { background: var(--amber-lt);  color: var(--amber);  }
+  .tag-ok   { background: var(--green-lt);  color: var(--green);  }
+
+  /* ── DECISION TREE ── */
+  .dtree {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin: 14px 0;
+    font-size: 13px;
+  }
+  .dtree-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+  .dt-node {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 6px 0;
+  }
+  .dt-icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+  .dt-if   { background: var(--amber);  color: #fff; }
+  .dt-then { background: var(--green);  color: #fff; }
+  .dt-else { background: var(--red);    color: #fff; }
+  .dt-step { background: var(--blue);   color: #fff; }
+  .dt-body { flex: 1; }
+  .dt-indent { margin-left: 32px; border-left: 2px solid var(--rule); padding-left: 14px; }
+
+  /* ── COMPLIANCE GRID ── */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .comp-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--green);
+    border-radius: 6px;
+    padding: 12px 14px;
+  }
+  .comp-card.warn { border-top-color: var(--amber); }
+  .comp-card.alert{ border-top-color: var(--red);   }
+  .comp-card.blue { border-top-color: var(--blue);  }
+  .comp-stat {
+    font-family: var(--serif);
+    font-size: 26px;
+    color: var(--green);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .comp-card.warn  .comp-stat { color: var(--amber); }
+  .comp-card.alert .comp-stat { color: var(--red);   }
+  .comp-card.blue  .comp-stat { color: var(--blue);  }
+  .comp-label { font-size: 12px; font-weight: 600; margin-bottom: 2px; }
+  .comp-note  { font-size: 11px; color: #666; }
+
+  /* ── LISTS ── */
+  ul, ol { padding-left: 20px; }
+  li { margin: 4px 0; }
+  .check-list { list-style: none; padding-left: 0; }
+  .check-list li::before { content: '✓  '; color: var(--green); font-weight: 700; }
+  .cross-list { list-style: none; padding-left: 0; }
+  .cross-list li::before { content: '✗  '; color: var(--red); font-weight: 700; }
+
+  /* ── IRAC CARD ── */
+  .irac-grid {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0;
+    border: 2px solid var(--teal);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 14px 0;
+    font-size: 13px;
+  }
+  .irac-label {
+    background: var(--teal);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif);
+    font-size: 18px;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+  }
+  .irac-content {
+    padding: 10px 16px;
+    background: var(--teal-lt);
+    border-bottom: 1px solid var(--rule);
+  }
+  .irac-label:last-of-type,
+  .irac-content:last-of-type { border-bottom: none; }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--rule); margin: 32px 0; }
+
+  /* ── CROSS-SUBJECT LINK ── */
+  .cross-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 8px;
+    margin: 10px 0;
+  }
+  .cross-pill {
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 12px;
+  }
+  .cross-pill strong {
+    font-family: var(--mono);
+    font-size: 11px;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .cp-fr     { background: var(--blue-lt);   border: 1px solid var(--blue);   }
+  .cp-fr strong   { color: var(--blue);   }
+  .cp-audit  { background: var(--amber-lt);  border: 1px solid var(--amber);  }
+  .cp-audit strong{ color: var(--amber);  }
+  .cp-dt     { background: var(--red-lt);    border: 1px solid var(--red);    }
+  .cp-dt strong   { color: var(--red);    }
+  .cp-idt    { background: var(--purple-lt); border: 1px solid var(--purple); }
+  .cp-idt strong  { color: var(--purple); }
+
+  /* ── NON-NEGOTIABLES ── */
+  .nn-list { list-style: none; padding: 0; }
+  .nn-list li {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-left: 5px solid var(--red);
+    border-radius: 4px;
+    padding: 10px 14px;
+    margin: 6px 0;
+    font-size: 13px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .nn-num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--red);
+    font-weight: 700;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    font-size: 11px;
+    color: #999;
+    font-family: var(--mono);
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+  }
+
+  @media (max-width: 600px) {
+    .cover { padding: 24px 20px 20px; }
+    .page  { padding: 20px 16px 40px; }
+    .cover h1 { font-size: 22px; }
+    .irac-grid { grid-template-columns: 60px 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ COVER ═══════════════════ -->
+<div class="cover">
+  <div class="cover-label">CA Final · Paper 6: IBS · Companies Act 2013</div>
+  <h1>Appointment &amp; Qualification<br>of Directors</h1>
+  <div class="cover-sub">Strategic Framework Note-Set — SCPM Style | Sections 149–167 &amp; Related Rules</div>
+  <div class="cover-meta">
+    <span class="badge">FRAMEWORK I — DIN &amp; Qualification</span>
+    <span class="badge">FRAMEWORK II — Board Composition</span>
+    <span class="badge">FRAMEWORK III — Independent Directors</span>
+    <span class="badge">FRAMEWORK IV — Disqualification &amp; Vacation</span>
+    <span class="badge">IBS Cross-Links: FR · Audit · DT · IDT</span>
+  </div>
+</div>
+
+<!-- ═══════════════════ PAGE ═══════════════════ -->
+<div class="page">
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-item"><span class="toc-num">01</span>DIN &amp; Qualification Framework</div>
+    <div class="toc-item"><span class="toc-num">02</span>Board Composition Framework</div>
+    <div class="toc-item"><span class="toc-num">03</span>Appointment Process Framework</div>
+    <div class="toc-item"><span class="toc-num">04</span>Independent Director Framework</div>
+    <div class="toc-item"><span class="toc-num">05</span>Disqualification &amp; Vacation Framework</div>
+    <div class="toc-item"><span class="toc-num">06</span>Number of Directorships Framework</div>
+    <div class="toc-item"><span class="toc-num">07</span>IBS Cross-Subject Trigger Map</div>
+    <div class="toc-item"><span class="toc-num">08</span>Critical Compliance Indicators</div>
+    <div class="toc-item"><span class="toc-num">09</span>IRAC Ready-to-Use Templates</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- FRAMEWORK 01: DIN & QUALIFICATION              -->
+  <!-- ══════════════════════════════════════════════ -->
+  <div class="sec-label">Framework 01</div>
+  <h2>The DIN &amp; Director Qualification Framework</h2>
+
+  <div class="box box-def">
+    <div class="box-title">§ Core Definition — Sec 2(34) &amp; Sec 153–159</div>
+    A <strong>Director</strong> is a person appointed to the Board of Directors of a company.
+    Every individual intending to be appointed as director must possess a <strong>Director Identification Number (DIN)</strong> — a unique, lifetime, 8-digit identifier issued by the Central Government.
+  </div>
+
+  <h3>Key Numeric Anchors — DIN</h3>
+  <div class="comp-grid">
+    <div class="comp-card">
+      <div class="comp-stat">30</div>
+      <div class="comp-label">Days to Intimate DIN</div>
+      <div class="comp-note">Company must inform ROC within 30 days of receiving DIN from director [Sec 157]</div>
+    </div>
+    <div class="comp-card warn">
+      <div class="comp-stat">₹50K</div>
+      <div class="comp-label">Min Penalty — DIN Default</div>
+      <div class="comp-note">Director who acts without DIN: ₹50,000 penalty. Company also liable.</div>
+    </div>
+    <div class="comp-card alert">
+      <div class="comp-stat">1 Yr</div>
+      <div class="comp-label">Surrender of DIN</div>
+      <div class="comp-note">Unused DIN can be surrendered; CG can cancel/deactivate DIN [Sec 155]</div>
+    </div>
+    <div class="comp-card blue">
+      <div class="comp-stat">ONE</div>
+      <div class="comp-label">DIN Per Individual</div>
+      <div class="comp-note">No individual shall have or apply for more than one DIN [Sec 155]</div>
+    </div>
+  </div>
+
+  <h3>Decision-Tree: DIN Application Process</h3>
+  <div class="dtree">
+    <div class="dtree-title">⬡ If-Then-Else: Obtaining &amp; Using DIN</div>
+    <div class="dt-node">
+      <div class="dt-icon dt-if">IF</div>
+      <div class="dt-body">Individual does <strong>NOT</strong> have a DIN and intends to become director</div>
+    </div>
+    <div class="dt-indent">
+      <div class="dt-node">
+        <div class="dt-icon dt-then">→</div>
+        <div class="dt-body">Apply in <strong>Form DIR-3</strong> with CG (MCA Portal) along with supporting documents + fee</div>
+      </div>
+      <div class="dt-node">
+        <div class="dt-icon dt-step">1</div>
+        <div class="dt-body">CG allots DIN → Person intimates company → Company files <strong>Form DIR-12</strong> within 30 days to ROC</div>
+      </div>
+    </div>
+    <div class="dt-node" style="margin-top:10px">
+      <div class="dt-icon dt-if">IF</div>
+      <div class="dt-body">Person already holds a DIN</div>
+    </div>
+    <div class="dt-indent">
+      <div class="dt-node">
+        <div class="dt-icon dt-then">→</div>
+        <div class="dt-body">Use existing DIN; must update KYC annually via <strong>Form DIR-3 KYC</strong> (by 30 September each year)</div>
+      </div>
+    </div>
+    <div class="dt-node" style="margin-top:10px">
+      <div class="dt-icon dt-else">✗</div>
+      <div class="dt-body">DIN not updated/KYC not filed</div>
+    </div>
+    <div class="dt-indent">
+      <div class="dt-node">
+        <div class="dt-icon dt-step">!</div>
+        <div class="dt-body"><strong>DIN is deactivated</strong> → Director cannot be appointed → Penalty of ₹5,000 for late KYC filing</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Qualification &amp; Disqualification at a Glance <span class="pill">Sec 164</span></h3>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Dimension</th>
+          <th>Qualification</th>
+          <th>Key Disqualifications [Sec 164(1)]</th>
+          <th>Strategic Impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-context">Legal Capacity</td>
+          <td>Must be an <strong>individual</strong>; natural person only</td>
+          <td>Unsound mind (court order), undischarged insolvent</td>
+          <td>Body corporate / LLP cannot be director</td>
+        </tr>
+        <tr>
+          <td class="td-context">Age</td>
+          <td>Min age: <strong>18 years</strong>; No upper limit in Act (articles may restrict)</td>
+          <td>—</td>
+          <td>Articles may restrict; check AoA before appointment</td>
+        </tr>
+        <tr>
+          <td class="td-context">Criminal Record</td>
+          <td>—</td>
+          <td>Convicted of <strong>moral turpitude</strong> for ≥6 months (within 5 years of sentence completion); or convicted for <strong>any offence</strong> and imprisoned ≥7 years</td>
+          <td>Due-diligence check mandatory; disclosures in Prospectus</td>
+        </tr>
+        <tr>
+          <td class="td-context">Company Default [Sec 164(2)]</td>
+          <td>—</td>
+          <td>Director of company that has <strong>not filed financial statements / annual returns for 3 continuous years</strong>, OR failed to repay deposits/debentures/dividends for ≥1 year</td>
+          <td><span class="tag tag-pen">5-Year Bar</span> on re-appointment in any company. Automatic disqualification.</td>
+        </tr>
+        <tr>
+          <td class="td-context">Outstanding Calls</td>
+          <td>—</td>
+          <td>Calls in arrears for 6 months</td>
+          <td>Applicable to public companies; check at time of AGM</td>
+        </tr>
+        <tr>
+          <td class="td-context">Court/Tribunal Order</td>
+          <td>—</td>
+          <td>Order of disqualification passed by Court/NCLT</td>
+          <td>NCLT can remove; check for ongoing NCLT proceedings</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-warn">
+    <div class="box-title">⚠ Critical: Sec 164(2) — The "3-Year Filing Default" Trap</div>
+    <strong>Trigger:</strong> Company fails to file FS/AR for <strong>3 consecutive financial years</strong> OR fails to repay deposits/debentures/interest/dividend declared for ≥1 year. <br>
+    <strong>Consequence:</strong> Every director is disqualified for <strong>5 years</strong> from being director in any company. ROC publishes the list.<br>
+    <strong>IBS Alert:</strong> In case-study, check directors of shell companies or non-compliant companies — they are automatically disqualified even without any court order.
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- FRAMEWORK 02: BOARD COMPOSITION               -->
+  <!-- ══════════════════════════════════════════════ -->
+  <hr class="divider">
+  <div class="sec-label">Framework 02</div>
+  <h2>The Board Composition Framework</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Context</th>
+          <th>Trigger Point</th>
+          <th>Legal Requirement [Sec 149]</th>
+          <th>Strategic Impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-context">Minimum Directors</td>
+          <td>All companies</td>
+          <td>Public: min <strong>3</strong> | Private: min <strong>2</strong> | OPC: min <strong>1</strong></td>
+          <td>Below minimum → default; Registrar may strike off</td>
+        </tr>
+        <tr>
+          <td class="td-context">Maximum Directors</td>
+          <td>All companies</td>
+          <td>Max <strong>15</strong> directors; can exceed by <strong>special resolution</strong></td>
+          <td>Board restructuring M&amp;A scenario: check SR needed for >15</td>
+        </tr>
+        <tr>
+          <td class="td-context">Women Director</td>
+          <td>Listed company OR Public company with paid-up capital ≥₹100 Cr or turnover ≥₹300 Cr</td>
+          <td>At least <strong>1 Woman Director</strong></td>
+          <td>Non-compliance: company &amp; every officer in default liable; important for ESG disclosures</td>
+        </tr>
+        <tr>
+          <td class="td-context">Resident Director</td>
+          <td>Every company</td>
+          <td>At least <strong>1 director</strong> who stayed in India for <strong>≥182 days</strong> in previous calendar year</td>
+          <td>FEMA / Tax residency check interlinks; relevant in restructuring of MNC subsidiaries</td>
+        </tr>
+        <tr>
+          <td class="td-context">Independent Directors</td>
+          <td>Listed + specified public companies</td>
+          <td>See Framework 04 below</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-tip">
+    <div class="box-title">✦ Strategic Mnemonic: Board Minimum</div>
+    <strong>3-2-1 Rule:</strong> Public = 3 | Private = 2 | OPC = 1. Maximum = 15 for all (SR to exceed).
+  </div>
+
+  <!-- APPOINTMENT PROCESS -->
+  <hr class="divider">
+  <div class="sec-label">Framework 03</div>
+  <h2>The Director Appointment Process Framework</h2>
+
+  <h3>Types of Directors &amp; Mode of Appointment <span class="pill">Sec 152–161</span></h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Section</th>
+          <th>Appointment Authority</th>
+          <th>Key Trigger / Condition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-context">First Directors</td>
+          <td><span class="tag tag-sec">Sec 152</span></td>
+          <td>Named in Articles of Association; else subscribers to MoA</td>
+          <td>Hold office till first AGM</td>
+        </tr>
+        <tr>
+          <td class="td-context">Director by Shareholders</td>
+          <td><span class="tag tag-sec">Sec 152</span></td>
+          <td><strong>General Meeting</strong> — Ordinary Resolution (by rotation)</td>
+          <td>At least 2/3 of directors must be rotational in public companies</td>
+        </tr>
+        <tr>
+          <td class="td-context">Additional Director</td>
+          <td><span class="tag tag-sec">Sec 161(1)</span></td>
+          <td><strong>Board of Directors</strong> (if AoA so authorises)</td>
+          <td>Holds office till next AGM only; <span class="tag tag-days">Max tenure: next AGM</span></td>
+        </tr>
+        <tr>
+          <td class="td-context">Alternate Director</td>
+          <td><span class="tag tag-sec">Sec 161(2)</span></td>
+          <td>Board (if AoA authorises + approval of absent director)</td>
+          <td>Original director absent from India for &gt;3 months; cannot hold if original director returns; alternate ceases when original returns</td>
+        </tr>
+        <tr>
+          <td class="td-context">Nominee Director</td>
+          <td><span class="tag tag-sec">Sec 161(3)</span></td>
+          <td>Third party (institution/creditor) under agreement, or CG/SG</td>
+          <td>Lender-driven; check loan covenants for nominee right</td>
+        </tr>
+        <tr>
+          <td class="td-context">Casual Vacancy</td>
+          <td><span class="tag tag-sec">Sec 161(4)</span></td>
+          <td><strong>Board</strong> can fill only if original was appointed by General Meeting</td>
+          <td>Casual appointee holds office for remaining tenure of predecessor only</td>
+        </tr>
+        <tr>
+          <td class="td-context">Director by Proportional Representation</td>
+          <td><span class="tag tag-sec">Sec 163</span></td>
+          <td>If AoA provides — by cumulative voting / other system</td>
+          <td>Minority shareholder protection mechanism</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Decision-Tree: Rotational Director Retirement <span class="pill">Sec 152(6)</span></h3>
+  <div class="dtree">
+    <div class="dtree-title">⬡ Retirement by Rotation Logic</div>
+    <div class="dt-node">
+      <div class="dt-icon dt-if">IF</div>
+      <div class="dt-body">Company is a <strong>Public Company</strong></div>
+    </div>
+    <div class="dt-indent">
+      <div class="dt-node">
+        <div class="dt-icon dt-then">→</div>
+        <div class="dt-body">Minimum 2/3 of total directors must be <strong>liable to retire by rotation</strong></div>
+      </div>
+      <div class="dt-node">
+        <div class="dt-icon dt-step">2</div>
+        <div class="dt-body">At every AGM, <strong>1/3</strong> of rotational directors retire (those longest in office retire first)</div>
+      </div>
+      <div class="dt-node">
+        <div class="dt-icon dt-step">3</div>
+        <div class="dt-body">Retiring directors are <strong>eligible for re-appointment</strong> (unless disqualified)</div>
+      </div>
+    </div>
+    <div class="dt-node" style="margin-top:10px">
+      <div class="dt-icon dt-if">IF</div>
+      <div class="dt-body">AGM does not appoint successor AND does not expressly resolve not to fill vacancy</div>
+    </div>
+    <div class="dt-indent">
+      <div class="dt-node">
+        <div class="dt-icon dt-then">→</div>
+        <div class="dt-body">Meeting is deemed <strong>adjourned</strong> to same day next week; if vacancy not filled at that meeting → retiring director <strong>deemed re-appointed</strong> [Sec 152(7)]</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="box box-warn">
+    <div class="box-title">⚠ Consent to Act as Director — Sec 152(5)</div>
+    Every person appointed as director must file <strong>Form DIR-2</strong> (written consent) with company before appointment. Company files <strong>DIR-12</strong> with ROC within <strong>30 days</strong> of appointment.
+    <br>Exception: First directors and Government nominees need not file consent.
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- FRAMEWORK 04: INDEPENDENT DIRECTORS           -->
+  <!-- ══════════════════════════════════════════════ -->
+  <hr class="divider">
+  <div class="sec-label">Framework 04</div>
+  <h2>The Independent Director Compliance Framework</h2>
+
+  <div class="box box-def">
+    <div class="box-title">§ Definition — Sec 149(6)</div>
+    An Independent Director (ID) is a director who is NOT a managing or whole-time director or nominee, AND satisfies the independence criteria specified in Sec 149(6): no material pecuniary relationship, not a promoter, not KMP or relative of KMP, etc.
+  </div>
+
+  <h3>Applicability: Who Must Have IDs?</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Context</th>
+          <th>Trigger Point</th>
+          <th>Requirement</th>
+          <th>Strategic Impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-context">Listed Company</td>
+          <td>All listed companies</td>
+          <td>At least <strong>1/3</strong> of total board strength</td>
+          <td>SEBI LODR also mandates ≥50% IDs if Chairperson is executive/promoter</td>
+        </tr>
+        <tr>
+          <td class="td-context">Unlisted Public Company</td>
+          <td>Paid-up capital ≥₹10 Cr <strong>OR</strong> turnover ≥₹100 Cr <strong>OR</strong> outstanding loans/borrowings ≥₹50 Cr</td>
+          <td>At least <strong>2</strong> Independent Directors</td>
+          <td>Private companies generally exempt; check threshold triggers in case study</td>
+        </tr>
+        <tr>
+          <td class="td-context">Audit Committee</td>
+          <td>Companies required to have Audit Committee</td>
+          <td>Majority must be IDs; <strong>Chairperson</strong> must be ID</td>
+          <td>FR Link: Auditor independence; Audit Link: SA 260 communication</td>
+        </tr>
+        <tr>
+          <td class="td-context">Nomination &amp; Remuneration Committee</td>
+          <td>Same as above</td>
+          <td>Minimum <strong>3</strong> Non-Executive Directors; majority IDs; Chairperson must be ID</td>
+          <td>KMP remuneration oversight; impact on executive compensation disclosures</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Tenure &amp; Re-appointment — Decision Tree <span class="pill">Sec 149(10) &amp; (11)</span></h3>
+  <div class="dtree">
+    <div class="dtree-title">⬡ Independent Director Tenure Logic</div>
+    <div class="dt-node">
+      <div class="dt-icon dt-step">1</div>
+      <div class="dt-body">ID can serve <strong>up to 5 consecutive years</strong> per term [Sec 149(10)]</div>
+    </div>
+    <div class="dt-node">
+      <div class="dt-icon dt-if">IF</div>
+      <div class="dt-body">Company wishes to re-appoint same ID for a second term</div>
+    </div>
+    <div class="dt-indent">
+      <div class="dt-node">
+        <div class="dt-icon dt-then">→</div>
+        <div class="dt-body">Requires <strong>Special Resolution</strong> + disclosure in Board Report <span class="tag tag-days">Before expiry of first term</span></div>
+      </div>
+      <div class="dt-node">
+        <div class="dt-icon dt-step">2</div>
+        <div class="dt-body">Maximum 2 consecutive terms (i.e., 10 years). After that, <strong>cooling-off period of 3 years</strong> mandatory [Sec 149(11)]</div>
+      </div>
+    </div>
+    <div class="dt-node" style="margin-top:10px">
+      <div class="dt-icon dt-else">✗</div>
+      <div class="dt-body">During cooling-off period</div>
+    </div>
+    <div class="dt-indent">
+      <div class="dt-node">
+        <div class="dt-icon dt-step">!</div>
+        <div class="dt-body">Cannot be re-appointed as ID in the same company; <strong>also cannot be appointed as any other director</strong> in the same company during cooling-off</div>
+      </div>
+    </div>
+    <div class="dt-node" style="margin-top:10px">
+      <div class="dt-icon dt-tip" style="background:var(--amber);color:#fff;">Note</div>
+      <div class="dt-body">IDs are <strong>NOT</strong> liable to retire by rotation. They are appointed by <strong>shareholders in General Meeting</strong> (Ordinary Resolution for first appointment; SR for second term)</div>
+    </div>
+  </div>
+
+  <h3>Independence Criteria — Key Negative Tests <span class="pill">Sec 149(6)</span></h3>
+  <div class="box box-warn">
+    <div class="box-title">⚠ An ID Must NOT Be / Have:</div>
+    <ul class="cross-list">
+      <li>MD, WTD, or Nominee Director of the company</li>
+      <li>Promoter of the company or its group companies</li>
+      <li>Related to any promoter, director, or KMP of the company</li>
+      <li>Had pecuniary relationship &gt;2% of gross turnover / total income with company / holding / subsidiary in last 2 FYs or current FY</li>
+      <li>Holds shares &gt;2% of paid-up capital (self or relatives)</li>
+      <li>Chief Executive/MD/Partner of any entity that transacts &gt;10% business with the company</li>
+      <li>A practicing CA/CS/CWA/Advocate of the company in preceding 3 years</li>
+    </ul>
+  </div>
+
+  <h3>Code for Independent Directors — Schedule IV (Key Duties)</h3>
+  <div class="comp-grid">
+    <div class="comp-card blue">
+      <div class="comp-label">Safeguard Minority Interests</div>
+      <div class="comp-note">Balance conflicting interests of stakeholders</div>
+    </div>
+    <div class="comp-card blue">
+      <div class="comp-label">Report Concerns</div>
+      <div class="comp-note">Report unethical behaviour or violation of governance; whistleblower protection</div>
+    </div>
+    <div class="comp-card blue">
+      <div class="comp-label">Separate Meeting</div>
+      <div class="comp-note">IDs must hold at least <strong>1 meeting per year</strong> without NEDs/EDs/Management</div>
+    </div>
+    <div class="comp-card blue">
+      <div class="comp-label">Performance Evaluation</div>
+      <div class="comp-note">IDs evaluate Chairman's performance and Board as a whole</div>
+    </div>
+  </div>
+
+  <div class="box box-warn">
+    <div class="box-title">⚠ Databank Requirement — Rule 6 of ID Rules</div>
+    Every individual intending to be an ID must register in the <strong>Databank maintained by IICA</strong> (Indian Institute of Corporate Affairs) and pass an online proficiency self-assessment test within 2 years of inclusion in databank (unless exempted based on experience — 10 years of service as MD/WTD/ED or 10 years as CS/CA).
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- FRAMEWORK 05: DISQUALIFICATION & VACATION     -->
+  <!-- ══════════════════════════════════════════════ -->
+  <hr class="divider">
+  <div class="sec-label">Framework 05</div>
+  <h2>The Disqualification &amp; Vacation of Office Framework</h2>
+
+  <h3>Vacation of Office — Sec 167 (Automatic Vacation)</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Trigger Event</th>
+          <th>Section</th>
+          <th>Effect</th>
+          <th>Key Nuance</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-context">Incurs Disqualification [Sec 164]</td>
+          <td><span class="tag tag-sec">Sec 167(1)(a)</span></td>
+          <td>Office vacated immediately</td>
+          <td>Automatic; no further action needed</td>
+        </tr>
+        <tr>
+          <td class="td-context">Absence from ALL Board Meetings</td>
+          <td><span class="tag tag-sec">Sec 167(1)(b)</span></td>
+          <td>Vacates office if absent for <strong>12 months</strong> (i.e., all meetings in 12-month period)</td>
+          <td>Leave of absence granted by Board does NOT protect; actual attendance required</td>
+        </tr>
+        <tr>
+          <td class="td-context">Acts Prohibited by Section 184</td>
+          <td><span class="tag tag-sec">Sec 167(1)(c)</span></td>
+          <td>Vacates if enters into contract/arrangement where interest disclosed but without Board approval</td>
+          <td>Related-party transaction governance failure</td>
+        </tr>
+        <tr>
+          <td class="td-context">Unsound Mind / Adjudicated Insolvent</td>
+          <td><span class="tag tag-sec">Sec 167(1)(d) &amp; (e)</span></td>
+          <td>Automatic vacation</td>
+          <td>Court order required for unsound mind</td>
+        </tr>
+        <tr>
+          <td class="td-context">Convicted &amp; Sentenced ≥6 months</td>
+          <td><span class="tag tag-sec">Sec 167(1)(f)</span></td>
+          <td>Vacation from date of conviction</td>
+          <td>Appeal does NOT automatically suspend vacation unless court stays order</td>
+        </tr>
+        <tr>
+          <td class="td-context">Failure to Disclose Interest</td>
+          <td><span class="tag tag-sec">Sec 167(1)(g)</span></td>
+          <td>Vacation of office</td>
+          <td>DIR-8 declaration to be filed at each AGM and at first board meeting each FY</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-alert">
+    <div class="box-title">🚨 Sec 167(2) — Criminal Liability Post Vacation</div>
+    If a director <strong>continues to act as director after knowing of his vacation</strong>, he shall be punishable with <strong>imprisonment up to 1 year OR fine ₹1 lakh – ₹5 lakh, or BOTH</strong>. This is a critical IBS answer point.
+  </div>
+
+  <h3>Resignation of Director — Sec 168</h3>
+  <div class="dtree">
+    <div class="dtree-title">⬡ Resignation Process Flow</div>
+    <div class="dt-node">
+      <div class="dt-icon dt-step">1</div>
+      <div class="dt-body">Director gives <strong>notice in writing</strong> to the company</div>
+    </div>
+    <div class="dt-node">
+      <div class="dt-icon dt-step">2</div>
+      <div class="dt-body">Resignation effective from the date company <strong>receives</strong> notice OR as specified in notice (whichever is later)</div>
+    </div>
+    <div class="dt-node">
+      <div class="dt-icon dt-step">3</div>
+      <div class="dt-body">Company files <strong>Form DIR-12</strong> with ROC within <strong>30 days</strong></div>
+    </div>
+    <div class="dt-node">
+      <div class="dt-icon dt-step">4</div>
+      <div class="dt-body">Director may also file <strong>Form DIR-11</strong> (self-filing) with ROC within 30 days of resignation</div>
+    </div>
+    <div class="dt-node" style="margin-top:10px">
+      <div class="dt-icon dt-if">IF</div>
+      <div class="dt-body"><strong>All directors</strong> resign simultaneously</div>
+    </div>
+    <div class="dt-indent">
+      <div class="dt-node">
+        <div class="dt-icon dt-then">→</div>
+        <div class="dt-body">Promoter(s) OR Central Government appoints required number of directors to hold office till new directors are appointed by shareholders in GM</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- FRAMEWORK 06: NUMBER OF DIRECTORSHIPS         -->
+  <!-- ══════════════════════════════════════════════ -->
+  <hr class="divider">
+  <div class="sec-label">Framework 06</div>
+  <h2>The Number of Directorships Framework</h2>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Context</th>
+          <th>Trigger Point</th>
+          <th>Legal Limit [Sec 165]</th>
+          <th>Strategic Impact</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="td-context">Maximum Directorships</td>
+          <td>Any individual</td>
+          <td><strong>20 companies</strong> at any time</td>
+          <td>Exceeding limit → resign from excess companies within 1 year of commencement; else fine</td>
+        </tr>
+        <tr>
+          <td class="td-context">Public Company Sub-limit</td>
+          <td>Any individual</td>
+          <td>Max <strong>10 Public Companies</strong> (within overall 20 limit)</td>
+          <td>Private companies are excluded from this sub-cap</td>
+        </tr>
+        <tr>
+          <td class="td-context">Members' Power to Reduce</td>
+          <td>Shareholders</td>
+          <td>Members may by <strong>ordinary resolution</strong> specify lesser maximum than 20/10</td>
+          <td>Check AoA / shareholder agreements in M&amp;A due diligence</td>
+        </tr>
+        <tr>
+          <td class="td-context">Exclusions from Count</td>
+          <td>Counting directorships</td>
+          <td>Directorships in <strong>dormant companies</strong> and as <strong>alternate director</strong> are NOT counted</td>
+          <td>Useful in restructuring; dormant company designation can create headroom</td>
+        </tr>
+        <tr>
+          <td class="td-context">Penalty for Excess</td>
+          <td>Accepting beyond limit</td>
+          <td>Fine: ₹5,000 for <strong>every day</strong> default continues</td>
+          <td><span class="tag tag-pen">Daily Fine</span> — escalates quickly</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="box box-tip">
+    <div class="box-title">✦ Mnemonic: 20 / 10 / 0</div>
+    Total = <strong>20</strong> | Public Companies = max <strong>10</strong> | Alternate Director count = <strong>0</strong> (excluded)
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- CROSS-SUBJECT TRIGGER MAP                     -->
+  <!-- ══════════════════════════════════════════════ -->
+  <hr class="divider">
+  <div class="sec-label">Framework 07</div>
+  <h2>IBS Cross-Subject Integration Trigger Map</h2>
+
+  <h3>1. DIN &amp; Appointment Defaults</h3>
+  <div class="cross-grid">
+    <div class="cross-pill cp-fr">
+      <strong>FR (Financial Reporting)</strong>
+      Related-party disclosures (Ind AS 24) require identification of KMPs &amp; directors; invalid appointment → disclosure flag in FS.
+    </div>
+    <div class="cross-pill cp-audit">
+      <strong>Audit</strong>
+      CARO 2020 Cl. 17: Auditor to report whether any director is disqualified [Sec 164(2)]. SA 580 — Written Representation from management. SA 250 — Laws &amp; Regulations compliance.
+    </div>
+    <div class="cross-pill cp-dt">
+      <strong>DT (Direct Tax)</strong>
+      Director's remuneration → Sec 36(1)(ii) IT Act; disallowance if deemed dividend. Deemed dividend under Sec 2(22)(e) if director (with ≥10% shareholding) receives loan from company.
+    </div>
+    <div class="cross-pill cp-idt">
+      <strong>IDT (GST)</strong>
+      Director's sitting fees — RCM liability on company; Director not an employee → services taxable under GST [Entry 6 of Schedule III excludes employees not directors].
+    </div>
+  </div>
+
+  <h3>2. Independent Director Framework</h3>
+  <div class="cross-grid">
+    <div class="cross-pill cp-fr">
+      <strong>FR (Financial Reporting)</strong>
+      Ind AS 24 KMP disclosure; IDs' remuneration disclosed separately. Audit Committee oversight → materiality judgement in FS preparation.
+    </div>
+    <div class="cross-pill cp-audit">
+      <strong>Audit</strong>
+      SA 260: Auditor communicates with Those Charged with Governance (TCWG = Audit Committee chaired by ID). SA 265: Communicating significant deficiencies.
+    </div>
+    <div class="cross-pill cp-dt">
+      <strong>DT</strong>
+      Independent Director sitting fees → "Income from Other Sources" or "Business Income" for the ID. TDS under Sec 194J (professional fees) if applicable.
+    </div>
+    <div class="cross-pill cp-idt">
+      <strong>IDT (GST)</strong>
+      ID's service is a <strong>taxable supply</strong>; company pays GST under RCM at 18%. GST credit available to company if registered.
+    </div>
+  </div>
+
+  <h3>3. Sec 164(2) Disqualification</h3>
+  <div class="cross-grid">
+    <div class="cross-pill cp-fr">
+      <strong>FR</strong>
+      Going-concern assessment; non-filing of FS signals going-concern risk. Consolidation: disqualified director holding directorship in subsidiary — disclosure &amp; governance risk.
+    </div>
+    <div class="cross-pill cp-audit">
+      <strong>Audit</strong>
+      <strong>CARO 2020, Clause 17</strong>: Mandatory reporting if directors are disqualified under Sec 164(2). Qualified/Adverse opinion trigger if Board is non-compliant.
+    </div>
+    <div class="cross-pill cp-dt">
+      <strong>DT</strong>
+      Shell/defaulting companies often misuse director positions for tax evasion; GAAR provisions and Sec 68/69 unexplained cash may apply.
+    </div>
+    <div class="cross-pill cp-idt">
+      <strong>IDT</strong>
+      Non-compliant companies may have pending GST returns; same directors may be personally liable for GST dues under Sec 89 of CGST Act (joint &amp; several liability).
+    </div>
+  </div>
+
+  <h3>4. Vacation of Office &amp; Director Liability</h3>
+  <div class="cross-grid">
+    <div class="cross-pill cp-fr">
+      <strong>FR</strong>
+      Change in board composition → event after reporting period (Ind AS 10); disclosure in notes if material. Changes in KMP → disclosure under Ind AS 24.
+    </div>
+    <div class="cross-pill cp-audit">
+      <strong>Audit</strong>
+      SA 570: Audit procedures if key directors resign en masse (going concern indicator). Vacancy in Audit Committee → compliance breach → reportable under CARO.
+    </div>
+    <div class="cross-pill cp-dt">
+      <strong>DT</strong>
+      Director's liability for company's tax dues: Sec 179 IT Act — director personally liable for tax not recovered from private company (if director was at fault / neglect).
+    </div>
+    <div class="cross-pill cp-idt">
+      <strong>IDT</strong>
+      Sec 89 CGST Act: Directors of private company are jointly &amp; severally liable for GST dues if company cannot pay — critical IBC/insolvency scenario.
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- CRITICAL COMPLIANCE INDICATORS                -->
+  <!-- ══════════════════════════════════════════════ -->
+  <hr class="divider">
+  <div class="sec-label">Framework 08</div>
+  <h2>Critical Compliance Indicators — "Non-Negotiables" for IBS Case Study</h2>
+
+  <ul class="nn-list">
+    <li>
+      <span class="nn-num">01</span>
+      <div><strong>DIN Check First:</strong> In any appointment scenario, verify DIN validity &amp; KYC status before proceeding. Appointment without valid DIN is void.</div>
+    </li>
+    <li>
+      <span class="nn-num">02</span>
+      <div><strong>Sec 164(2) — Automatic Disqualification:</strong> If facts show company has not filed FS/AR for 3 years → all directors automatically disqualified → no valid board → company governance fails. This is the most-tested point.</div>
+    </li>
+    <li>
+      <span class="nn-num">03</span>
+      <div><strong>ID Tenure Math:</strong> Two terms × 5 years = 10 years max. If re-appointment is without SR → invalid. Cooling-off = 3 years. Always check whether Ordinary Resolution or Special Resolution is needed.</div>
+    </li>
+    <li>
+      <span class="nn-num">04</span>
+      <div><strong>Residency Rule:</strong> Every company must have at least 1 director with ≥182 days Indian residency in previous calendar year. Failure = penalty for company + every officer in default.</div>
+    </li>
+    <li>
+      <span class="nn-num">05</span>
+      <div><strong>20/10 Directorship Cap:</strong> In M&amp;A or group restructuring scenarios — check if proposed director already holds 10 public company directorships. Accepting appointment beyond limit attracts daily fine.</div>
+    </li>
+    <li>
+      <span class="nn-num">06</span>
+      <div><strong>Women Director Applicability:</strong> Turnover ≥₹300 Cr OR Paid-up capital ≥₹100 Cr (public company). If company crosses threshold mid-year → compliance required within 6 months.</div>
+    </li>
+    <li>
+      <span class="nn-num">07</span>
+      <div><strong>Vacation vs Resignation:</strong> Vacation is <strong>automatic/operation of law</strong>; resignation needs notice + DIR-11/DIR-12 filings. Director continues liable for acts done before vacation.</div>
+    </li>
+    <li>
+      <span class="nn-num">08</span>
+      <div><strong>CARO Clause 17 — Auditor's Weapon:</strong> Auditor MUST report disqualification under Sec 164(2). If this is missed → audit quality failure. Always connect Sec 164(2) to CARO reporting in answers.</div>
+    </li>
+    <li>
+      <span class="nn-num">09</span>
+      <div><strong>RCM on Director Services:</strong> Director sitting fees / consulting fees → GST liability under Reverse Charge Mechanism on company. Missed by many candidates — score differentiator.</div>
+    </li>
+    <li>
+      <span class="nn-num">10</span>
+      <div><strong>Sec 179 IT Act Link:</strong> In a struggling private company scenario, surviving directors may face <strong>personal income tax liability</strong> for company's tax dues — critical in IBC/turnaround questions.</div>
+    </li>
+  </ul>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- IRAC TEMPLATES                                 -->
+  <!-- ══════════════════════════════════════════════ -->
+  <hr class="divider">
+  <div class="sec-label">Framework 09</div>
+  <h2>IRAC Ready-to-Use Answer Templates</h2>
+
+  <h3>Template A: Sec 164(2) Disqualification in IBS Case Study</h3>
+  <div class="irac-grid">
+    <div class="irac-label">I</div>
+    <div class="irac-content"><strong>Issue:</strong> Whether Mr. X is disqualified from being a director and, if so, what are the consequential implications for the company and its auditor?</div>
+    <div class="irac-label">R</div>
+    <div class="irac-content"><strong>Rule:</strong> Sec 164(2) of the Companies Act 2013 provides that a person shall be disqualified from being appointed as a director if he holds, or has held, office as a director in any company that has failed to file financial statements or annual returns for any continuous period of <strong>3 financial years</strong>, or has failed to repay deposits/debentures/interest/dividend declared for a period of ≥1 year. Such person is disqualified for <strong>5 years</strong>. Further, CARO 2020, Clause 17 requires the auditor to report whether any director is disqualified under Sec 164(2).</div>
+    <div class="irac-label">A</div>
+    <div class="irac-content"><strong>Application:</strong> In the given facts, ABC Ltd. has not filed its financial statements for [FY 20XX, 20XX+1, 20XX+2] — a continuous period of 3 years. Accordingly, Mr. X, being a director of ABC Ltd., is <strong>automatically disqualified</strong> under Sec 164(2). His vacation of office in ABC Ltd. and all other directorships he holds is triggered under Sec 167(1)(a). If he continues to act as director despite knowing of the disqualification, he is exposed to imprisonment up to 1 year or fine ₹1–5 lakh under Sec 167(2). The auditor of each company where Mr. X holds directorship is obligated to report this disqualification under CARO 2020.</div>
+    <div class="irac-label">C</div>
+    <div class="irac-content"><strong>Conclusion:</strong> Mr. X is disqualified for 5 years from being a director in any company. His existing directorships stand vacated. The statutory auditor must report the disqualification in the CARO report, and management must disclose this in the Directors' Report under Sec 134.</div>
+  </div>
+
+  <h3>Template B: Independent Director Re-appointment</h3>
+  <div class="irac-grid">
+    <div class="irac-label">I</div>
+    <div class="irac-content"><strong>Issue:</strong> Whether the re-appointment of Ms. Y as Independent Director for a second term by passing an Ordinary Resolution is valid?</div>
+    <div class="irac-label">R</div>
+    <div class="irac-content"><strong>Rule:</strong> As per Sec 149(10) and Sec 149(11), an Independent Director may serve for a maximum of 2 consecutive terms of up to 5 years each. Re-appointment for a second term requires a <strong>Special Resolution</strong> and disclosure in the Board's Report. Ordinary Resolution is insufficient for second-term re-appointment [Sec 149(10) proviso].</div>
+    <div class="irac-label">A</div>
+    <div class="irac-content"><strong>Application:</strong> In the given case, Ms. Y completed her first term of 5 years and the company passed only an Ordinary Resolution for her re-appointment. This does not satisfy the statutory requirement of a Special Resolution. The re-appointment is therefore <strong>invalid</strong>. Ms. Y's second-term appointment is void ab initio. Acts done by her in the interim may, however, be protected under the de-facto director doctrine, but the company must immediately rectify the position.</div>
+    <div class="irac-label">C</div>
+    <div class="irac-content"><strong>Conclusion:</strong> Re-appointment of an ID for a second term requires a Special Resolution. Passing an Ordinary Resolution renders the appointment invalid. The company must pass a Special Resolution at an EGM/AGM to cure the defect, or must treat Ms. Y as having vacated office and appoint a new ID.</div>
+  </div>
+
+  <h3>Template C: Director Acting After Disqualification</h3>
+  <div class="irac-grid">
+    <div class="irac-label">I</div>
+    <div class="irac-content"><strong>Issue:</strong> What is the legal consequence if a director continues to act as director after incurring disqualification under Sec 164?</div>
+    <div class="irac-label">R</div>
+    <div class="irac-content"><strong>Rule:</strong> Sec 167(1)(a) provides that office of director is vacated upon incurring a disqualification under Sec 164. Sec 167(2) criminalises continued acting — <strong>imprisonment up to 1 year OR fine ₹1 lakh to ₹5 lakh, or BOTH</strong>.</div>
+    <div class="irac-label">A</div>
+    <div class="irac-content"><strong>Application:</strong> The moment Mr. Z's company failed to file financial statements for 3 consecutive years, he was disqualified under Sec 164(2) and his office vacated automatically under Sec 167(1)(a). If Mr. Z signed board resolutions, authorised transactions, or represented the company thereafter, each such act constitutes an offence under Sec 167(2). Third parties dealing with the company in good faith may be protected (ostensible authority), but Mr. Z himself faces criminal prosecution.</div>
+    <div class="irac-label">C</div>
+    <div class="irac-content"><strong>Conclusion:</strong> Mr. Z's continued acts as director post-disqualification are criminal offences. He faces personal criminal liability. The company and Board must immediately reconstitute the board with qualified directors and ratify or void acts performed by the disqualified director depending on their nature.</div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    CA Final · Paper 6 IBS · Strategic Framework Note-Set · Companies Act 2013 — Sections 149–168 &amp; Rules<br>
+    Prepared in SCPM Style · For Academic Use Only · Cross-Subject Integration: FR · Audit · DT · IDT
+  </div>
+
+</div><!-- /page -->
+</body>
+</html>

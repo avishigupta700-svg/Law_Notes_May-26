@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategic Framework | Managerial Personnel | CA Final Law</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e0a;
+    --paper: #f5f0e8;
+    --cream: #ede8da;
+    --accent: #c0392b;
+    --accent2: #1a5276;
+    --accent3: #117a65;
+    --gold: #b7950b;
+    --muted: #6b6560;
+    --border: #ccc5b4;
+    --tag-bg: #fdebd0;
+    --tag-fr: #154360;
+    --tag-audit: #145a32;
+    --tag-dt: #4a235a;
+    --tag-ibs: #7b241c;
+    --mono: 'IBM Plex Mono', monospace;
+    --serif: 'Source Serif 4', Georgia, serif;
+    --display: 'Playfair Display', serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 15px;
+    line-height: 1.7;
+    padding: 0;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3rem 4rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      0deg, transparent, transparent 39px,
+      rgba(255,255,255,0.04) 39px, rgba(255,255,255,0.04) 40px
+    );
+  }
+  .header-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  header h1 {
+    font-family: var(--display);
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    max-width: 760px;
+  }
+  header h1 em { color: var(--accent); font-style: normal; }
+  .header-meta {
+    margin-top: 1.5rem;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: #9a9186;
+    display: flex; gap: 2rem; flex-wrap: wrap;
+  }
+  .header-meta span::before { content: '▸ '; color: var(--gold); }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem; }
+
+  /* ── CHAPTER PILL ── */
+  .chapter-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .framework-title {
+    font-family: var(--display);
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--ink);
+    border-left: 4px solid var(--accent);
+    padding-left: 1rem;
+    margin: 3rem 0 1.2rem;
+    line-height: 1.25;
+  }
+  .framework-title small {
+    display: block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    font-weight: 400;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+
+  .sub-title {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin: 1.8rem 0 0.6rem;
+    padding-bottom: 4px;
+    border-bottom: 1px dashed var(--border);
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.4rem 1.6rem;
+    margin-bottom: 1rem;
+    position: relative;
+  }
+  .card-accent { border-left: 4px solid var(--accent); }
+  .card-blue   { border-left: 4px solid var(--accent2); }
+  .card-green  { border-left: 4px solid var(--accent3); }
+  .card-gold   { border-left: 4px solid var(--gold); }
+
+  /* ── GRID ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  @media(max-width: 720px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+  /* ── TABLE ── */
+  .scpm-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 1rem 0; }
+  .scpm-table thead tr { background: var(--ink); color: var(--paper); }
+  .scpm-table thead th {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 10px 12px;
+    text-align: left;
+  }
+  .scpm-table tbody tr { border-bottom: 1px solid var(--border); }
+  .scpm-table tbody tr:nth-child(even) { background: var(--cream); }
+  .scpm-table tbody td { padding: 9px 12px; vertical-align: top; }
+  .scpm-table strong { color: var(--accent); }
+  .scpm-table .context-col { font-family: var(--mono); font-size: 12px; color: var(--accent2); font-weight: 600; }
+
+  /* ── DECISION TREE ── */
+  .decision-tree { background: var(--cream); border: 1px solid var(--border); border-radius: 4px; padding: 1.4rem; }
+  .dt-node {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.6rem 1rem;
+    font-size: 13.5px;
+    margin: 0.4rem 0;
+    position: relative;
+  }
+  .dt-node.if-node { border-left: 3px solid var(--gold); }
+  .dt-node.then-node { border-left: 3px solid var(--accent3); margin-left: 1.5rem; }
+  .dt-node.else-node { border-left: 3px solid var(--accent); margin-left: 1.5rem; }
+  .dt-connector {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin: 0.3rem 0 0.1rem 0.3rem;
+    color: var(--muted);
+  }
+  .dt-connector.then { color: var(--accent3); }
+  .dt-connector.else { color: var(--accent); }
+  .dt-connector.and  { color: var(--accent2); }
+
+  /* ── CROSS-SUBJECT TAGS ── */
+  .cross-subject { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+  .cs-tag {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    padding: 4px 10px;
+    border-radius: 2px;
+    font-weight: 600;
+  }
+  .cs-fr    { background: #d6eaf8; color: var(--tag-fr); }
+  .cs-audit { background: #d5f5e3; color: var(--tag-audit); }
+  .cs-dt    { background: #ebdef0; color: var(--tag-dt); }
+  .cs-ibs   { background: #fadbd8; color: var(--tag-ibs); }
+
+  /* ── NON-NEGOTIABLES ── */
+  .non-neg {
+    background: #fdedec;
+    border: 1px solid #f5b7b1;
+    border-radius: 4px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+  .non-neg-title {
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  /* ── IRAC ── */
+  .irac-box {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 4px;
+    padding: 2rem;
+    margin: 1.5rem 0;
+  }
+  .irac-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+  .irac-step { margin-bottom: 1rem; }
+  .irac-step:last-child { margin-bottom: 0; }
+  .irac-content { font-size: 14px; line-height: 1.65; }
+  .irac-content strong { color: #fdebd0; }
+
+  /* ── FORMULA BOX ── */
+  .formula-box {
+    background: var(--ink);
+    color: var(--gold);
+    font-family: var(--mono);
+    font-size: 13px;
+    padding: 1rem 1.4rem;
+    border-radius: 3px;
+    margin: 0.8rem 0;
+    line-height: 2;
+  }
+
+  /* ── BULLET LIST ── */
+  ul.law-list { list-style: none; padding: 0; }
+  ul.law-list li {
+    padding: 0.3rem 0 0.3rem 1.4rem;
+    position: relative;
+    font-size: 14px;
+  }
+  ul.law-list li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 12px; top: 5px; }
+
+  ol.law-ol { padding-left: 1.4rem; }
+  ol.law-ol li { padding: 0.25rem 0; font-size: 14px; }
+
+  /* ── BADGE ── */
+  .badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 2px;
+    letter-spacing: 0.08em;
+    vertical-align: middle;
+    margin-left: 6px;
+  }
+  .badge-red   { background: #f5b7b1; color: #7b241c; }
+  .badge-blue  { background: #d6eaf8; color: #154360; }
+  .badge-green { background: #d5f5e3; color: #145a32; }
+  .badge-gold  { background: #fdebd0; color: #6e2f0a; }
+
+  /* ── DIVIDER ── */
+  hr.fancy {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 2.5rem 0;
+    position: relative;
+  }
+  hr.fancy::before {
+    content: '§';
+    position: absolute;
+    left: 50%; top: -10px;
+    transform: translateX(-50%);
+    background: var(--paper);
+    padding: 0 8px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  /* ── KEY NUMBERS ── */
+  .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin: 1rem 0; }
+  @media(max-width: 600px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
+  .stat-card {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 1rem;
+    border-radius: 3px;
+    text-align: center;
+  }
+  .stat-number { font-family: var(--display); font-size: 1.8rem; color: var(--gold); line-height: 1.1; }
+  .stat-label  { font-family: var(--mono); font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: #aaa; margin-top: 0.3rem; }
+
+  /* ── HIGHLIGHT ── */
+  mark { background: #fff3cd; padding: 1px 3px; border-radius: 2px; }
+  .alert { background: #fdf2f8; border: 1px solid #d7bde2; border-radius: 3px; padding: 0.8rem 1rem; font-size: 13.5px; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: #666;
+    text-align: center;
+    padding: 1.5rem;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    margin-top: 4rem;
+  }
+  footer span { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════ -->
+<header>
+  <div class="header-label">CA Final · Paper 4: Corporate & Economic Laws · IBS Integration Ready</div>
+  <h1>Appointment &amp; Remuneration of<br><em>Managerial Personnel</em></h1>
+  <div class="header-meta">
+    <span>Chapter 2 · Companies Act 2013</span>
+    <span>Sections 196–205 · Schedule V</span>
+    <span>Strategic Framework Edition</span>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- ══════════════════════════════════
+  FRAMEWORK 0: KEY NUMBERS AT A GLANCE
+══════════════════════════════════ -->
+<h2 class="framework-title">
+  <small>Quick Reference · Critical Numbers</small>
+  Key Numbers at a Glance
+</h2>
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-number">11%</div>
+    <div class="stat-label">Overall Cap on Net Profit (All Directors)</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">5 yrs</div>
+    <div class="stat-label">Max Tenure per Appointment (MD/WTD/M)</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">₹1L</div>
+    <div class="stat-label">Max Sitting Fee per Meeting</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">90 days</div>
+    <div class="stat-label">Apply to Govt for Over-70 MD Appointment</div>
+  </div>
+</div>
+
+<div class="stat-grid">
+  <div class="stat-card">
+    <div class="stat-number">60 days</div>
+    <div class="stat-label">File Return (MR-1) After Appointment</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">6 months</div>
+    <div class="stat-label">Fill Vacancy of Whole-Time KMP</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">₹5L</div>
+    <div class="stat-label">Penalty on Company for KMP Default</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-number">₹2L</div>
+    <div class="stat-label">Penalty: Secretarial Audit Non-Compliance</div>
+  </div>
+</div>
+
+<hr class="fancy">
+
+<!-- ══════════════════════════════════
+  FRAMEWORK 1: DEFINITIONAL ARCHITECTURE
+══════════════════════════════════ -->
+<h2 class="framework-title">
+  <small>Framework 1 · Sections 2(18), 2(19), 2(24), 2(51), 2(53), 2(54), 2(78), 2(94)</small>
+  The Definitional Architecture Framework
+</h2>
+<p style="color:var(--muted); margin-bottom:1rem; font-size:13.5px;">Who qualifies as what — foundational to every appointment/remuneration question.</p>
+
+<div class="grid-2">
+  <div class="card card-blue">
+    <div class="sub-title">Managing Director [S.2(54)]</div>
+    <ul class="law-list">
+      <li>Must be a <strong>director first</strong> — loses MD status if ceases to be director</li>
+      <li>Entrusted with <strong>substantial powers of management</strong></li>
+      <li>Source of power: Articles / Agreement / Board Resolution / GM Resolution</li>
+      <li><strong>Routine acts excluded</strong>: affixing seal, drawing cheques, endorsing negotiable instruments, signing share certificates, transfer of shares</li>
+    </ul>
+    <div class="alert" style="margin-top:0.8rem;">⚡ <strong>IBS Trigger:</strong> Cannot appoint MD + Manager simultaneously [S.196(1)]</div>
+  </div>
+
+  <div class="card card-blue">
+    <div class="sub-title">Manager [S.2(53)]</div>
+    <ul class="law-list">
+      <li>Individual with management of <strong>whole or substantially whole</strong> affairs</li>
+      <li>Works under superintendence of Board</li>
+      <li><strong>Not applicable</strong> to departmental heads (e.g., Marketing Manager, Finance Manager)</li>
+      <li>May or may not be a director</li>
+    </ul>
+    <div class="sub-title" style="margin-top:1rem;">WTD [S.2(94)]</div>
+    <ul class="law-list">
+      <li>Director in <strong>whole-time employment</strong></li>
+      <li>Must be director — cannot be WTD without being director</li>
+    </ul>
+  </div>
+</div>
+
+<div class="sub-title" style="margin-top:1.5rem;">KMP Composition [S.2(51)] — Who Must Be Present</div>
+<div class="card card-gold">
+  <div class="grid-3">
+    <div>
+      <strong style="color:var(--accent2);">Tier 1: Executive</strong>
+      <ul class="law-list" style="margin-top:0.4rem;">
+        <li>CEO or MD or Manager</li>
+        <li>Whole-Time Director (if no CEO/MD/M)</li>
+      </ul>
+    </div>
+    <div>
+      <strong style="color:var(--accent2);">Tier 2: Governance</strong>
+      <ul class="law-list" style="margin-top:0.4rem;">
+        <li>Company Secretary</li>
+        <li>Chief Financial Officer</li>
+      </ul>
+    </div>
+    <div>
+      <strong style="color:var(--accent2);">Tier 3: Board-Designated</strong>
+      <ul class="law-list" style="margin-top:0.4rem;">
+        <li>Officer not more than one level below directors, in whole-time employment</li>
+        <li>Any other as prescribed</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="cross-subject">
+  <span class="cs-tag cs-fr">FR: KMP disclosures in Related Party Transactions [IND AS 24]</span>
+  <span class="cs-tag cs-audit">Audit: KMP remuneration disclosed in CARO 2020</span>
+  <span class="cs-tag cs-dt">DT: Perquisites of MD/WTD taxable u/s 17(2) Income Tax Act</span>
+</div>
+
+<hr class="fancy">
+
+<!-- ══════════════════════════════════
+  FRAMEWORK 2: APPOINTMENT COMPLIANCE
+══════════════════════════════════ -->
+<h2 class="framework-title">
+  <small>Framework 2 · Section 196 · Schedule V Part I</small>
+  The Appointment Compliance Framework
+</h2>
+
+<div class="sub-title">Decision Tree: Appointment of MD / WTD / Manager</div>
+<div class="decision-tree">
+
+  <div class="dt-node if-node">🔍 <strong>IF</strong> Company proposes to appoint MD / WTD / Manager</div>
+
+  <div class="dt-connector and">↓ Step 1: Eligibility Check [S.196(3)]</div>
+  <div class="dt-node then-node">✅ Person must NOT be disqualified u/s 164 (director disqualifications)</div>
+  <div class="dt-node then-node">✅ Age: between <strong>21 years and 70 years</strong> (ordinary route)</div>
+  <div class="dt-node then-node">✅ Not undischarged insolvent or adjudicated insolvent</div>
+  <div class="dt-node then-node">✅ Not convicted &amp; sentenced for &gt; 6 months</div>
+  <div class="dt-node then-node">✅ Resident of India (12 months continuous stay for employment/business) — <em>not applicable for SEZ companies</em></div>
+  <div class="dt-node then-node">✅ No conviction under 19 specified Acts (Income Tax, Customs, FEMA, IBC, GST, SEBI, etc.)</div>
+
+  <div class="dt-connector and">↓ Step 2: Age Exception [S.196(3)(a) proviso]</div>
+  <div class="dt-node if-node">🔍 <strong>IF</strong> candidate has attained age ≥ 70 years</div>
+  <div class="dt-connector then">↓ THEN (Route A)</div>
+  <div class="dt-node then-node">Pass <strong>Special Resolution</strong> in GM (with explanatory statement giving justification)</div>
+  <div class="dt-connector else">↓ ELSE IF Special Resolution fails but majority voted in favour</div>
+  <div class="dt-node else-node">Apply to <strong>Central Government</strong> (Form MR-2) within <strong>90 days</strong> — CG satisfied it is beneficial → appointment valid</div>
+
+  <div class="dt-connector and">↓ Step 3: Approval Process [S.196(4)]</div>
+  <div class="dt-node then-node">Board approves at a <strong>Board Meeting</strong></div>
+  <div class="dt-node then-node">Shareholders approve at <strong>Next General Meeting</strong></div>
+  <div class="dt-node then-node">Notice must include: terms, remuneration, director's interest in appointment</div>
+  <div class="dt-node then-node">File <strong>MR-1</strong> with ROC within <strong>60 days</strong> of appointment</div>
+
+  <div class="dt-connector and">↓ Step 4: Variance from Schedule V?</div>
+  <div class="dt-node if-node">🔍 <strong>IF</strong> appointment is at variance to Schedule V Part I conditions</div>
+  <div class="dt-connector then">↓ THEN</div>
+  <div class="dt-node then-node">Seek approval of <strong>Central Government</strong> (Form MR-2 within 90 days)</div>
+
+</div>
+
+<div class="sub-title" style="margin-top:1.5rem;">Tenure Rules — Critical Traps</div>
+<div class="grid-2">
+  <div class="card card-accent">
+    <strong>Maximum Tenure</strong>
+    <p style="margin-top:0.4rem; font-size:13.5px;">No appointment / re-appointment for a term exceeding <mark><strong>5 years</strong></mark> at a time [S.196(2)(a)]</p>
+  </div>
+  <div class="card card-accent">
+    <strong>Earliest Re-appointment</strong>
+    <p style="margin-top:0.4rem; font-size:13.5px;">Re-appointment cannot be made <mark><strong>earlier than 1 year</strong></mark> before expiry of current term [S.196(2)(b)]</p>
+    <p style="font-size:12px; color:var(--muted); margin-top:0.4rem;">⚠ Common exam trap: re-appointment done 2 years early = <strong>INVALID</strong></p>
+  </div>
+</div>
+
+<div class="sub-title">Validity of Acts Before Shareholder Approval [S.196(5)]</div>
+<div class="card card-green">
+  <ul class="law-list">
+    <li>Even if GM <strong>does not approve</strong> the appointment, all acts done by MD/WTD/Manager <strong>before</strong> the GM are <strong>deemed valid</strong></li>
+    <li>Protects third-party transactions</li>
+    <li><span class="badge badge-blue">Exemption</span> Government Companies: S.196(2),(4),(5) do not apply (subject to no default in filing financial statements)</li>
+    <li><span class="badge badge-blue">Exemption</span> Private Companies: S.196(4),(5) do not apply (subject to no filing default)</li>
+  </ul>
+</div>
+
+<div class="cross-subject">
+  <span class="cs-tag cs-fr">FR: Disclosure of MD/WTD remuneration in Notes to Accounts — IND AS 24 RPT</span>
+  <span class="cs-tag cs-audit">Audit: CARO 2020 requires reporting on managerial remuneration paid in excess of limits</span>
+  <span class="cs-tag cs-dt">DT: Remuneration is deductible expense u/s 37(1) — subject to arm's length / Schedule V compliance</span>
+  <span class="cs-tag cs-ibs">IBS: Age &gt;70 + No Special Resolution → CG approval required — classic case-study scenario</span>
+</div>
+
+<hr class="fancy">
+
+<!-- ══════════════════════════════════
+  FRAMEWORK 3: KMP APPOINTMENT
+══════════════════════════════════ -->
+<h2 class="framework-title">
+  <small>Framework 3 · Section 203 · Rules 8, 8A</small>
+  The KMP Appointment &amp; Governance Framework
+</h2>
+
+<div class="sub-title">Which Companies Must Have Whole-Time KMPs?</div>
+<table class="scpm-table">
+  <thead>
+    <tr>
+      <th>Company Type</th>
+      <th>Trigger Threshold</th>
+      <th>Mandatory KMPs</th>
+      <th>Rule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="context-col">Listed Company</td>
+      <td>All listed companies</td>
+      <td>MD/CEO/M + CS + CFO</td>
+      <td>Rule 8</td>
+    </tr>
+    <tr>
+      <td class="context-col">Public Company</td>
+      <td>Paid-up capital ≥ <strong>₹10 Cr</strong></td>
+      <td>MD/CEO/M + CS + CFO</td>
+      <td>Rule 8</td>
+    </tr>
+    <tr>
+      <td class="context-col">Private Company</td>
+      <td>Paid-up capital ≥ <strong>₹10 Cr</strong></td>
+      <td>Whole-time <strong>Company Secretary only</strong></td>
+      <td>Rule 8A</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="sub-title">Decision Tree: Can One Person Be Chairperson + MD/CEO?</div>
+<div class="decision-tree">
+  <div class="dt-node if-node">🔍 <strong>IF</strong> Company proposes to appoint same person as Chairperson AND MD/CEO [S.203(1) Proviso]</div>
+  <div class="dt-connector else">↓ DEFAULT RULE: PROHIBITED</div>
+  <div class="dt-node else-node">❌ Individual cannot hold both positions simultaneously</div>
+  <div class="dt-connector then">↓ EXCEPTIONS (Any one of):</div>
+  <div class="dt-node then-node">✅ <strong>Exception 1:</strong> Articles of Association expressly permit it</div>
+  <div class="dt-node then-node">✅ <strong>Exception 2:</strong> Company does <strong>not</strong> carry multiple businesses</div>
+  <div class="dt-node then-node">✅ <strong>Exception 3:</strong> Company is in multiple businesses AND has appointed separate CEO for each business (Public Co. with paid-up ≥ ₹100 Cr + turnover ≥ ₹1000 Cr) [MCA Notification 2014]</div>
+</div>
+
+<div class="sub-title">Bar on Multiple Appointments [S.203(3)]</div>
+<div class="grid-2">
+  <div class="card card-accent">
+    <strong>General Rule</strong>
+    <p style="margin-top:0.5rem; font-size:13.5px;">A whole-time KMP <strong>cannot hold office in more than one company at the same time</strong></p>
+  </div>
+  <div class="card card-green">
+    <strong>Exception — Subsidiary</strong>
+    <p style="margin-top:0.5rem; font-size:13.5px;">Can hold office in <strong>subsidiary company</strong> of the same company</p>
+    <p style="margin-top:0.4rem; font-size:12px; color:var(--muted);">Also: Can be <strong>director</strong> in any company with Board permission (not disentitled)</p>
+  </div>
+</div>
+
+<div class="sub-title">MD in More Than One Company [Third Proviso to S.203(3)]</div>
+<div class="card card-gold">
+  <strong>Conditions for valid appointment:</strong>
+  <ol class="law-ol" style="margin-top:0.6rem;">
+    <li>Person should be MD/Manager in <strong>one company only</strong> + of not more than <strong>one other company</strong></li>
+    <li>Board Resolution passed with <strong>consent of ALL directors present</strong> at the meeting</li>
+    <li>Specific notice of meeting and the resolution given to <strong>all directors then in India</strong></li>
+  </ol>
+  <div class="alert" style="margin-top:0.8rem;">⚡ <strong>Exam Trap:</strong> If even one director present voted against / abstained → resolution is <strong>INVALID</strong> [Example 4 in chapter]</div>
+</div>
+
+<div class="sub-title">KMP Vacancy &amp; Penalty</div>
+<table class="scpm-table">
+  <thead>
+    <tr><th>Context</th><th>Trigger Point</th><th>Legal Requirement</th><th>Strategic Impact</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="context-col">KMP Vacancy</td>
+      <td>Any whole-time KMP office vacated</td>
+      <td>Board must fill vacancy within <strong>6 months</strong> at a Board Meeting</td>
+      <td>Governance risk; auditor may flag in report</td>
+    </tr>
+    <tr>
+      <td class="context-col">Company Default</td>
+      <td>Non-compliance with S.203</td>
+      <td>Penalty: <strong>₹5 Lakhs</strong> on company</td>
+      <td>Reputational + regulatory risk</td>
+    </tr>
+    <tr>
+      <td class="context-col">Director/KMP Default</td>
+      <td>Continuing default</td>
+      <td>₹50,000 + ₹1,000/day (max ₹5 Lakhs)</td>
+      <td>Personal liability for officers</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="cross-subject">
+  <span class="cs-tag cs-fr">FR: IND AS 24 — KMP compensation (short-term, post-employment, share-based) disclosed separately</span>
+  <span class="cs-tag cs-audit">Audit: Non-appointment of CFO/CS despite threshold crossed → CARO reporting obligation</span>
+  <span class="cs-tag cs-ibs">IBS: Usha Martin Telematics case — ex-directors held liable only for period they were officers</span>
+</div>
+
+<hr class="fancy">
+
+<!-- ══════════════════════════════════
+  FRAMEWORK 4: REMUNERATION LIMITS
+══════════════════════════════════ -->
+<h2 class="framework-title">
+  <small>Framework 4 · Section 197 · Schedule V Part II</small>
+  The Remuneration Limits Framework
+</h2>
+<p style="color:var(--muted); margin-bottom:1rem; font-size:13.5px;"><strong>Applies only to Public Companies.</strong> Private companies are exempt from S.197.</p>
+
+<div class="sub-title">Section 197(1): When Company HAS PROFITS — Percentage Limits</div>
+<table class="scpm-table">
+  <thead>
+    <tr>
+      <th>Scenario</th>
+      <th>Normal Limit (Net Profit)</th>
+      <th>How to Exceed</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="context-col">Overall (all directors including MD+WTD+M)</td>
+      <td><strong>11%</strong></td>
+      <td>Special Resolution in GM + Schedule V conditions</td>
+    </tr>
+    <tr>
+      <td class="context-col">One MD / WTD / Manager</td>
+      <td><strong>5%</strong></td>
+      <td>Special Resolution in GM</td>
+    </tr>
+    <tr>
+      <td class="context-col">More than one MD/WTD/M (combined)</td>
+      <td><strong>10%</strong></td>
+      <td>Special Resolution in GM</td>
+    </tr>
+    <tr>
+      <td class="context-col">Other Directors (if MD/WTD/M exists)</td>
+      <td><strong>1%</strong></td>
+      <td>Special Resolution in GM</td>
+    </tr>
+    <tr>
+      <td class="context-col">Other Directors (if NO MD/WTD/M)</td>
+      <td><strong>3%</strong></td>
+      <td>Special Resolution in GM</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="alert">⚠ <strong>Sitting Fees [S.197(5)]</strong> are <em>excluded</em> from the above percentages. Max sitting fee = <strong>₹1 Lakh per meeting</strong>. Independent Directors and Women Directors cannot be paid <em>less than</em> other directors. [Rule 4]</div>
+
+<div class="sub-title" style="margin-top:1.2rem;">When Company Has NO / INADEQUATE PROFITS — Schedule V Part II Section II</div>
+<table class="scpm-table">
+  <thead>
+    <tr>
+      <th>Effective Capital (Last FY)</th>
+      <th>Max Managerial Remuneration / Year</th>
+      <th>Max for Other Directors / Year</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="context-col">Negative or &lt; ₹5 Cr</td>
+      <td><strong>₹60 Lakhs</strong></td>
+      <td>₹12 Lakhs</td>
+    </tr>
+    <tr>
+      <td class="context-col">₹5 Cr – &lt; ₹100 Cr</td>
+      <td><strong>₹84 Lakhs</strong></td>
+      <td>₹17 Lakhs</td>
+    </tr>
+    <tr>
+      <td class="context-col">₹100 Cr – &lt; ₹250 Cr</td>
+      <td><strong>₹120 Lakhs</strong></td>
+      <td>₹24 Lakhs</td>
+    </tr>
+    <tr>
+      <td class="context-col">≥ ₹250 Cr</td>
+      <td><strong>₹120 Lakhs + 0.01% of EC above ₹250 Cr</strong></td>
+      <td>₹24 Lakhs + 0.01% of EC above ₹250 Cr</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="alert">⚡ Limits above may be <strong>exceeded</strong> if shareholders pass a <strong>Special Resolution</strong>. Also: if company has defaulted on bank dues, obtain <strong>prior approval of creditor/bank</strong> before GM approval.</div>
+
+<div class="sub-title" style="margin-top:1rem;">Effective Capital — Formula</div>
+<div class="formula-box">
+EFFECTIVE CAPITAL =
+  Paid-up Share Capital (excl. share application money)
+  + Share Premium Account
+  + Reserves &amp; Surplus (excl. Revaluation Reserve)
+  + Long-Term Loans &amp; Deposits (repayable after 1 year; excl. working capital loans, OD, bank guarantee)
+  – Investments (excl. investment companies)
+  – Accumulated Losses
+  – Preliminary Expenses not written off
+</div>
+
+<div class="sub-title">Perquisites NOT Counted in Remuneration Ceiling [Schedule V Sec. IV]</div>
+<div class="grid-2">
+  <div class="card card-green">
+    <strong>For All Managerial Persons:</strong>
+    <ul class="law-list" style="margin-top:0.5rem;">
+      <li>PF / Superannuation / Annuity (non-taxable portion)</li>
+      <li>Gratuity ≤ ½ month salary per completed year</li>
+      <li>Encashment of leave at end of tenure</li>
+    </ul>
+  </div>
+  <div class="card card-green">
+    <strong>Additional for Expatriates (incl. NRIs):</strong>
+    <ul class="law-list" style="margin-top:0.5rem;">
+      <li>Children's education allowance (max ₹12,000/month/child, max 2 children)</li>
+      <li>Holiday passage for family staying abroad (economy class yearly / first class biennial)</li>
+      <li>Leave travel concession (home country)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="cross-subject">
+  <span class="cs-tag cs-fr">FR: IND AS 19 — Post-employment benefits (Gratuity/PF) measured at actuarial present value</span>
+  <span class="cs-tag cs-audit">Audit: S.197(16) — Auditor must report in Audit Report whether remuneration is in accordance with S.197</span>
+  <span class="cs-tag cs-dt">DT: Perquisites of MD valued per Rule 3, Income Tax Rules — includes accommodation, ESOP, etc.</span>
+  <span class="cs-tag cs-ibs">IBS: Effective Capital computation is a direct numerical question in case studies</span>
+</div>
+
+<hr class="fancy">
+
+<!-- ══════════════════════════════════
+  FRAMEWORK 5: PROFIT CALCULATION S.198
+══════════════════════════════════ -->
+<h2 class="framework-title">
+  <small>Framework 5 · Section 198</small>
+  The Net Profit Calculation Framework (for Managerial Remuneration)
+</h2>
+
+<div class="formula-box">
+NET PROFIT u/s 198 =
+  Book Profit Before Tax
+  ADD:   Bounties &amp; Subsidies from Government
+         Capital Repairs (non-deductible repairs added back)
+         Directors' Remuneration (if already charged)
+  LESS:  Capital Profits on sale of fixed assets*
+         Premium on issue/sale of shares or debentures
+         Profits on sale of forfeited shares
+         Profits of capital nature (sale of undertaking)
+         Unrealised gains / Notional gains / Revaluation gains
+         Fair value changes in equity reserves
+  NOT DEDUCTED: Income Tax, Capital Losses, Voluntary damages
+</div>
+
+<div class="alert" style="margin-top:0.8rem;">
+  * <strong>Capital Profit Exception:</strong> Credit IS given for profit on sale of fixed asset to the extent of: <em>min(Sale Price – WDV, Original Cost – WDV)</em>. Only the excess over original cost is excluded.
+</div>
+
+<div class="sub-title">Deductible Expenses u/s 198(4) [Always charged; already in P&L — no double count]</div>
+<div class="grid-2">
+  <div class="card card-blue">
+    <ul class="law-list">
+      <li>All usual working charges (salaries, wages)</li>
+      <li>Repairs (non-capital)</li>
+      <li>Compensation / damages under legal liability</li>
+      <li>Interest on debentures, mortgages, unsecured loans</li>
+    </ul>
+  </div>
+  <div class="card card-blue">
+    <ul class="law-list">
+      <li>Depreciation u/s 123</li>
+      <li>Directors' remuneration</li>
+      <li>Bad debts written off</li>
+      <li>Outgoings incl. charitable contributions u/s 181</li>
+    </ul>
+  </div>
+</div>
+
+<div class="cross-subject">
+  <span class="cs-tag cs-fr">FR: Profit u/s 198 ≠ Profit as per Ind AS — reconciliation required for remuneration working</span>
+  <span class="cs-tag cs-dt">DT: Depreciation u/s 123 (Companies Act) vs. depreciation u/s 32 (Income Tax) — different bases</span>
+  <span class="cs-tag cs-ibs">IBS: Section 198 computation is a high-value numerical — appears regularly in case studies</span>
+</div>
+
+<hr class="fancy">
+
+<!-- ══════════════════════════════════
+  FRAMEWORK 6: RECOVERY & REFUND
+══════════════════════════════════ -->
+<h2 class="framework-title">
+  <small>Framework 6 · Sections 197(9),(10) · Section 199</small>
+  The Excess Remuneration Recovery Framework
+</h2>
+
+<div class="grid-2">
+  <div class="card card-accent">
+    <div class="sub-title">Refund of Excess [S.197(9)]</div>
+    <ul class="law-list">
+      <li>Director draws excess → must <strong>refund within 2 years</strong> (or lesser period allowed by company)</li>
+      <li>Until refund: holds amount <strong>in trust</strong> for company</li>
+      <li><strong>Waiver possible</strong> only by Special Resolution within 2 years of the sum becoming refundable</li>
+      <li>If default on bank dues → need <strong>prior bank/creditor approval</strong> before GM waiver resolution</li>
+    </ul>
+  </div>
+  <div class="card card-accent">
+    <div class="sub-title">Recovery on Restatement [S.199]</div>
+    <ul class="law-list">
+      <li>Financial statements restated due to <strong>fraud or non-compliance</strong></li>
+      <li>Company recovers excess from <strong>past or present</strong> MD/WTD/Manager/CEO</li>
+      <li>Excess = Actual remuneration received – Remuneration as per restated financials</li>
+      <li>Recovery does <strong>not</strong> absolve person from other liabilities under the Act</li>
+    </ul>
+  </div>
+</div>
+
+<div class="cross-subject">
+  <span class="cs-tag cs-fr">FR: If financial statements restated → prior year adjustments; IND AS 8 retrospective application</span>
+  <span class="cs-tag cs-audit">Audit: Restatement triggers → SA 560 (Subsequent Events) &amp; SA 240 (Fraud)</span>
+  <span class="cs-tag cs-ibs">IBS: Recovery from past MD — applicable even after retirement [Option (b) in MCQ 1]</span>
+</div>
+
+<hr class="fancy">
+
+<!-- ══════════════════════════════════
+  FRAMEWORK 7: COMPENSATION FOR LOSS
+══════════════════════════════════ -->
+<h2 class="framework-title">
+  <small>Framework 7 · Section 202</small>
+  The Loss-of-Office Compensation Framework
+</h2>
+
+<div class="decision-tree">
+  <div class="dt-node if-node">🔍 <strong>IF</strong> MD / WTD / Manager loses office — is compensation payable?</div>
+  <div class="dt-connector then">↓ CHECK: Is this a prohibited case?</div>
+
+  <div class="dt-node else-node">❌ <strong>NO COMPENSATION</strong> if director:
+    (1) Resigned voluntarily | (2) Resigned on reconstruction but gets re-appointed in reconstructed entity |
+    (3) Office vacated under S.167(1) | (4) Company wound up due to director's negligence/default |
+    (5) Guilty of fraud/breach of trust/gross negligence/gross mismanagement |
+    (6) Instigated or directly/indirectly caused termination of own office</div>
+
+  <div class="dt-connector then">↓ IF NONE of the above → Compensation IS payable</div>
+  <div class="dt-node then-node">✅ <strong>Quantum:</strong> Remuneration for <mark>remainder of term OR 3 years, whichever is SHORTER</mark></div>
+  <div class="dt-node then-node">✅ <strong>Calculation Base:</strong> Average remuneration earned in last 3 years (or actual period if &lt; 3 years)</div>
+  <div class="dt-node else-node">❌ <strong>NO compensation</strong> if winding up commenced before or within 12 months of loss of office AND assets insufficient to repay share capital</div>
+</div>
+
+<div class="alert" style="margin-top:0.8rem;">
+  📌 <strong>Bell v. Lever Bros. [1932]:</strong> A director is not legally bound to disclose breaches of fiduciary duty. Company cannot recover ad-hoc compensation paid if it subsequently discovers past misconduct (absent statutory remedy).
+</div>
+
+<div class="cross-subject">
+  <span class="cs-tag cs-fr">FR: Compensation provision to be recognised u/s IND AS 37 — present obligation, probable outflow</span>
+  <span class="cs-tag cs-dt">DT: Compensation for loss of office taxable u/s 17(3) as 'profits in lieu of salary'</span>
+  <span class="cs-tag cs-ibs">IBS: Classic exam scenario — termination + fraud allegation → no compensation payable</span>
+</div>
+
+<hr class="fancy">
+
+<!-- ══════════════════════════════════
+  FRAMEWORK 8: COMPANY SECRETARY & SECRETARIAL AUDIT
+══════════════════════════════════ -->
+<h2 class="framework-title">
+  <small>Framework 8 · Sections 204, 205</small>
+  The CS Functions &amp; Secretarial Audit Framework
+</h2>
+
+<div class="grid-2">
+  <div class="card card-blue">
+    <div class="sub-title">Functions of CS [S.205 + Rule 10]</div>
+    <ul class="law-list">
+      <li>Report to Board on compliance of Companies Act + other laws</li>
+      <li>Ensure compliance with <strong>Secretarial Standards (SS-1, SS-2)</strong></li>
+      <li>Provide guidance to directors on duties/responsibilities/powers</li>
+      <li>Convene, attend &amp; <strong>maintain minutes</strong> of Board/Committee/GM</li>
+      <li>Obtain approvals from Board, GM, Government, Regulators</li>
+      <li>Represent before regulators u/s Companies Act</li>
+      <li>Assist &amp; advise Board on <strong>corporate governance</strong></li>
+      <li>Any other duties assigned by Board</li>
+    </ul>
+    <div class="alert" style="margin-top:0.7rem;">⚠ CS functions do <strong>not reduce or absolve</strong> duties of Board, Chairperson, MD, or WTD [S.205(2)]</div>
+  </div>
+  <div class="card card-blue">
+    <div class="sub-title">Secretarial Audit [S.204 + Rule 9]</div>
+    <strong>Who must get it done?</strong>
+    <ul class="law-list" style="margin-top:0.5rem;">
+      <li>Every <strong>listed company</strong></li>
+      <li>Public company: paid-up capital ≥ <strong>₹50 Cr</strong></li>
+      <li>Public company: turnover ≥ <strong>₹250 Cr</strong></li>
+      <li>Any company: outstanding loans/borrowings from banks/PFIs ≥ <strong>₹100 Cr</strong></li>
+    </ul>
+    <strong style="margin-top:0.8rem; display:block;">Who conducts it?</strong>
+    <ul class="law-list">
+      <li>Company Secretary <strong>in practice</strong> only (Form MR-3)</li>
+    </ul>
+    <strong style="margin-top:0.8rem; display:block;">Filing?</strong>
+    <ul class="law-list">
+      <li>Annexed to <strong>Board's Report</strong> [S.134(3)]</li>
+      <li>Board must explain every <strong>qualification/observation</strong> in Board's Report [S.204(3)]</li>
+    </ul>
+    <strong style="margin-top:0.8rem; display:block;">Penalty for non-compliance:</strong>
+    <ul class="law-list">
+      <li>Company / officer / CS in practice: <strong>₹2 Lakhs each</strong></li>
+    </ul>
+  </div>
+</div>
+
+<div class="cross-subject">
+  <span class="cs-tag cs-audit">Audit: Secretarial Audit Report is different from Statutory Audit Report — both go with Board's Report</span>
+  <span class="cs-tag cs-ibs">IBS: Outstanding borrowings ₹100 Cr threshold — triggers secretarial audit even for private/unlisted firms</span>
+</div>
+
+<hr class="fancy">
+
+<!-- ══════════════════════════════════
+  CRITICAL COMPLIANCE INDICATORS
+══════════════════════════════════ -->
+<h2 class="framework-title">
+  <small>High-Yield Points · IBS Case Study Non-Negotiables</small>
+  Critical Compliance Indicators
+</h2>
+<p style="color:var(--muted); margin-bottom:1rem; font-size:13.5px;">These are the points most likely to earn marks — always check these in any IBS case study involving companies.</p>
+
+<div class="non-neg">
+  <div class="non-neg-title">🔴 Non-Negotiable #1 — Dual Appointment Prohibition</div>
+  A company <strong>cannot appoint both MD and Manager simultaneously</strong> [S.196(1)]. If case study shows both — flag as violation. WTD + MD is allowed.
+</div>
+
+<div class="non-neg">
+  <div class="non-neg-title">🔴 Non-Negotiable #2 — Re-appointment Timing Trap</div>
+  Re-appointment cannot happen <strong>more than 1 year before</strong> expiry. If done 2+ years before → invalid. Always compute timeline carefully.
+</div>
+
+<div class="non-neg">
+  <div class="non-neg-title">🔴 Non-Negotiable #3 — S.197 Applies Only to Public Companies</div>
+  Remuneration limits (11%, 5%, etc.) do <strong>not apply to private companies</strong>. A common case-study distractor.
+</div>
+
+<div class="non-neg">
+  <div class="non-neg-title">🔴 Non-Negotiable #4 — Auditor Must Report on Remuneration [S.197(16)]</div>
+  The auditor's report must state: (a) whether remuneration is in accordance with S.197, (b) whether any director is paid in excess of limits. This is a <strong>mandatory audit procedure</strong>.
+</div>
+
+<div class="non-neg">
+  <div class="non-neg-title">🔴 Non-Negotiable #5 — Effective Capital ≠ Net Worth</div>
+  Effective Capital excludes revaluation reserve, share application money, working capital loans, bank guarantees. Always compute from first principles in numerical questions.
+</div>
+
+<div class="non-neg">
+  <div class="non-neg-title">🔴 Non-Negotiable #6 — Insurance Premium Treatment [S.197(13)]</div>
+  Premium on indemnity insurance for MD/WTD/Manager = <strong>NOT remuneration</strong> unless the person is <strong>proved guilty</strong> — then it becomes remuneration.
+</div>
+
+<div class="non-neg">
+  <div class="non-neg-title">🔴 Non-Negotiable #7 — Compensation for Loss of Office: Fraud = No Compensation</div>
+  If fraud/gross negligence/gross mismanagement is alleged and proven — <strong>no compensation</strong> payable. But mere allegations are not enough; payment cannot be withheld arbitrarily.
+</div>
+
+<hr class="fancy">
+
+<!-- ══════════════════════════════════
+  IRAC TEMPLATE
+══════════════════════════════════ -->
+<h2 class="framework-title">
+  <small>Ready-to-Use · IRAC Answer Template</small>
+  IRAC Framework: Remuneration in Case of Inadequate Profits
+</h2>
+<p style="color:var(--muted); margin-bottom:1rem; font-size:13.5px;">Most commonly tested scenario — use this structure for any S.197(3) + Schedule V question.</p>
+
+<div class="irac-box">
+  <div class="irac-step">
+    <div class="irac-label">Issue</div>
+    <div class="irac-content">Whether a public company that has incurred losses / has inadequate profits can pay remuneration to its Managing Director / WTD / Manager, and if so, what is the maximum permissible amount?</div>
+  </div>
+  <div class="irac-step">
+    <div class="irac-label">Rule</div>
+    <div class="irac-content">
+      As per <strong>Section 197(3)</strong> of the Companies Act, 2013, where a company has no profits or inadequate profits in any financial year, it shall not pay remuneration to its directors (including MD/WTD/Manager) except in accordance with the provisions of <strong>Schedule V</strong>. Section II of Part II of Schedule V prescribes the maximum remuneration payable based on the <strong>effective capital</strong> of the company. The limits are: (i) Negative or &lt; ₹5 Cr — ₹60 Lakhs; (ii) ₹5–100 Cr — ₹84 Lakhs; (iii) ₹100–250 Cr — ₹120 Lakhs; (iv) ≥ ₹250 Cr — ₹120 Lakhs + 0.01% of EC above ₹250 Cr. These limits may be exceeded only by a <strong>Special Resolution</strong> of shareholders. The approval of the <strong>Board and Nomination &amp; Remuneration Committee</strong> is also required.
+    </div>
+  </div>
+  <div class="irac-step">
+    <div class="irac-label">Application</div>
+    <div class="irac-content">
+      In the given case, the company has [losses / inadequate profits]. The effective capital as computed stands at ₹[___], which falls in the bracket of [relevant slab]. Accordingly, the maximum permissible remuneration to the managerial person is ₹[___] per annum. The actual remuneration proposed / paid is ₹[___], which [is within / exceeds] the prescribed limit. [If exceeds: A Special Resolution of shareholders is necessary to validate the payment.]
+    </div>
+  </div>
+  <div class="irac-step">
+    <div class="irac-label">Conclusion</div>
+    <div class="irac-content">
+      The payment of remuneration of ₹[___] to [name] as Managing Director is [valid within the Schedule V limit / valid only upon passing a Special Resolution / <strong>invalid as it violates Schedule V without Special Resolution</strong>].
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  BONUS: SCPM STYLE PENALTY TABLE
+══════════════════════════════════ -->
+<h2 class="framework-title">
+  <small>Quick Reference · Penalties Consolidated</small>
+  Penalty &amp; Non-Compliance Comparison Table
+</h2>
+
+<table class="scpm-table">
+  <thead>
+    <tr>
+      <th>Context</th>
+      <th>Trigger Point</th>
+      <th>Legal Requirement / Penalty</th>
+      <th>Strategic Impact</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="context-col">KMP Default [S.203(5)]</td>
+      <td>Company fails to appoint whole-time KMPs</td>
+      <td>Company: <strong>₹5 Lakhs</strong>; Director/KMP: ₹50,000 + ₹1,000/day (max ₹5L)</td>
+      <td>Personal liability; CARO reporting</td>
+    </tr>
+    <tr>
+      <td class="context-col">Remuneration Excess [S.197(15)]</td>
+      <td>Payment beyond S.197 limits</td>
+      <td>Defaulting person: <strong>₹1 Lakh</strong>; Company: <strong>₹5 Lakhs</strong></td>
+      <td>Director must refund excess within 2 years</td>
+    </tr>
+    <tr>
+      <td class="context-col">Secretarial Audit [S.204(4)]</td>
+      <td>Non-compliance with audit requirements</td>
+      <td>Company / officer / CS in practice: <strong>₹2 Lakhs each</strong></td>
+      <td>Auditor may qualify report</td>
+    </tr>
+    <tr>
+      <td class="context-col">Late MR-1 Filing</td>
+      <td>Return not filed within 60 days of appointment</td>
+      <td>Penalty under S.172 (General penalty)</td>
+      <td>ROC action; filing history impacted</td>
+    </tr>
+    <tr>
+      <td class="context-col">Recovery [S.199]</td>
+      <td>Financial restatement due to fraud/non-compliance</td>
+      <td>Recover excess from past/present MD/WTD/M/CEO (including stock options)</td>
+      <td>Civil liability; criminal proceedings not barred</td>
+    </tr>
+  </tbody>
+</table>
+
+</div><!-- /container -->
+
+<footer>
+  <span>Strategic Framework Note-Set</span> &nbsp;|&nbsp; CA Final · Corporate &amp; Economic Laws · Chapter 2 &nbsp;|&nbsp;
+  Companies Act 2013 · Sections 196–205 · Schedule V &nbsp;|&nbsp; <span>IBS Integration Edition</span>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strategic Framework: Meetings of Board & Its Powers | CA Final IBS</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Mono:wght@400;500&family=Sora:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f1117;
+    --paper: #f5f0e8;
+    --accent-gold: #c9952a;
+    --accent-teal: #0d6b6e;
+    --accent-red: #b83232;
+    --accent-blue: #1a3a6e;
+    --accent-green: #1e5c3a;
+    --accent-purple: #4a2d7a;
+    --light-gold: #fdf6e3;
+    --light-teal: #e6f4f4;
+    --light-red: #fdf0f0;
+    --light-blue: #eef2f9;
+    --light-green: #eef6f1;
+    --border: #d4c9a8;
+    --muted: #6b6454;
+    --tag-bg: #0f1117;
+    --tag-text: #f5f0e8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Sora', sans-serif;
+    background-color: var(--paper);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* ── COVER BAND ─────────────────────────────────────── */
+  .cover {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 48px 60px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    border-radius: 50%;
+    background: var(--accent-gold);
+    opacity: 0.08;
+  }
+  .cover-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  .cover-sub {
+    font-size: 14px;
+    color: #aaa;
+    font-weight: 300;
+    margin-bottom: 28px;
+  }
+  .cover-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    border: 1px solid rgba(201,149,42,0.5);
+    color: var(--accent-gold);
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ── LAYOUT ─────────────────────────────────────────── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 32px 80px; }
+
+  .section-divider {
+    display: flex; align-items: center; gap: 16px;
+    margin: 48px 0 24px;
+  }
+  .section-divider-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .section-divider-line {
+    flex: 1; height: 1px; background: var(--border);
+  }
+
+  /* ── FRAMEWORK CARD ─────────────────────────────────── */
+  .fw-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .fw-card-header {
+    padding: 16px 24px;
+    display: flex; align-items: center; gap: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .fw-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--border);
+    line-height: 1;
+    min-width: 36px;
+  }
+  .fw-title {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .fw-subtitle {
+    font-size: 11px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.08em;
+    margin-top: 2px;
+  }
+  .fw-section-badge {
+    margin-left: auto;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .fw-body { padding: 20px 24px; }
+
+  /* ── TWO COL ─────────────────────────────────────────── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+  /* ── MINI CARD ───────────────────────────────────────── */
+  .mini-card {
+    padding: 14px 16px;
+    border-radius: 3px;
+    border-left: 3px solid;
+  }
+  .mini-card.gold { border-color: var(--accent-gold); background: var(--light-gold); }
+  .mini-card.teal { border-color: var(--accent-teal); background: var(--light-teal); }
+  .mini-card.red  { border-color: var(--accent-red);  background: var(--light-red);  }
+  .mini-card.blue { border-color: var(--accent-blue); background: var(--light-blue); }
+  .mini-card.green { border-color: var(--accent-green); background: var(--light-green); }
+  .mini-card.purple { border-color: var(--accent-purple); background: #f5f0fd; }
+
+  .mini-card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .mini-card.gold .mini-card-label { color: var(--accent-gold); }
+  .mini-card.teal .mini-card-label { color: var(--accent-teal); }
+  .mini-card.red .mini-card-label  { color: var(--accent-red); }
+  .mini-card.blue .mini-card-label { color: var(--accent-blue); }
+  .mini-card.green .mini-card-label { color: var(--accent-green); }
+  .mini-card.purple .mini-card-label { color: var(--accent-purple); }
+
+  .mini-card p { font-size: 13px; line-height: 1.5; }
+  .mini-card strong { font-weight: 600; }
+
+  /* ── TABLE ───────────────────────────────────────────── */
+  .strat-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 12.5px; margin: 16px 0;
+  }
+  .strat-table th {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 9px 14px;
+    text-align: left;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .strat-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .strat-table tr:nth-child(even) td { background: #faf7f0; }
+  .strat-table tr:last-child td { border-bottom: none; }
+  .strat-table .highlight-cell {
+    font-weight: 600; color: var(--accent-red);
+  }
+  .strat-table .ok-cell {
+    font-weight: 600; color: var(--accent-green);
+  }
+
+  /* ── DECISION TREE ────────────────────────────────────── */
+  .dtree {
+    background: var(--light-blue);
+    border: 1px solid #c5d3e8;
+    border-radius: 4px;
+    padding: 18px 20px;
+    margin: 14px 0;
+  }
+  .dtree-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-blue);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .dtree-step {
+    display: flex; gap: 12px; margin-bottom: 8px; align-items: flex-start;
+  }
+  .dtree-icon {
+    font-size: 11px;
+    font-family: 'DM Mono', monospace;
+    padding: 2px 6px;
+    border-radius: 2px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .dtree-icon.if   { background: var(--accent-blue); color: white; }
+  .dtree-icon.then { background: var(--accent-green); color: white; }
+  .dtree-icon.else { background: var(--accent-red); color: white; }
+  .dtree-icon.note { background: var(--accent-gold); color: var(--ink); }
+  .dtree-text { font-size: 13px; line-height: 1.5; }
+  .dtree-indent { margin-left: 28px; }
+
+  /* ── IRAC BOX ─────────────────────────────────────────── */
+  .irac {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 4px;
+    padding: 24px 28px;
+    margin: 16px 0;
+  }
+  .irac-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+    margin-bottom: 18px;
+  }
+  .irac-row { display: flex; gap: 12px; margin-bottom: 12px; align-items: flex-start; }
+  .irac-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 1px;
+    letter-spacing: 0.1em;
+  }
+  .irac-label.i { background: var(--accent-gold); color: var(--ink); }
+  .irac-label.r { background: var(--accent-teal); color: white; }
+  .irac-label.a { background: var(--accent-blue); color: white; }
+  .irac-label.c { background: var(--accent-red); color: white; }
+  .irac-text { font-size: 13px; line-height: 1.5; color: #ddd; }
+  .irac-text strong { color: white; }
+
+  /* ── CROSS SUBJECT ────────────────────────────────────── */
+  .cross-subject {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 14px 0;
+  }
+  .cs-pill {
+    padding: 10px 12px;
+    border-radius: 3px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+  .cs-pill-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+    display: block;
+  }
+  .cs-pill.fr   { background: #fff8e6; border: 1px solid #f0d080; }
+  .cs-pill.fr .cs-pill-label   { color: #9a6f00; }
+  .cs-pill.aud  { background: #e8f4fd; border: 1px solid #90c8f0; }
+  .cs-pill.aud .cs-pill-label  { color: #0a5a8a; }
+  .cs-pill.dt   { background: #fdf0f6; border: 1px solid #e8a0c8; }
+  .cs-pill.dt .cs-pill-label   { color: #8a1050; }
+  .cs-pill.idt  { background: #f0fdf4; border: 1px solid #80d0a0; }
+  .cs-pill.idt .cs-pill-label  { color: #1a5e30; }
+
+  /* ── NON-NEGOTIABLE ───────────────────────────────────── */
+  .non-neg {
+    background: #1a0a0a;
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin: 16px 0;
+  }
+  .non-neg-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--accent-red);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .non-neg-item {
+    display: flex; gap: 10px; margin-bottom: 8px; align-items: flex-start;
+  }
+  .non-neg-dot {
+    width: 6px; height: 6px;
+    background: var(--accent-red);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .non-neg-text { color: #e0d8d0; font-size: 13px; line-height: 1.5; }
+  .non-neg-text strong { color: white; }
+
+  /* ── FORMULA ──────────────────────────────────────────── */
+  .formula-box {
+    background: var(--light-gold);
+    border: 2px solid var(--accent-gold);
+    border-radius: 4px;
+    padding: 14px 18px;
+    margin: 12px 0;
+    text-align: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  /* ── QUICK REFERENCE ─────────────────────────────────── */
+  .qr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 14px 0; }
+  .qr-item {
+    text-align: center;
+    padding: 14px 10px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: white;
+  }
+  .qr-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent-teal);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .qr-label { font-size: 11px; color: var(--muted); }
+
+  /* ── STICKY NOTE ─────────────────────────────────────── */
+  .sticky {
+    background: #fffde0;
+    border: 1px solid #e8d800;
+    border-radius: 3px;
+    padding: 12px 16px;
+    margin: 12px 0;
+    font-size: 13px;
+    line-height: 1.5;
+    position: relative;
+  }
+  .sticky::before {
+    content: '⚠ EXAMINER ALERT';
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: #9a8500;
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  /* ── SEPARATOR ────────────────────────────────────────── */
+  hr.slim { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+
+  /* ── PILL LIST ────────────────────────────────────────── */
+  .pill-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; }
+  .pill {
+    font-size: 11.5px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid;
+    font-weight: 500;
+  }
+  .pill.teal { border-color: var(--accent-teal); color: var(--accent-teal); background: var(--light-teal); }
+  .pill.red  { border-color: var(--accent-red);  color: var(--accent-red);  background: var(--light-red);  }
+  .pill.gold { border-color: var(--accent-gold); color: #9a6f00; background: var(--light-gold); }
+  .pill.blue { border-color: var(--accent-blue); color: var(--accent-blue); background: var(--light-blue); }
+  .pill.ink  { border-color: var(--ink); color: var(--ink); background: white; }
+
+  /* ── EMPHASIS TEXT ───────────────────────────────────── */
+  .em-number { font-weight: 700; color: var(--accent-red); }
+  .em-law { font-family: 'DM Mono', monospace; font-size: 11px; background: #f0f0f0; padding: 1px 5px; border-radius: 2px; }
+
+  /* print tweak */
+  @media print {
+    .cover { background: #111; }
+    body { font-size: 12px; }
+  }
+
+  @media (max-width: 768px) {
+    .two-col, .three-col, .cross-subject, .qr-grid { grid-template-columns: 1fr; }
+    .cover { padding: 32px 24px; }
+    .cover-title { font-size: 28px; }
+    .container { padding: 0 16px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ COVER ═══════════════════ -->
+<div class="cover">
+  <div class="cover-eyebrow">CA Final IBS · Strategic Framework Series · Chapter 3</div>
+  <div class="cover-title">Meetings of Board<br>& Its Powers</div>
+  <div class="cover-sub">Companies Act, 2013 · Sections 173–193 · Strategic Note-Set for Integrated Business Solutions</div>
+  <div class="cover-tags">
+    <span class="tag">§173 Board Meetings</span>
+    <span class="tag">§174 Quorum</span>
+    <span class="tag">§175 Circular Res.</span>
+    <span class="tag">§177 Audit Committee</span>
+    <span class="tag">§178 NRC & SRC</span>
+    <span class="tag">§179–180 Powers</span>
+    <span class="tag">§184 Disclosure</span>
+    <span class="tag">§185–186 Loans</span>
+    <span class="tag">§188 RPT</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ════════ SECTION 0 : CHAPTER MAP ════════ -->
+  <div class="section-divider">
+    <span class="section-divider-label">Chapter Architecture</span>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="fw-card">
+    <div class="fw-card-header">
+      <div class="fw-number">00</div>
+      <div>
+        <div class="fw-title">The Six Compliance Frameworks in This Chapter</div>
+        <div class="fw-subtitle">How to navigate § 173–193 strategically</div>
+      </div>
+      <div class="fw-section-badge">§ 173–193</div>
+    </div>
+    <div class="fw-body">
+      <div class="three-col">
+        <div class="mini-card teal">
+          <div class="mini-card-label">Framework 1</div>
+          <p><strong>Board Meeting Conduct</strong><br>Frequency · Notice · Video Conf · Quorum · Adj.</p>
+        </div>
+        <div class="mini-card gold">
+          <div class="mini-card-label">Framework 2</div>
+          <p><strong>Committee Governance</strong><br>Audit Committee · NRC · SRC · Vigil Mechanism</p>
+        </div>
+        <div class="mini-card blue">
+          <div class="mini-card-label">Framework 3</div>
+          <p><strong>Board Powers & Restrictions</strong><br>§179 Powers · §180 Restrictions · Special Res.</p>
+        </div>
+        <div class="mini-card red">
+          <div class="mini-card-label">Framework 4</div>
+          <p><strong>Contribution Limits</strong><br>Charitable §181 · Political §182 · Defence §183</p>
+        </div>
+        <div class="mini-card green">
+          <div class="mini-card-label">Framework 5</div>
+          <p><strong>Director Conflict Management</strong><br>Disclosure §184 · Loans §185 · Investments §186</p>
+        </div>
+        <div class="mini-card purple">
+          <div class="mini-card-label">Framework 6</div>
+          <p><strong>Related Party Transactions</strong><br>§188 RPT · §189 Register · §191–193 Misc.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ FRAMEWORK 1 ════════ -->
+  <div class="section-divider">
+    <span class="section-divider-label">Framework 1</span>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="fw-card">
+    <div class="fw-card-header">
+      <div class="fw-number">01</div>
+      <div>
+        <div class="fw-title">The Board Meeting Conduct Framework</div>
+        <div class="fw-subtitle">Frequency → Notice → Participation → Quorum → Adjournment</div>
+      </div>
+      <div class="fw-section-badge">§ 173–174</div>
+    </div>
+    <div class="fw-body">
+
+      <!-- Quick Ref Numbers -->
+      <div class="qr-grid">
+        <div class="qr-item">
+          <div class="qr-number">30</div>
+          <div class="qr-label">Days — First Board Meeting from Incorporation</div>
+        </div>
+        <div class="qr-item">
+          <div class="qr-number">4</div>
+          <div class="qr-label">Minimum Board Meetings per Calendar Year</div>
+        </div>
+        <div class="qr-item">
+          <div class="qr-number">120</div>
+          <div class="qr-label">Days — Max gap between consecutive meetings</div>
+        </div>
+        <div class="qr-item">
+          <div class="qr-number">7</div>
+          <div class="qr-label">Days — Minimum Notice Period (written)</div>
+        </div>
+        <div class="qr-item">
+          <div class="qr-number">1/3</div>
+          <div class="qr-label">of Total Strength OR 2 directors — Quorum (higher)</div>
+        </div>
+        <div class="qr-item">
+          <div class="qr-number">₹25,000</div>
+          <div class="qr-label">Penalty per officer for failure to give notice</div>
+        </div>
+      </div>
+
+      <hr class="slim">
+
+      <!-- Decision Tree: Which rule applies? -->
+      <div class="dtree">
+        <div class="dtree-title">🌿 Decision Tree — Which Frequency Rule Applies?</div>
+        <div class="dtree-step">
+          <span class="dtree-icon if">IF</span>
+          <div class="dtree-text">Company is a <strong>Listed Public Company / Regular Public or Private Company</strong></div>
+        </div>
+        <div class="dtree-step dtree-indent">
+          <span class="dtree-icon then">THEN</span>
+          <div class="dtree-text">≥ <strong>4 meetings/year</strong>, gap ≤ 120 days, first meeting within 30 days</div>
+        </div>
+        <div class="dtree-step">
+          <span class="dtree-icon if">IF</span>
+          <div class="dtree-text">Company is <strong>OPC / Small / Dormant / Startup Private Co.</strong></div>
+        </div>
+        <div class="dtree-step dtree-indent">
+          <span class="dtree-icon then">THEN</span>
+          <div class="dtree-text"><strong>1 meeting per half-year</strong>, gap ≥ 90 days [§173(5)]</div>
+        </div>
+        <div class="dtree-step">
+          <span class="dtree-icon if">IF</span>
+          <div class="dtree-text">OPC has <strong>only 1 director</strong></div>
+        </div>
+        <div class="dtree-step dtree-indent">
+          <span class="dtree-icon then">THEN</span>
+          <div class="dtree-text"><strong>ZERO meetings required</strong> — Fully exempt from §173 & §174</div>
+        </div>
+        <div class="dtree-step">
+          <span class="dtree-icon if">IF</span>
+          <div class="dtree-text">Company is a <strong>Section 8 Company</strong></div>
+        </div>
+        <div class="dtree-step dtree-indent">
+          <span class="dtree-icon then">THEN</span>
+          <div class="dtree-text"><strong>1 meeting per 6 calendar months</strong> (not per half-year)</div>
+        </div>
+      </div>
+
+      <hr class="slim">
+
+      <!-- Quorum Table -->
+      <table class="strat-table">
+        <thead>
+          <tr>
+            <th>Context</th>
+            <th>Trigger / Situation</th>
+            <th>Legal Requirement</th>
+            <th>Strategic Impact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Normal Board</strong></td>
+            <td>Any Board Meeting</td>
+            <td>Higher of: <span class="em-number">1/3 of total strength</span> or <span class="em-number">2 directors</span> (fractions rounded up)</td>
+            <td>Fractions always round UP — e.g., 7 directors → 1/3 = 2.33 → quorum = 3</td>
+          </tr>
+          <tr>
+            <td><strong>Interested Directors Majority</strong></td>
+            <td>Interested directors ≥ 2/3 of total strength</td>
+            <td>Quorum = <span class="em-number">Non-interested directors present</span>, minimum 2</td>
+            <td>Even 2 non-interested directors can transact that specific item</td>
+          </tr>
+          <tr>
+            <td><strong>Video Conferencing</strong></td>
+            <td>Director joins electronically</td>
+            <td>Counted for quorum <em>unless</em> excluded for specific item under Act/Rules</td>
+            <td>Scheduled venue = deemed venue; all recordings = deemed made there</td>
+          </tr>
+          <tr>
+            <td><strong>Vacancy Reduces Below Quorum</strong></td>
+            <td>Remaining directors < quorum</td>
+            <td>Can ONLY: (a) appoint additional director, OR (b) summon general meeting</td>
+            <td><span class="highlight-cell">Cannot transact any other business</span></td>
+          </tr>
+          <tr>
+            <td><strong>Quorum Absent at Meeting</strong></td>
+            <td>Meeting called but quorum not present</td>
+            <td>Auto-adjourned to <strong>same day + 1 week</strong>, same time & place (unless Articles differ)</td>
+            <td>If that day is national holiday → next non-national-holiday. Sunday ✓ permitted.</td>
+          </tr>
+          <tr>
+            <td><strong>Section 8 Company</strong></td>
+            <td>Board Meeting quorum</td>
+            <td><span class="em-number">8 members OR 25% of total strength</span>, whichever is LESS; minimum 2</td>
+            <td>Opposite logic (lesser) compared to normal companies</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr class="slim">
+
+      <!-- Video Conferencing Checklist -->
+      <div class="two-col">
+        <div class="mini-card blue">
+          <div class="mini-card-label">Video Conferencing — Roll Call Obligations</div>
+          <p>At start, each VC director must state: <strong>(a) Name</strong>, <strong>(b) Location</strong>, <strong>(c) Received agenda</strong>, <strong>(d) No unauthorized person present at their location.</strong> Draft minutes circulated within <strong>15 days</strong>; director confirmation within <strong>7 days</strong>.</p>
+        </div>
+        <div class="mini-card red">
+          <div class="mini-card-label">Shorter Notice (< 7 Days)</div>
+          <p>Permitted for <strong>urgent business</strong> only.<br><strong>Condition:</strong> At least 1 independent director must be present.<br><strong>If absent:</strong> Decisions valid only after ratification by at least 1 independent director post-meeting.</p>
+        </div>
+      </div>
+
+      <!-- Cross Subject Links -->
+      <div class="section-divider" style="margin-top:18px; margin-bottom:10px;">
+        <span class="section-divider-label">Cross-Subject Links</span>
+        <div class="section-divider-line"></div>
+      </div>
+      <div class="cross-subject">
+        <div class="cs-pill fr">
+          <span class="cs-pill-label">FR</span>
+          Inadequate notice → Board resolution voidable → impacts <strong>contingent liability disclosure</strong> (IND AS 37)
+        </div>
+        <div class="cs-pill aud">
+          <span class="cs-pill-label">AUDIT</span>
+          Auditor checks <strong>minute book</strong> (SA 580) — missing quorum = reportable under <strong>CARO 2020</strong>
+        </div>
+        <div class="cs-pill dt">
+          <span class="cs-pill-label">DT</span>
+          Video conferencing location matters for <strong>Place of Effective Management (POEM)</strong> — board decisions made abroad can shift residency
+        </div>
+        <div class="cs-pill idt">
+          <span class="cs-pill-label">IDT</span>
+          No direct GST link — but board approvals for <strong>cross-border services</strong> trigger place of supply rules
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════ FRAMEWORK 2 ════════ -->
+  <div class="section-divider">
+    <span class="section-divider-label">Framework 2</span>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="fw-card">
+    <div class="fw-card-header">
+      <div class="fw-number">02</div>
+      <div>
+        <div class="fw-title">The Committee Governance Framework</div>
+        <div class="fw-subtitle">Audit Committee · NRC · SRC · Vigil Mechanism</div>
+      </div>
+      <div class="fw-section-badge">§ 177–178</div>
+    </div>
+    <div class="fw-body">
+
+      <table class="strat-table">
+        <thead>
+          <tr>
+            <th>Committee</th>
+            <th>Mandatory For</th>
+            <th>Composition</th>
+            <th>Key Function</th>
+            <th>Penalty (Co. / Officer)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Audit Committee</strong> §177</td>
+            <td>Listed Co. + Paid-up ≥ ₹10Cr + Turnover ≥ ₹100Cr + O/S Loans ≥ ₹50Cr (any one)</td>
+            <td>Min. <strong>3 directors</strong>; Independent directors = <strong>majority</strong>; Majority (incl. Chair) must read financial statements</td>
+            <td>Auditor appointment · RPT approval · Financial review · Vigil oversight · Omnibus approval</td>
+            <td><span class="highlight-cell">₹5 Lakh / ₹1 Lakh</span></td>
+          </tr>
+          <tr>
+            <td><strong>NRC</strong> §178(1-4)</td>
+            <td>Same trigger as Audit Committee (via Rule 4)</td>
+            <td>Min. <strong>3 non-executive directors</strong>; ≥ 1/2 independent; <strong>Chairman of Co. cannot chair NRC</strong> (can be member)</td>
+            <td>Qualification criteria · Remuneration policy · Director appointment recommendation · Performance evaluation</td>
+            <td><span class="highlight-cell">₹5 Lakh / ₹1 Lakh</span></td>
+          </tr>
+          <tr>
+            <td><strong>SRC</strong> §178(5-6)</td>
+            <td>Company with <strong>> 1000 security holders</strong> at any time in FY</td>
+            <td>Non-executive director as <strong>Chairperson</strong>; other members as decided by Board</td>
+            <td>Resolve grievances of security holders (all — not just equity)</td>
+            <td>Good faith failure = <strong>NOT a contravention</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Vigil Mechanism</strong> §177(9)</td>
+            <td>Listed Co. + Deposits accepted + Borrowings > ₹50Cr from banks/PFIs</td>
+            <td>Through Audit Committee (if exists); else nominated director</td>
+            <td>Report genuine concerns; protection from victimisation; direct access to AC Chair in exceptional cases</td>
+            <td>Repeated frivolous complaints → reprimand</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="sticky">
+        <strong>Ceasing Obligation:</strong> A company that was required to constitute AC/NRC is <strong>no longer required</strong> after it fails to meet ANY of the 3 triggers for <strong>3 consecutive years</strong>. The obligation revives the moment any trigger is met again.
+      </div>
+
+      <div class="two-col">
+        <div class="mini-card gold">
+          <div class="mini-card-label">Omnibus Approval (RPT) — Key Conditions</div>
+          <p>Valid for <strong>1 financial year only</strong>. Cannot be for <strong>selling/disposing of undertaking</strong>. Unforeseen RPT: omnibus OK if value ≤ <strong>₹1 crore/transaction</strong>. Fresh approval needed each year.</p>
+        </div>
+        <div class="mini-card red">
+          <div class="mini-card-label">Board's Report Obligation</div>
+          <p>Must disclose: (1) <strong>Composition of AC</strong>, (2) If Board <strong>did not accept</strong> AC recommendation → disclose recommendation + <strong>reasons for rejection</strong>. [§177(8)]</p>
+        </div>
+      </div>
+
+      <div class="cross-subject">
+        <div class="cs-pill fr">
+          <span class="cs-pill-label">FR</span>
+          AC approves RPTs → IND AS 24 <strong>Related Party Disclosures</strong> mandatory in financial statements
+        </div>
+        <div class="cs-pill aud">
+          <span class="cs-pill-label">AUDIT</span>
+          Auditor has <strong>right to be heard</strong> before AC (no voting right). Auditor independence reviewed by AC per <strong>SA 260</strong>
+        </div>
+        <div class="cs-pill dt">
+          <span class="cs-pill-label">DT</span>
+          NRC remuneration policy impacts <strong>salary vs perquisite</strong> classification under §17 of Income Tax Act
+        </div>
+        <div class="cs-pill idt">
+          <span class="cs-pill-label">IDT</span>
+          Services to related parties must be at <strong>open market value</strong> for GST (Rule 28) — AC omnibus approval doesn't override GST valuation
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════ FRAMEWORK 3 ════════ -->
+  <div class="section-divider">
+    <span class="section-divider-label">Framework 3</span>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="fw-card">
+    <div class="fw-card-header">
+      <div class="fw-number">03</div>
+      <div>
+        <div class="fw-title">The Board Powers & Restrictions Framework</div>
+        <div class="fw-subtitle">Powers at meeting · Delegation · Special Resolution thresholds · Borrowing limits</div>
+      </div>
+      <div class="fw-section-badge">§ 179–180</div>
+    </div>
+    <div class="fw-body">
+
+      <div class="two-col">
+        <div>
+          <div class="mini-card-label" style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent-blue); margin-bottom:10px;">§179(3) — Must pass at BOARD MEETING (Not by Circulation)</div>
+          <div class="pill-list">
+            <span class="pill blue">Make calls on shares</span>
+            <span class="pill blue">Authorise buyback</span>
+            <span class="pill blue">Issue securities</span>
+            <span class="pill blue">Borrow monies (d)</span>
+            <span class="pill blue">Invest funds (e)</span>
+            <span class="pill blue">Grant loans/guarantees (f)</span>
+            <span class="pill blue">Approve financials & Board Report</span>
+            <span class="pill blue">Diversify business</span>
+            <span class="pill blue">Approve M&A / Reconstruction</span>
+            <span class="pill blue">Take over / acquire stake</span>
+            <span class="pill blue">Political contributions</span>
+            <span class="pill blue">Appoint/remove KMP</span>
+            <span class="pill blue">Appoint internal/secretarial auditor</span>
+          </div>
+          <div class="sticky" style="margin-top:10px;">
+            <strong>Exception (Sec 8 Co.):</strong> Items (d), (e), (f) may be passed by <strong>circulation</strong> — not mandatory at meeting.
+          </div>
+        </div>
+        <div>
+          <div class="mini-card-label" style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent-green); margin-bottom:10px;">Delegation Permitted — clauses (d) to (f) only</div>
+          <div class="mini-card green">
+            <div class="mini-card-label">Who Can Receive Delegation?</div>
+            <p>
+              (1) Any <strong>committee of directors</strong><br>
+              (2) <strong>Managing Director</strong><br>
+              (3) <strong>Manager / any principal officer</strong><br>
+              (4) <strong>Principal officer of branch office</strong>
+            </p>
+          </div>
+          <div class="mini-card red" style="margin-top:10px;">
+            <div class="mini-card-label">Cannot be Delegated</div>
+            <p>Items (a)–(c) and (g)–(j) of §179(3) — buyback, calls, issue of securities, financials approval, M&A, diversification, takeover — <strong>always at Board meeting only.</strong></p>
+          </div>
+          <div class="mini-card red" style="margin-top:10px;">
+            <div class="mini-card-label">§186(5) — Unanimous Resolution Required</div>
+            <p>Investments / Loans / Guarantees / Securities under §186 must be passed with <strong>consent of ALL directors present</strong> (not just majority) + prior PFI approval if term loan subsists.</p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="slim">
+
+      <!-- Section 180 Borrowing Framework -->
+      <div class="mini-card-label" style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--accent-red); margin: 14px 0 8px;">§180 — Restriction on Borrowing Powers (Special Resolution Required)</div>
+
+      <div class="formula-box">
+        Board's Borrowing Limit (without Special Res.) =<br>
+        <strong>Paid-up Share Capital + Free Reserves + Securities Premium</strong><br>
+        <span style="font-size:11px; color:var(--muted);">(Exclude: Temporary loans from bankers in ordinary course of business)</span>
+      </div>
+
+      <div class="dtree">
+        <div class="dtree-title">🔀 Decision Tree — Does the borrowing need Shareholder Approval?</div>
+        <div class="dtree-step">
+          <span class="dtree-icon if">IF</span>
+          <div class="dtree-text">Total borrowings (existing + proposed) ≤ Paid-up Capital + Free Reserves + Sec. Premium</div>
+        </div>
+        <div class="dtree-step dtree-indent">
+          <span class="dtree-icon then">THEN</span>
+          <div class="dtree-text"><strong>Board resolution</strong> at duly convened meeting suffices. No shareholder approval needed.</div>
+        </div>
+        <div class="dtree-step">
+          <span class="dtree-icon else">ELSE</span>
+          <div class="dtree-text">Total borrowings exceed the limit</div>
+        </div>
+        <div class="dtree-step dtree-indent">
+          <span class="dtree-icon then">THEN</span>
+          <div class="dtree-text"><strong>Special Resolution required</strong> in general meeting specifying the <em>total amount</em> Board may borrow.</div>
+        </div>
+        <div class="dtree-step">
+          <span class="dtree-icon note">NOTE</span>
+          <div class="dtree-text">Lender who lends beyond the limit is NOT protected <em>unless</em> they prove <strong>good faith + no knowledge</strong> of limit breach. [§180(5)]</div>
+        </div>
+        <div class="dtree-step">
+          <span class="dtree-icon note">NOTE</span>
+          <div class="dtree-text"><strong>"Temporary Loans"</strong> = repayable on demand or within <strong>6 months</strong>; includes cash credit, bill discounting. <em>Excludes</em> capital expenditure loans.</div>
+        </div>
+        <div class="dtree-step">
+          <span class="dtree-icon note">NOTE</span>
+          <div class="dtree-text"><strong>§180 does NOT apply to Private Companies</strong> (notification exemption, subject to no default in filing).</div>
+        </div>
+      </div>
+
+      <table class="strat-table">
+        <thead>
+          <tr><th>§180(1) Action</th><th>Approval Needed</th><th>Key Exception</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sell/Lease/Dispose whole or substantial undertaking</td>
+            <td><span class="highlight-cell">Special Resolution</span></td>
+            <td>Bona fide buyer in good faith = clean title even without SR [§180(3)(a)]; selling/leasing = ordinary business → no SR needed [§180(3)(b)]</td>
+          </tr>
+          <tr>
+            <td>Invest compensation from merger in trust securities</td>
+            <td><span class="ok-cell">No approval</span></td>
+            <td>Trust securities investment = exempt</td>
+          </tr>
+          <tr>
+            <td>Borrowings beyond Paid-up + Free Reserves + Sec. Premium</td>
+            <td><span class="highlight-cell">Special Resolution</span> (specify total amount)</td>
+            <td>Temporary loans excluded from calculation</td>
+          </tr>
+          <tr>
+            <td>Remit or extend time for repayment of debt due from a Director</td>
+            <td><span class="highlight-cell">Special Resolution</span></td>
+            <td>No exceptions</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="cross-subject">
+        <div class="cs-pill fr">
+          <span class="cs-pill-label">FR</span>
+          Borrowings beyond limit without SR = <strong>potential void transaction</strong> → evaluate as <strong>contingent liability</strong> (IND AS 37); disclosure in notes required
+        </div>
+        <div class="cs-pill aud">
+          <span class="cs-pill-label">AUDIT</span>
+          Verify SR passed before excess borrowings — <strong>CARO 2020 Clause 3(vi)</strong> specifically asks whether term loans applied for stated purpose
+        </div>
+        <div class="cs-pill dt">
+          <span class="cs-pill-label">DT</span>
+          <strong>Interest on excess borrowing</strong> — deductibility under §36(1)(iii) IT Act may be challenged if loan is ultra-vires
+        </div>
+        <div class="cs-pill idt">
+          <span class="cs-pill-label">IDT</span>
+          Sale of undertaking as <strong>slump sale → GST implications</strong>: transfer of business as going concern may be exempt under Entry 2 of Schedule II / exemption notification
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════ FRAMEWORK 4 ════════ -->
+  <div class="section-divider">
+    <span class="section-divider-label">Framework 4</span>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="fw-card">
+    <div class="fw-card-header">
+      <div class="fw-number">04</div>
+      <div>
+        <div class="fw-title">The Contribution Limits Framework</div>
+        <div class="fw-subtitle">Charitable § 181 · Political § 182 · National Defence § 183</div>
+      </div>
+      <div class="fw-section-badge">§ 181–183</div>
+    </div>
+    <div class="fw-body">
+
+      <table class="strat-table">
+        <thead>
+          <tr>
+            <th>Context</th>
+            <th>Trigger Point</th>
+            <th>Board's Limit (No Approval)</th>
+            <th>Approval for Excess</th>
+            <th>Strategic Impact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Charitable / Bona Fide Funds</strong> §181</td>
+            <td>Any financial year — applies to all companies (public + private)</td>
+            <td><span class="em-number">5% of average net profits</span> of <strong>3 immediately preceding FYs</strong></td>
+            <td>Prior approval — <strong>Ordinary Resolution</strong> in GM</td>
+            <td>Loss-making company CAN donate if 3-year average is positive. No current-year profit required.</td>
+          </tr>
+          <tr>
+            <td><strong>Political Party</strong> §182</td>
+            <td>Company exists ≥ 3 financial years + not a Govt. company</td>
+            <td><strong>No monetary limit</strong> — but Board resolution mandatory</td>
+            <td>Not applicable (no monetary limit)</td>
+            <td>Modes: Account payee cheque/draft / ECS / Electoral Bond. Disclose in P&L. Penalty = <span class="highlight-cell">5× contribution</span> (Co.) + 6 months imprisonment (officer)</td>
+          </tr>
+          <tr>
+            <td><strong>National Defence Fund</strong> §183</td>
+            <td>Any time — applies to all companies</td>
+            <td><strong>No limit whatsoever</strong></td>
+            <td>Not required — §183 overrides §180, §181, §182</td>
+            <td>Can be decided by Board or person/authority exercising Board powers or GM powers. Disclose in P&L.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="sticky">
+        <strong>Tricky Exam Point §182:</strong> "Deemed political contributions" include: (a) donations to any person <em>likely to affect</em> public support for a political party, AND (b) advertisements in souvenirs/brochures of/for a political party. Company incorporated in April 2020 <strong>cannot donate</strong> to political parties in FY 2021-22 (only 2 complete FYs exist — needs 3).
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════ FRAMEWORK 5 ════════ -->
+  <div class="section-divider">
+    <span class="section-divider-label">Framework 5</span>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="fw-card">
+    <div class="fw-card-header">
+      <div class="fw-number">05</div>
+      <div>
+        <div class="fw-title">The Director Conflict Management Framework</div>
+        <div class="fw-subtitle">Disclosure § 184 · Loans to Directors § 185 · Loans & Investment by Company § 186</div>
+      </div>
+      <div class="fw-section-badge">§ 184–187</div>
+    </div>
+    <div class="fw-body">
+
+      <!-- 184 -->
+      <div class="mini-card-label" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent-blue);margin-bottom:8px;">§184 — Director Disclosure of Interest</div>
+
+      <div class="two-col">
+        <div class="mini-card blue">
+          <div class="mini-card-label">General Disclosure (MBP-1 Form)</div>
+          <p><strong>When:</strong> (1) First meeting as director, (2) First meeting of each FY, (3) First meeting after any change.<br><strong>Content:</strong> All companies/bodies/firms in which interested, including shareholding.<br><strong>Preserved:</strong> 8 years at registered office (custody: CS or authorised person).</p>
+        </div>
+        <div class="mini-card teal">
+          <div class="mini-card-label">Specific Disclosure §184(2)</div>
+          <p><strong>When:</strong> Any contract/arrangement discussed at Board for the first time.<br><strong>Effect:</strong> Director must <strong>not participate or vote</strong> on that item.<br><strong>Exception Private Co.:</strong> Interested director <em>may</em> participate <strong>after</strong> disclosure.<br><strong>Penalty for non-disclosure:</strong> <span class="highlight-cell">₹1 Lakh</span>. Contract = voidable at company's option.</p>
+        </div>
+      </div>
+
+      <div class="mini-card gold" style="margin-top:10px;">
+        <div class="mini-card-label">Exemption from Disclosure [§184(5)(b)]</div>
+        <p>No disclosure needed if director (or director + any other director together) holds <strong>≤ 2% of paid-up share capital</strong> of the counterpart company. (e.g., if director holds 1% → no disclosure needed; if holds 3% → must disclose)</p>
+      </div>
+
+      <hr class="slim">
+
+      <!-- 185 -->
+      <div class="mini-card-label" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent-red);margin-top:14px;margin-bottom:8px;">§185 — Loan to Directors (Restrictions)</div>
+
+      <div class="dtree">
+        <div class="dtree-title">🔀 Decision Tree — Is This Loan/Guarantee to Director Permitted?</div>
+        <div class="dtree-step">
+          <span class="dtree-icon if">IF</span>
+          <div class="dtree-text">Loan/Guarantee to: Director / Director of holding Co. / Relative of director / Firm where director/relative is partner</div>
+        </div>
+        <div class="dtree-step dtree-indent">
+          <span class="dtree-icon then">THEN</span>
+          <div class="dtree-text"><strong>PROHIBITED</strong> — §185(1) applies</div>
+        </div>
+        <div class="dtree-step">
+          <span class="dtree-icon if">IF</span>
+          <div class="dtree-text">Loan to a <strong>person in whom director is interested</strong> (private co. where director is director/member; body corporate with ≥ 25% voting power controlled by director)</div>
+        </div>
+        <div class="dtree-step dtree-indent">
+          <span class="dtree-icon then">THEN</span>
+          <div class="dtree-text">Permitted only with: <strong>(a) Special Resolution</strong> + full disclosure + <strong>(b) Loan used for principal business activities</strong></div>
+        </div>
+        <div class="dtree-step">
+          <span class="dtree-icon note">EXEMPT</span>
+          <div class="dtree-text">Not applicable to: (1) MD/WTD loan as service condition or SR-approved scheme, (2) Ordinary business lending at prevailing government security yield rate, (3) Holding → WOS / WOS guarantee, (4) Guarantee by holding for bank loan to subsidiary, (5) Nidhis (with conditions), (6) Private companies meeting 3 conditions, (7) Govt companies with ministry approval</div>
+        </div>
+      </div>
+
+      <div class="mini-card red">
+        <div class="mini-card-label">§185 Penalty (Contravention)</div>
+        <p>Company: <span class="highlight-cell">₹5L–₹25L</span> · Officer: Imprisonment ≤ 6 months OR ₹5L–₹25L · Recipient Director: Imprisonment ≤ 6 months OR ₹5L–₹25L (or both)</p>
+      </div>
+
+      <hr class="slim">
+
+      <!-- 186 -->
+      <div class="mini-card-label" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent-green);margin-top:14px;margin-bottom:8px;">§186 — Loan & Investment by Company</div>
+
+      <div class="formula-box">
+        §186(2) LIMIT for Loans + Guarantees + Securities + Investments (aggregate) =<br>
+        <strong>MAX OF: 60% of (Paid-up Capital + Free Reserves + Sec. Premium)</strong><br>
+        <strong>OR: 100% of (Free Reserves + Sec. Premium)</strong><br>
+        <span style="font-size:11px;color:var(--muted);">Exceeding this limit → Special Resolution required [§186(3)]</span>
+      </div>
+
+      <table class="strat-table">
+        <thead>
+          <tr><th>Context</th><th>Trigger</th><th>Requirement</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Investment layers</td>
+            <td>Investment through more than 2 investment companies</td>
+            <td><span class="highlight-cell">Prohibited</span> — max 2 layers</td>
+            <td>Exception: Foreign acquisition where foreign law allows more layers; subsidiary having investment subsidiary for regulatory compliance</td>
+          </tr>
+          <tr>
+            <td>Limit exceeded</td>
+            <td>Aggregate exceeds 60%/100% threshold</td>
+            <td><strong>Special Resolution</strong>; specify total authorized amount</td>
+            <td>WOS / JV / Holding → WOS acquisition: exempt from SR (disclose in financials instead)</td>
+          </tr>
+          <tr>
+            <td>Board resolution for investment</td>
+            <td>Any investment/loan/guarantee under §186</td>
+            <td><strong>Unanimous consent</strong> of all directors present [§186(5)]</td>
+            <td>+ Prior PFI approval if term loan subsists, unless within limit and no default</td>
+          </tr>
+          <tr>
+            <td>Rate of interest on loans</td>
+            <td>Any loan given under §186</td>
+            <td>Not lower than prevailing yield of <strong>1Y/3Y/5Y/10Y Govt. Security</strong> closest to tenor</td>
+            <td>Tax-free bonds: if effective yield > G-Sec yield → no violation [MCA circular]</td>
+          </tr>
+          <tr>
+            <td>Default on deposits</td>
+            <td>Company in default on deposit repayment/interest</td>
+            <td><span class="highlight-cell">Cannot give any loan/guarantee/security/acquisition</span> till default subsists</td>
+            <td>Register in Form MBP-2, entries within 7 days</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="cross-subject">
+        <div class="cs-pill fr">
+          <span class="cs-pill-label">FR</span>
+          §186 loans to subsidiaries → <strong>intragroup eliminations</strong> on consolidation (IND AS 110). Disclosure of loans/guarantees mandatory in standalone financials notes.
+        </div>
+        <div class="cs-pill aud">
+          <span class="cs-pill-label">AUDIT</span>
+          <strong>CARO 2020 Clause 3(iv)</strong>: Report whether §185 & §186 complied with for loans, investments, guarantees. Also check register in MBP-2.
+        </div>
+        <div class="cs-pill dt">
+          <span class="cs-pill-label">DT</span>
+          Interest-free / below-market loans to subsidiaries → <strong>Transfer Pricing</strong> (if international transaction). Deemed dividend risk if loan to shareholder.
+        </div>
+        <div class="cs-pill idt">
+          <span class="cs-pill-label">IDT</span>
+          Guarantee provided = <strong>supply of service under GST</strong> (financial service). Intragroup guarantee may need GST invoicing at arm's length.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════ FRAMEWORK 6 ════════ -->
+  <div class="section-divider">
+    <span class="section-divider-label">Framework 6</span>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="fw-card">
+    <div class="fw-card-header">
+      <div class="fw-number">06</div>
+      <div>
+        <div class="fw-title">The Related Party Transaction Framework</div>
+        <div class="fw-subtitle">§188 RPT Approvals · §189 Register · §191 Loss of Office Compensation</div>
+      </div>
+      <div class="fw-section-badge">§ 188–193</div>
+    </div>
+    <div class="fw-body">
+
+      <!-- Who is a related party -->
+      <div class="mini-card gold" style="margin-bottom:14px;">
+        <div class="mini-card-label">Who Is a "Related Party"? §2(76) — Key Persons</div>
+        <p>Director or relative · KMP or relative · Firm where director/manager/relative is partner · Private co. where director/manager/relative is member or director · Public co. where director is director + holds >2% with relatives · Body corporate accustomed to act on Board/director instructions · Holding/Subsidiary/Associate/Investing co. · Director of holding company or his relative (as "other prescribed person")</p>
+      </div>
+
+      <!-- Decision Tree for RPT -->
+      <div class="dtree">
+        <div class="dtree-title">🔀 Decision Tree — What Approval Does This RPT Need?</div>
+        <div class="dtree-step">
+          <span class="dtree-icon if">STEP 1</span>
+          <div class="dtree-text">Is the transaction in <strong>ordinary course of business</strong> at <strong>arm's length</strong>?</div>
+        </div>
+        <div class="dtree-step dtree-indent">
+          <span class="dtree-icon then">YES</span>
+          <div class="dtree-text"><strong>No approval needed</strong> under §188(1). Disclose in Board's Report.</div>
+        </div>
+        <div class="dtree-step dtree-indent">
+          <span class="dtree-icon else">NO</span>
+          <div class="dtree-text">Proceed to Step 2</div>
+        </div>
+        <div class="dtree-step">
+          <span class="dtree-icon if">STEP 2</span>
+          <div class="dtree-text">Does the transaction <strong>exceed prescribed thresholds</strong> (see table below)?</div>
+        </div>
+        <div class="dtree-step dtree-indent">
+          <span class="dtree-icon then">YES</span>
+          <div class="dtree-text"><strong>Ordinary Resolution</strong> in general meeting required. Related member <strong>cannot vote</strong> (except: co. with ≥90% members = relatives/related parties).</div>
+        </div>
+        <div class="dtree-step dtree-indent">
+          <span class="dtree-icon else">NO</span>
+          <div class="dtree-text"><strong>Board Consent only</strong> (resolution at meeting; agenda must disclose 7 prescribed details; interested director cannot be present during discussion).</div>
+        </div>
+        <div class="dtree-step">
+          <span class="dtree-icon note">EXEMPT</span>
+          <div class="dtree-text"><strong>Holding → WOS</strong> transactions: No need for ordinary resolution (if accounts consolidated and placed at AGM). Holding co. resolution = sufficient for WOS.</div>
+        </div>
+      </div>
+
+      <table class="strat-table">
+        <thead>
+          <tr>
+            <th>RPT Type [§188(1)]</th>
+            <th>Threshold for Ordinary Resolution</th>
+            <th>Basis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sale/Purchase/Supply of goods or materials (a) + Agent for goods (e)</td>
+            <td><span class="em-number">10% or more of Turnover</span></td>
+            <td>Individually or cumulative in FY</td>
+          </tr>
+          <tr>
+            <td>Selling/Buying/Disposing of Property (b) + Agent for property (e)</td>
+            <td><span class="em-number">10% or more of Net Worth</span></td>
+            <td>Individually or cumulative in FY</td>
+          </tr>
+          <tr>
+            <td>Leasing of property (c)</td>
+            <td><span class="em-number">10% or more of Turnover</span></td>
+            <td>Individually or cumulative in FY</td>
+          </tr>
+          <tr>
+            <td>Availing/Rendering services (d) + Agent for services (e)</td>
+            <td><span class="em-number">10% or more of Turnover</span></td>
+            <td>Individually or cumulative in FY</td>
+          </tr>
+          <tr>
+            <td>Appointment to office/place of profit (f)</td>
+            <td><span class="em-number">Monthly remuneration > ₹2.5 Lakh</span></td>
+            <td>Per appointment</td>
+          </tr>
+          <tr>
+            <td>Underwriting subscription of securities/derivatives (g)</td>
+            <td><span class="em-number">> 1% of Net Worth</span></td>
+            <td>Per transaction</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="sticky">
+        <strong>§188 Voidable + Ratification:</strong> RPT entered without consent/approval → voidable at Board/shareholders' option IF not ratified within <strong>3 months</strong> from date of transaction. If director authorised it → director must <strong>indemnify</strong> company for any loss.
+      </div>
+
+      <div class="two-col">
+        <div class="mini-card red">
+          <div class="mini-card-label">§188 Penalties</div>
+          <p><strong>Listed Company:</strong> Director/Employee in violation → <span class="highlight-cell">₹25 Lakh</span><br><strong>Any other Company:</strong> → <span class="highlight-cell">₹5 Lakh</span><br><strong>Note:</strong> Compromises/Amalgamations under specific provisions = NOT covered by §188.</p>
+        </div>
+        <div class="mini-card teal">
+          <div class="mini-card-label">§189 Register of Contracts (MBP-4)</div>
+          <p>Mandatory for ALL companies. Sign at next Board meeting. Open to members at AGM (proxy also). <strong>Exceptions from entry:</strong> (a) Sale/supply/service contracts ≤ <strong>₹5 Lakh/year</strong>, (b) Banking company bill collection in ordinary course.</p>
+        </div>
+      </div>
+
+      <div class="cross-subject">
+        <div class="cs-pill fr">
+          <span class="cs-pill-label">FR</span>
+          All RPTs must be disclosed per <strong>IND AS 24</strong> regardless of §188 compliance. AC approval ≠ exemption from FR disclosure.
+        </div>
+        <div class="cs-pill aud">
+          <span class="cs-pill-label">AUDIT</span>
+          <strong>SA 550 Related Parties</strong> — auditor must evaluate completeness of RPT identification. <strong>CARO 2020 Cl. 3(xiii)</strong>: Report transactions with related parties not in compliance with §177 & §188.
+        </div>
+        <div class="cs-pill dt">
+          <span class="cs-pill-label">DT</span>
+          RPTs at non-arm's length → <strong>Transfer Pricing</strong> adjustments under §92-§92F IT Act (international); <strong>domestic TP</strong> u/s 40A(2) for specified domestic transactions
+        </div>
+        <div class="cs-pill idt">
+          <span class="cs-pill-label">IDT</span>
+          RPT supply between related persons → GST value = <strong>open market value</strong> (Rule 28 CGST Rules). Leasing of property to related party always taxable even if zero consideration.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════ CIRCULAR RESOLUTION ════════ -->
+  <div class="section-divider">
+    <span class="section-divider-label">Supplementary — §175</span>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="fw-card">
+    <div class="fw-card-header">
+      <div class="fw-number">CR</div>
+      <div>
+        <div class="fw-title">Resolution by Circulation Framework</div>
+        <div class="fw-subtitle">When can the Board bypass a formal meeting?</div>
+      </div>
+      <div class="fw-section-badge">§ 175</div>
+    </div>
+    <div class="fw-body">
+      <div class="three-col">
+        <div class="mini-card green">
+          <div class="mini-card-label">Valid Circular Resolution — Conditions</div>
+          <p>(1) Draft circulated to <strong>all directors</strong> (not just majority) at registered Indian address (2) By hand/post/courier/<strong>email/fax</strong> (3) <strong>Majority of entitled directors</strong> approve (4) Noted at next Board meeting in minutes</p>
+        </div>
+        <div class="mini-card red">
+          <div class="mini-card-label">When Circular Resolution MUST become a Meeting</div>
+          <p>If <strong>≥ 1/3 of total directors</strong> request that resolution be decided at a meeting → Chairperson SHALL put it to a Board meeting. (Not discretionary — mandatory.)</p>
+        </div>
+        <div class="mini-card gold">
+          <div class="mini-card-label">Matters CANNOT be passed by Circulation</div>
+          <p>All §179(3) items (except §186 matters for Sec 8 companies) must be at a <strong>duly convened meeting</strong>. Circular resolution only works for non-mandatory-meeting items.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ NON-NEGOTIABLES ════════ -->
+  <div class="section-divider">
+    <span class="section-divider-label">High Yield: IBS Case Study Indicators</span>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="non-neg">
+    <div class="non-neg-title">⚡ Critical Compliance Indicators — Non-Negotiables for Case Studies</div>
+    <div class="non-neg-item">
+      <div class="non-neg-dot"></div>
+      <div class="non-neg-text"><strong>POEM / Residency:</strong> If board decisions are made via video conference from abroad → flag POEM risk for a foreign-incorporated holding company. Always check where majority board decisions are made.</div>
+    </div>
+    <div class="non-neg-item">
+      <div class="non-neg-dot"></div>
+      <div class="non-neg-text"><strong>Quorum + Interested Director combo:</strong> Case study will often have 6 directors, 5 interested, 1 non-interested — calculate quorum under §174(3): minimum 2 non-interested. With only 1, meeting cannot proceed for that item.</div>
+    </div>
+    <div class="non-neg-item">
+      <div class="non-neg-dot"></div>
+      <div class="non-neg-text"><strong>The "3-year" trap §182:</strong> Companies 1–2 years old CANNOT make political contributions. Check incorporation date vs. contribution date in every case.</div>
+    </div>
+    <div class="non-neg-item">
+      <div class="non-neg-dot"></div>
+      <div class="non-neg-text"><strong>§186(5) Unanimous vs. §179(3) Majority:</strong> Borrowing at §179(3)(d) = simple majority at Board meeting; Investment at §186(5) = <em>unanimous consent</em> of directors present. Critical distinction.</div>
+    </div>
+    <div class="non-neg-item">
+      <div class="non-neg-dot"></div>
+      <div class="non-neg-text"><strong>Private Company Exemptions:</strong> §180 (borrowing restrictions), §184(2) participation after disclosure, §188 (related member can vote), §174(3) (interested director can participate) — all disapply or modify for qualifying private companies. Always check if it's a private company before applying restrictions.</div>
+    </div>
+    <div class="non-neg-item">
+      <div class="non-neg-dot"></div>
+      <div class="non-neg-text"><strong>Voidable (not Void):</strong> Contracts under §184(3), §188(3), and §192 are <em>voidable</em> at company's option — not automatically void. The company can choose to ratify. IBS questions may test whether third-party rights are affected.</div>
+    </div>
+    <div class="non-neg-item">
+      <div class="non-neg-dot"></div>
+      <div class="non-neg-text"><strong>Charitable contribution math:</strong> Always use <em>3 preceding FY average</em>, not just the last FY. Even if current year is loss-making, if 3-year average > 0, donation is permissible up to 5%.</div>
+    </div>
+    <div class="non-neg-item">
+      <div class="non-neg-dot"></div>
+      <div class="non-neg-text"><strong>Transfer Pricing × RPT:</strong> In any case study involving intragroup transactions (service fees, interest, royalty), always connect §188 compliance → IND AS 24 disclosure → Transfer Pricing documentation under §92E. This three-layer answer scores full marks.</div>
+    </div>
+  </div>
+
+  <!-- ════════ IRAC ════════ -->
+  <div class="section-divider">
+    <span class="section-divider-label">Ready-to-Use IRAC Template</span>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="irac">
+    <div class="irac-title">📋 IRAC Template — §188 Related Party Transaction Approval (Most Tested Scenario)</div>
+
+    <div class="irac-row">
+      <span class="irac-label i">ISSUE</span>
+      <div class="irac-text">Whether XYZ Ltd.'s contract to <strong>supply goods worth ₹[X] (≥10% of turnover)</strong> to ABC Pvt. Ltd. (in which its director holds directorship) constitutes a Related Party Transaction requiring shareholder approval under §188 of the Companies Act, 2013, and whether the transaction, executed without such approval, is valid.</div>
+    </div>
+
+    <div class="irac-row">
+      <span class="irac-label r">RULE</span>
+      <div class="irac-text">Under <strong>§2(76)</strong>, ABC Pvt. Ltd. qualifies as a <em>related party</em> (private company where director is a director/member). §188(1) requires Board consent for any RPT not on arm's length in ordinary course; where the value of sale/supply of goods exceeds <strong>10% of turnover</strong>, an <em>Ordinary Resolution</em> is mandatorily required per Rule 15(3). Under <strong>§188(3)</strong>, a contract entered without the requisite approval is <em>voidable</em> at the Board's/shareholders' option if not ratified within <strong>3 months</strong>.</div>
+    </div>
+
+    <div class="irac-row">
+      <span class="irac-label a">APPLICATION</span>
+      <div class="irac-text">The transaction value of ₹[X] constitutes [Y]% of turnover, which <strong>exceeds the 10% threshold</strong>. The company has not obtained an ordinary resolution. The director involved had an obligation to disclose under §184(2) and absent from the Board discussion. As no ratification occurred within 3 months, the contract is now <strong>voidable at the company's option</strong>. The director concerned must <strong>indemnify</strong> the company for any resulting loss. Additionally, IND AS 24 disclosure is required in financial statements irrespective of §188 compliance status.</div>
+    </div>
+
+    <div class="irac-row">
+      <span class="irac-label c">CONCLUSION</span>
+      <div class="irac-text">The transaction violates §188(1) read with Rule 15(3). The company may avoid the contract or ratify it in the next general meeting (if within 3 months). The director faces personal liability for losses plus a <strong>penalty of ₹25 Lakh (listed) or ₹5 Lakh (unlisted)</strong> under §188(5). The auditor must report this non-compliance under CARO 2020, Clause 3(xiii).</div>
+    </div>
+  </div>
+
+  <!-- ════════ QUICK PENALTY REFERENCE ════════ -->
+  <div class="section-divider">
+    <span class="section-divider-label">Quick Penalty Reference</span>
+    <div class="section-divider-line"></div>
+  </div>
+
+  <div class="fw-card">
+    <div class="fw-card-header">
+      <div class="fw-number">P</div>
+      <div>
+        <div class="fw-title">Penalty Master Table — Chapter 3</div>
+        <div class="fw-subtitle">All penalties at a glance for IBS answers</div>
+      </div>
+    </div>
+    <div class="fw-body">
+      <table class="strat-table">
+        <thead>
+          <tr><th>Section</th><th>Violation</th><th>Company</th><th>Officer / Director</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>§173(4)</td><td>Failure to give Board meeting notice</td><td>—</td><td><span class="highlight-cell">₹25,000</span></td></tr>
+          <tr><td>§177 / §178(8)</td><td>AC / NRC / SRC non-constitution or violation</td><td><span class="highlight-cell">₹5 Lakh</span></td><td><span class="highlight-cell">₹1 Lakh</span></td></tr>
+          <tr><td>§182</td><td>Illegal political contribution</td><td><span class="highlight-cell">5× contribution</span></td><td>Imprisonment ≤ 6 months + <span class="highlight-cell">5× contribution</span></td></tr>
+          <tr><td>§184(4)</td><td>Non-disclosure / wrong disclosure of interest</td><td>—</td><td><span class="highlight-cell">₹1 Lakh</span></td></tr>
+          <tr><td>§185</td><td>Illegal loan to director</td><td><span class="highlight-cell">₹5L–₹25L</span></td><td>Imprisonment ≤ 6 months OR ₹5L–₹25L</td></tr>
+          <tr><td>§186(13)</td><td>§186 violation (loans/investments)</td><td><span class="highlight-cell">₹25K–₹5L</span></td><td>Imprisonment ≤ 2 years + ₹25K–₹1L</td></tr>
+          <tr><td>§187(4)</td><td>Investments not held in own name (non-compliance)</td><td><span class="highlight-cell">₹5 Lakh</span></td><td><span class="highlight-cell">₹50,000</span></td></tr>
+          <tr><td>§188(5)</td><td>Unauthorised RPT</td><td>—</td><td>Listed: <span class="highlight-cell">₹25 Lakh</span>; Others: <span class="highlight-cell">₹5 Lakh</span></td></tr>
+          <tr><td>§189(6)</td><td>Failure to maintain RPT register</td><td>—</td><td><span class="highlight-cell">₹25,000</span></td></tr>
+          <tr><td>§190(3)</td><td>MD/WTD employment contract not kept</td><td><span class="highlight-cell">₹25,000/default</span></td><td><span class="highlight-cell">₹5,000/default</span></td></tr>
+          <tr><td>§191(5)</td><td>Loss of office payment violation</td><td>—</td><td><span class="highlight-cell">₹1 Lakh</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div style="margin-top:48px; padding-top:24px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
+    <div style="font-family:'DM Mono',monospace; font-size:10px; letter-spacing:0.15em; color:var(--muted); text-transform:uppercase;">CA Final IBS · Strategic Framework Series · Chapter 3 · Companies Act 2013 §173–193</div>
+    <div style="font-family:'DM Mono',monospace; font-size:10px; color:var(--muted);">Sections 173 to 193</div>
+  </div>
+
+</div><!-- /container -->
+</body>
+</html>
