@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FEMA 1999 — Strategic Framework | CA Final IBS</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap');
+
+  :root {
+    --ink: #0d0d0f;
+    --paper: #f5f1e8;
+    --gold: #b8860b;
+    --gold-light: #d4a820;
+    --crimson: #8b1a1a;
+    --teal: #0e4d4d;
+    --teal-light: #1a7070;
+    --slate: #2d3748;
+    --mist: #e8e2d4;
+    --rule: #c8bca0;
+    --warn: #7b3f00;
+    --positive: #1a4d2e;
+    --negative: #5c1a1a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 14.5px;
+    line-height: 1.75;
+  }
+
+  /* HEADER */
+  .masthead {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 2.5rem 3rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 20px,
+      rgba(184,134,11,0.06) 20px,
+      rgba(184,134,11,0.06) 21px
+    );
+  }
+  .masthead-inner { position: relative; z-index: 1; }
+  .tag-line {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+  .masthead h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+  }
+  .masthead h1 span { color: var(--gold-light); }
+  .masthead-meta {
+    margin-top: 1rem;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .meta-pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: rgba(245,241,232,0.65);
+    border: 1px solid rgba(184,134,11,0.4);
+    padding: 3px 10px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+  }
+
+  /* NAV */
+  .toc-bar {
+    background: var(--teal);
+    padding: 0 3rem;
+    display: flex;
+    gap: 0;
+    flex-wrap: wrap;
+    border-bottom: 3px solid var(--gold);
+  }
+  .toc-bar a {
+    color: rgba(245,241,232,0.85);
+    text-decoration: none;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    padding: 0.75rem 1.2rem;
+    border-right: 1px solid rgba(255,255,255,0.1);
+    transition: background 0.2s, color 0.2s;
+    display: block;
+  }
+  .toc-bar a:hover { background: rgba(255,255,255,0.1); color: var(--gold-light); }
+
+  /* MAIN CONTENT */
+  .content { max-width: 1200px; margin: 0 auto; padding: 2.5rem 3rem 4rem; }
+
+  /* FRAMEWORK SECTION */
+  .framework {
+    margin-bottom: 3.5rem;
+    border-left: 4px solid var(--gold);
+    padding-left: 1.5rem;
+  }
+  .framework-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+  .fw-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--gold);
+    opacity: 0.4;
+    line-height: 1;
+  }
+  .fw-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--teal);
+    line-height: 1.2;
+  }
+  .fw-sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+
+  /* SECTION DIVIDER */
+  .section-rule {
+    border: none;
+    border-top: 1.5px solid var(--rule);
+    margin: 2rem 0;
+  }
+
+  /* SUMMARY TABLE */
+  .strat-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.2rem 0;
+    font-size: 13.5px;
+  }
+  .strat-table th {
+    background: var(--teal);
+    color: var(--paper);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 8px 12px;
+    text-align: left;
+    border: 1px solid var(--teal-light);
+  }
+  .strat-table td {
+    padding: 8px 12px;
+    border: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .strat-table tr:nth-child(even) td { background: rgba(200,188,160,0.15); }
+  .strat-table tr:hover td { background: rgba(184,134,11,0.08); }
+  .strat-table td strong { color: var(--teal); }
+  .amount { font-family: 'IBM Plex Mono', monospace; font-weight: 600; color: var(--crimson); }
+  .days { font-family: 'IBM Plex Mono', monospace; font-weight: 600; color: var(--teal); }
+
+  /* DECISION TREE / IF-THEN BOX */
+  .decision-box {
+    background: var(--ink);
+    color: var(--paper);
+    border-radius: 2px;
+    padding: 1.4rem 1.6rem;
+    margin: 1.2rem 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.8;
+  }
+  .decision-box .dt-title {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(184,134,11,0.4);
+    padding-bottom: 0.5rem;
+  }
+  .dt-if { color: var(--gold-light); font-weight: 600; }
+  .dt-then { color: #7dd3b8; font-weight: 600; }
+  .dt-else { color: #f4a261; font-weight: 600; }
+  .dt-note { color: rgba(245,241,232,0.55); font-size: 11px; }
+  .dt-indent { padding-left: 1.5rem; }
+  .dt-indent2 { padding-left: 3rem; }
+
+  /* IBS CROSS-LINK */
+  .cross-link {
+    background: linear-gradient(135deg, #f0ece0 0%, #e8e2d4 100%);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--gold);
+    padding: 1rem 1.4rem;
+    margin: 1.2rem 0;
+    border-radius: 0 0 2px 2px;
+  }
+  .cross-link .cl-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .cross-link-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.8rem; }
+  .cl-item { font-size: 13px; }
+  .cl-item .cl-sub { font-family: 'IBM Plex Mono', monospace; font-size: 10px; letter-spacing: 1px; color: var(--teal); font-weight: 600; text-transform: uppercase; margin-bottom: 2px; }
+
+  /* NON-NEGOTIABLES */
+  .nonneg {
+    background: var(--crimson);
+    color: var(--paper);
+    padding: 1.2rem 1.6rem;
+    margin: 1.2rem 0;
+    border-radius: 2px;
+  }
+  .nonneg .nn-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(245,241,232,0.7);
+    margin-bottom: 0.7rem;
+  }
+  .nonneg ul { padding-left: 1.2rem; }
+  .nonneg ul li { margin-bottom: 0.3rem; font-size: 13.5px; line-height: 1.5; }
+  .nonneg ul li strong { color: #ffd080; }
+
+  /* IRAC BOX */
+  .irac-box {
+    background: var(--teal);
+    color: var(--paper);
+    padding: 1.5rem 2rem;
+    margin: 1.5rem 0;
+    border-radius: 2px;
+  }
+  .irac-box .irac-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+  }
+  .irac-row { display: flex; gap: 1rem; margin-bottom: 0.6rem; }
+  .irac-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    min-width: 90px;
+    padding-top: 2px;
+    font-weight: 600;
+  }
+  .irac-text { font-size: 13.5px; line-height: 1.6; color: rgba(245,241,232,0.9); }
+
+  /* KEY CONCEPT CALLOUT */
+  .concept-pill {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .key-rule {
+    border-left: 3px solid var(--gold);
+    background: rgba(184,134,11,0.06);
+    padding: 0.7rem 1rem;
+    margin: 0.8rem 0;
+    font-size: 13.5px;
+  }
+  .key-rule strong { color: var(--teal); }
+
+  /* PROHIBITED / ALLOWED CHIPS */
+  .chip { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10px; font-weight: 600; letter-spacing: 0.5px; padding: 1px 7px; border-radius: 2px; }
+  .chip-red { background: rgba(139,26,26,0.12); color: var(--crimson); border: 1px solid rgba(139,26,26,0.3); }
+  .chip-green { background: rgba(26,77,46,0.12); color: var(--positive); border: 1px solid rgba(26,77,46,0.3); }
+  .chip-amber { background: rgba(123,63,0,0.12); color: var(--warn); border: 1px solid rgba(123,63,0,0.3); }
+
+  /* CONTENT PROSE */
+  p { margin-bottom: 0.8rem; }
+  ul.content-list { padding-left: 1.5rem; margin: 0.5rem 0 0.8rem; }
+  ul.content-list li { margin-bottom: 0.35rem; }
+  .bold-keyword { font-weight: 700; color: var(--teal); }
+  .section-intro { font-size: 15px; font-style: italic; color: var(--slate); margin-bottom: 1.2rem; line-height: 1.65; }
+
+  /* FLOW CHART */
+  .flowstep {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin: 0.5rem 0;
+    font-size: 13.5px;
+  }
+  .step-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    background: var(--teal);
+    color: var(--paper);
+    min-width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+  .flow-arrow { color: var(--gold); font-size: 18px; line-height: 1; margin: 0 4px; }
+
+  /* PAGE BREAK HELPERS */
+  @media print {
+    .framework { page-break-inside: avoid; }
+    .masthead { page-break-after: avoid; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .masthead, .content { padding: 1.5rem; }
+    .toc-bar { padding: 0 1.5rem; }
+    .cross-link-grid { grid-template-columns: 1fr; }
+    .masthead h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ MASTHEAD ═══════════════════════ -->
+<div class="masthead">
+  <div class="masthead-inner">
+    <div class="tag-line">CA Final · Paper 6 (IBS) · Economic Laws</div>
+    <h1>The <span>FEMA</span> Strategic<br>Framework</h1>
+    <p style="margin-top:0.8rem; color:rgba(245,241,232,0.6); font-size:14px; font-style:italic;">Foreign Exchange Management Act, 1999 — Compliance-Oriented Note-Set</p>
+    <div class="masthead-meta">
+      <span class="meta-pill">SCPM-Style</span>
+      <span class="meta-pill">IBS Cross-Links</span>
+      <span class="meta-pill">Decision Trees</span>
+      <span class="meta-pill">IRAC Templates</span>
+      <span class="meta-pill">Non-Negotiables</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════ TOC BAR ═══════════════════════ -->
+<nav class="toc-bar">
+  <a href="#fw1">F1 Residential Status</a>
+  <a href="#fw2">F2 Current Account</a>
+  <a href="#fw3">F3 Capital Account</a>
+  <a href="#fw4">F4 ECB Framework</a>
+  <a href="#fw5">F5 Overseas Investment</a>
+  <a href="#fw6">F6 Export Realisation</a>
+  <a href="#fw7">F7 Authorised Persons</a>
+  <a href="#fw8">F8 Penalties & Appeal</a>
+  <a href="#irac">IRAC Template</a>
+</nav>
+
+<!-- ═══════════════════════ CONTENT ═══════════════════════ -->
+<div class="content">
+
+<!-- ════════════════════════════════════════════════════════════
+  FRAMEWORK 1 — RESIDENTIAL STATUS
+════════════════════════════════════════════════════════════ -->
+<div class="framework" id="fw1">
+  <div class="fw-sub">Framework 01</div>
+  <div class="framework-header">
+    <div class="fw-number">01</div>
+    <div class="fw-title">The Residential Status<br>Classification Framework</div>
+  </div>
+  <p class="section-intro">The first gate of FEMA analysis — every transaction begins by determining if the entity is <strong>PRII</strong> (Person Resident in India) or <strong>PROI</strong> (Person Resident Outside India). Unlike Income Tax, status is date-specific, not year-based.</p>
+
+  <!-- Decision Tree -->
+  <div class="decision-box">
+    <div class="dt-title">Decision Tree — Individual Residential Status [Sec. 2(v)]</div>
+
+    <div><span class="dt-if">IF</span> person resided in India &gt; 182 days in preceding FY</div>
+    <div class="dt-indent"><span class="dt-then">THEN →</span> Prima facie <strong>PRII</strong></div>
+    <div class="dt-indent dt-indent2">
+      <span class="dt-if">BUT IF</span> left India for: (i) Employment abroad, or (ii) Business abroad, or (iii) Any purpose indicating uncertain stay outside<br>
+      <span class="dt-then">THEN →</span> Becomes <strong>PROI from date of departure</strong>
+    </div>
+    <div class="dt-indent dt-indent2">
+      <span class="dt-if">AND IF</span> came to India for: (i) Employment in India, or (ii) Business in India, or (iii) Uncertain stay in India<br>
+      <span class="dt-then">THEN →</span> <strong>PRII from date of arrival</strong>
+    </div>
+
+    <div style="margin-top:0.8rem;"><span class="dt-if">IF</span> resided in India ≤ 182 days in preceding FY</div>
+    <div class="dt-indent"><span class="dt-else">ELSE →</span> <strong>PROI</strong> (unless came for employment/business/uncertain stay)</div>
+
+    <div style="margin-top:0.8rem;" class="dt-note">NOTE: Company/Body Corporate incorporated in India → always PRII. Branch outside India owned/controlled by PRII → also PRII.</div>
+  </div>
+
+  <!-- Summary Table -->
+  <table class="strat-table">
+    <thead>
+      <tr><th>Context</th><th>Trigger Point</th><th>Legal Requirement</th><th>Strategic Impact</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Individual leaves India for higher studies abroad</td>
+        <td>Date of departure</td>
+        <td>PROI from departure date (RBI AP Circular 45/2003 — students = PROI)</td>
+        <td>NRE account must be re-designated; FEMA restrictions on capital account apply</td>
+      </tr>
+      <tr>
+        <td>NRI returns to India for uncertain period</td>
+        <td>Date of return with intent to stay</td>
+        <td>PRII from date of return [Basant Kumar Sharma — HC Delhi]</td>
+        <td>NRE account re-designation mandatory; LRS limits kick in</td>
+      </tr>
+      <tr>
+        <td>Foreign company opens branch in India</td>
+        <td>Branch controlled by PROI</td>
+        <td>Branch = PRII [Sec. 2(v)(iii)]</td>
+        <td>Indian residents can deal freely; no cross-border restrictions for intra-India dealings</td>
+      </tr>
+      <tr>
+        <td>Person on visa (tourist/medical)</td>
+        <td>Purpose of stay is specific / certain period</td>
+        <td>PROI — unless purpose = employment/business/uncertain [K. Ramullan case]</td>
+        <td>Cannot hold Indian rupee accounts as resident; remittances governed by PROI rules</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Cross-Subject Link -->
+  <div class="cross-link">
+    <div class="cl-title">🔗 Cross-Subject Links — IBS Integration</div>
+    <div class="cross-link-grid">
+      <div class="cl-item">
+        <div class="cl-sub">FR (Financial Reporting)</div>
+        Residential status determines <strong>IND AS 21</strong> applicability — functional currency determination and translation of foreign operations. NRI's RFC account balances affect forex disclosure under IND AS 107.
+      </div>
+      <div class="cl-item">
+        <div class="cl-sub">Audit</div>
+        Auditor must verify client's FEMA residential status when auditing <strong>NRE/FCNR accounts</strong>, overseas transactions. CARO 2020 — reporting on utilisation of foreign funds [Clause 19].
+      </div>
+      <div class="cl-item">
+        <div class="cl-sub">DT (Direct Tax)</div>
+        FEMA's 182-day rule ≠ Income Tax 182-day rule. FEMA focuses on <strong>purpose</strong>; IT focuses on <strong>days count</strong>. An NRI under IT may be PRII under FEMA — critical difference in IBS case studies.
+      </div>
+    </div>
+  </div>
+
+  <!-- Non-Negotiables -->
+  <div class="nonneg">
+    <div class="nn-title">⚠ Compliance Indicators — Non-Negotiables for Case Study</div>
+    <ul>
+      <li><strong>Citizenship is irrelevant</strong> — FEMA residential status is based on purpose of stay, not passport.</li>
+      <li><strong>Date-specific status</strong> — Unlike IT (year-based), FEMA status changes from the specific date of departure/arrival.</li>
+      <li><strong>Branch owned/controlled by PRII = PRII</strong> — Even if physically located abroad.</li>
+      <li><strong>Students = PROI</strong> per RBI AP Circular 45/2003, regardless of 182-day count.</li>
+      <li><strong>Green Card holder going abroad = PROI</strong> from date of departure (uncertain stay intent).</li>
+    </ul>
+  </div>
+</div>
+<hr class="section-rule">
+
+<!-- ════════════════════════════════════════════════════════════
+  FRAMEWORK 2 — CURRENT ACCOUNT TRANSACTIONS
+════════════════════════════════════════════════════════════ -->
+<div class="framework" id="fw2">
+  <div class="fw-sub">Framework 02</div>
+  <div class="framework-header">
+    <div class="fw-number">02</div>
+    <div class="fw-title">The Current Account Transaction<br>Permission Framework [Sec. 5]</div>
+  </div>
+  <p class="section-intro">Current account transactions are <strong>presumptively free</strong> — permitted unless specifically restricted. The Central Government may impose reasonable restrictions via the <em>FEM (Current Account Transactions) Rules, 2000</em>.</p>
+
+  <div class="key-rule">
+    <strong>Golden Rule:</strong> <span class="concept-pill">CAT</span> Freely permissible <strong>unless</strong> appearing in Schedule I (Prohibited), Schedule II (CG Approval) or Schedule III (RBI Approval). If not in any schedule → freely permitted.
+  </div>
+
+  <!-- Decision Tree for CAT -->
+  <div class="decision-box">
+    <div class="dt-title">Decision Tree — Current Account Transaction [CAT Rules 2000]</div>
+
+    <div><span class="dt-if">STEP 1:</span> Is the transaction in Schedule I?</div>
+    <div class="dt-indent"><span class="dt-then">YES →</span> <span class="chip chip-red">PROHIBITED</span> — Cannot proceed at all (e.g., lottery winnings, callback services)</div>
+    <div class="dt-indent"><span class="dt-else">NO →</span> Go to Step 2</div>
+
+    <div style="margin-top:0.6rem;"><span class="dt-if">STEP 2:</span> Is it in Schedule II?</div>
+    <div class="dt-indent"><span class="dt-then">YES →</span> <span class="chip chip-amber">CG APPROVAL</span> — Obtain approval from relevant Ministry (e.g., Cultural Tours → Ministry of HRD)</div>
+    <div class="dt-indent"><span class="dt-else">NO →</span> Go to Step 3</div>
+
+    <div style="margin-top:0.6rem;"><span class="dt-if">STEP 3:</span> Is it in Schedule III?</div>
+    <div class="dt-indent"><span class="dt-then">YES →</span> <span class="chip chip-amber">RBI APPROVAL</span> — Permitted within USD 250,000 per FY under LRS; beyond that → RBI prior approval</div>
+    <div class="dt-indent"><span class="dt-else">NO →</span> <span class="chip chip-green">FREELY PERMITTED</span> — Transact via Authorised Person</div>
+  </div>
+
+  <!-- SCPM Summary Table -->
+  <table class="strat-table">
+    <thead>
+      <tr><th>Context</th><th>Trigger Point</th><th>Legal Requirement</th><th>Strategic Impact</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="chip chip-red">SCH I — PROHIBITED</span><br>Lottery winnings, racing, callback services, commission on exports via equity JV/WOS, dividend balancing companies</td>
+        <td>Any such remittance attempt</td>
+        <td>Absolutely prohibited — no RBI/CG permission can cure</td>
+        <td>Contravention u/s 13 — penalty up to 3× amount involved</td>
+      </tr>
+      <tr>
+        <td><span class="chip chip-amber">SCH II — CG APPROVAL</span><br>Cultural tours, advertisement in foreign print media &gt; USD 10,000, freight of PSU chartered vessels, transponder hiring, prize money &gt; USD 1,00,000 for sports</td>
+        <td>Before remittance</td>
+        <td>Prior approval from relevant Ministry (HRD, Finance, Surface Transport, I&B etc.)</td>
+        <td>No exemption even from RFC/EEFC accounts (except specific items)</td>
+      </tr>
+      <tr>
+        <td><span class="chip chip-amber">SCH III — RBI APPROVAL (LRS)</span><br>Private visits, gift, emigration, maintenance of relatives, medical, studies abroad</td>
+        <td>Above USD 2,50,000 per FY per individual</td>
+        <td>Within USD 2,50,000 → free. Beyond → RBI prior approval (except medical/education with institution estimate)</td>
+        <td>LRS is subsumed in overall USD 2,50,000 limit; minors' forms must be countersigned by guardian</td>
+      </tr>
+      <tr>
+        <td>Commission to overseas agent for sale of Indian property</td>
+        <td>Agent's commission per transaction</td>
+        <td>Exceeds USD 25,000 or 5% of inward remittance (whichever more) → RBI approval. Even from EEFC account.</td>
+        <td>Frequently tested in case studies — exact threshold is <strong>USD 25,000 or 5%</strong></td>
+      </tr>
+      <tr>
+        <td>Consultancy services from abroad</td>
+        <td>Project value</td>
+        <td>Infrastructure projects: USD 10 mn limit without approval; Other: USD 1 mn limit</td>
+        <td>Exceeding limits = RBI approval required</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="key-rule">
+    <strong>LRS Clubbing Rule:</strong> Remittances can be consolidated for family members, <strong>EXCEPT</strong> capital account transactions (bank accounts, investments, property) — clubbing not permitted unless co-owner/co-partner.
+  </div>
+
+  <!-- Cross-Subject Link -->
+  <div class="cross-link">
+    <div class="cl-title">🔗 Cross-Subject Links — IBS Integration</div>
+    <div class="cross-link-grid">
+      <div class="cl-item">
+        <div class="cl-sub">FR</div>
+        Remittances under LRS → affect <strong>Cash Flow Statement</strong> (financing/investing activities). Gift to NRI = revenue expenditure for donor? Ind AS 21 — transaction-date rates for CAT.
+      </div>
+      <div class="cl-item">
+        <div class="cl-sub">Audit</div>
+        Verify Schedule compliance in audit of exporters/importers. <strong>SA 250</strong> — auditor's responsibility to detect non-compliance with laws. Hawala transactions = red flag in bank reconciliation audit.
+      </div>
+      <div class="cl-item">
+        <div class="cl-sub">IDT (GST)</div>
+        Remittances abroad for services = <strong>Export of Services</strong> (zero-rated) if consideration received in convertible forex. GST refund eligibility depends on FEMA-compliant receipt of payment.
+      </div>
+    </div>
+  </div>
+
+  <!-- Non-Negotiables -->
+  <div class="nonneg">
+    <div class="nn-title">⚠ Compliance Indicators — Non-Negotiables</div>
+    <ul>
+      <li><strong>LRS ceiling = USD 2,50,000</strong> per individual per FY — includes both current and capital account.</li>
+      <li><strong>Lottery winnings remittance = Absolutely prohibited</strong> — no exceptions under any schedule.</li>
+      <li><strong>Sports prize money &gt; USD 1,00,000</strong> → Ministry of HRD (Youth Affairs) approval needed.</li>
+      <li>RFC/EEFC account exemptions exist for Sch II & III — <strong>but NOT</strong> for P&I Club and property agent commissions.</li>
+      <li>Payment for import of goods to PROI visiting India in INR — <strong>permitted</strong> (boarding/lodging expenses).</li>
+    </ul>
+  </div>
+</div>
+<hr class="section-rule">
+
+<!-- ════════════════════════════════════════════════════════════
+  FRAMEWORK 3 — CAPITAL ACCOUNT
+════════════════════════════════════════════════════════════ -->
+<div class="framework" id="fw3">
+  <div class="fw-sub">Framework 03</div>
+  <div class="framework-header">
+    <div class="fw-number">03</div>
+    <div class="fw-title">The Capital Account Transaction<br>Regulatory Framework [Sec. 6]</div>
+  </div>
+  <p class="section-intro">Capital account transactions are <strong>presumptively prohibited</strong> — permitted only if specifically allowed. They alter the asset/liability structure across borders.</p>
+
+  <div class="key-rule">
+    <strong>Core Test:</strong> Does the transaction <span class="bold-keyword">alter assets or liabilities (including contingent liabilities)</span> outside India for PRII, or <span class="bold-keyword">alter assets/liabilities in India</span> for PROI? If YES → Capital Account Transaction.
+  </div>
+
+  <div class="key-rule">
+    <strong>Post Oct 15, 2019 — Dual Regulatory Control:</strong><br>
+    <strong>RBI</strong> regulates → <span class="concept-pill">Debt Instruments</span> (bonds, loans, debentures, bank borrowings)<br>
+    <strong>CG</strong> regulates → <span class="concept-pill">Non-Debt Instruments</span> (equity, FDI, immovable property, mutual funds &gt;50% equity, AIFs, REITs)
+  </div>
+
+  <!-- Table for Capital Account -->
+  <table class="strat-table">
+    <thead>
+      <tr><th>Context</th><th>Trigger Point</th><th>Legal Requirement</th><th>Strategic Impact</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>PRII investing in foreign securities (equities)</td>
+        <td>Any outward investment</td>
+        <td>Permitted under Schedule I — max USD 2,50,000 p.a. under LRS for individuals; 400% of net worth for Indian entities (ODI)</td>
+        <td>Non-debt instrument → governed by CG notification; FDI policy applies</td>
+      </tr>
+      <tr>
+        <td>PROI investing in India — Prohibited sectors</td>
+        <td>Any inflow into prohibited activity</td>
+        <td>Prohibited: Chit fund, Nidhi, Agriculture/Plantation, Real estate (pure), TDR trading</td>
+        <td>REITs and township construction allowed; "real estate business" ≠ development</td>
+      </tr>
+      <tr>
+        <td>PRII inheriting foreign assets</td>
+        <td>Succession / Inheritance from PROI</td>
+        <td>May hold, own, transfer or invest freely [Sec. 6(4)] — no RBI approval for inherited assets</td>
+        <td>Income from such assets also permitted to be used for fresh investments abroad</td>
+      </tr>
+      <tr>
+        <td>Transactions not facing restriction</td>
+        <td>Loan amortisation; Direct investment depreciation</td>
+        <td>No restrictions on drawal for these — Sec. 6(2) proviso</td>
+        <td>Loan repayments are always freely allowed regardless of CAT status</td>
+      </tr>
+      <tr>
+        <td>Transactions with North Korea (DPRK)</td>
+        <td>Any capital account transaction</td>
+        <td>Prohibited unless specific CG approval [S.O. 1549(E) 2017]. Existing investments to be wound up within 180 days.</td>
+        <td>Compliance risk — existing investments must be divested promptly</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cross-link">
+    <div class="cl-title">🔗 Cross-Subject Links — IBS Integration</div>
+    <div class="cross-link-grid">
+      <div class="cl-item">
+        <div class="cl-sub">FR</div>
+        FDI inflows = share capital (equity) or borrowings (debt). Distinction affects <strong>IND AS 32</strong> (Financial Instruments: Presentation). ECB with conversion rights → compound financial instrument. FCCB valuation at FVTPL under Ind AS 109.
+      </div>
+      <div class="cl-item">
+        <div class="cl-sub">Audit</div>
+        CARO 2020 Clause 14 — details of FEMA compliance for capital account transactions to be reported. Auditor checks ODI approvals, ECB LRN, Form FC-GPR filing. Whistleblower if PROI investing in prohibited sector.
+      </div>
+      <div class="cl-item">
+        <div class="cl-sub">DT</div>
+        Capital account transactions (ODI) → gains on disposal of foreign securities taxed under <strong>Sec. 112A / 115F</strong> (NRI). Interest on ECB → <strong>Sec. 194LC</strong> concessional TDS at 5%. DTAA relief for double taxation of capital gains.
+      </div>
+    </div>
+  </div>
+
+  <div class="nonneg">
+    <div class="nn-title">⚠ Compliance Indicators — Non-Negotiables</div>
+    <ul>
+      <li><strong>Capital Account ≠ freely permitted</strong> — opposite presumption to current account.</li>
+      <li>Resident individual USD 2,50,000 limit under LRS applies to <strong>both</strong> current and capital account — single combined ceiling.</li>
+      <li><strong>Real estate vs. real estate business</strong> — Townships, roads, bridges = permitted. Pure buy-sell of real estate = prohibited for PROI.</li>
+      <li>Max 2-layer subsidiary structure for ODI — banking, NBFC (systemically important), insurance, Govt companies are exempted.</li>
+      <li>ODI in start-ups abroad → only from <strong>internal accruals</strong> (no borrowings).</li>
+    </ul>
+  </div>
+</div>
+<hr class="section-rule">
+
+<!-- ════════════════════════════════════════════════════════════
+  FRAMEWORK 4 — ECB
+════════════════════════════════════════════════════════════ -->
+<div class="framework" id="fw4">
+  <div class="fw-sub">Framework 04</div>
+  <div class="framework-header">
+    <div class="fw-number">04</div>
+    <div class="fw-title">The External Commercial Borrowing<br>(ECB) Compliance Framework</div>
+  </div>
+  <p class="section-intro">ECBs are commercial loans from recognised non-resident lenders to eligible Indian entities. Compliance is multi-parameter — ALL parameters must be satisfied simultaneously.</p>
+
+  <!-- ECB Parameters Table -->
+  <table class="strat-table">
+    <thead>
+      <tr><th>Parameter</th><th>FCY ECB</th><th>INR ECB</th><th>Strategic Impact</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Currency</strong></td>
+        <td>Any freely convertible foreign currency</td>
+        <td>Indian Rupee (INR)</td>
+        <td>FCY ECB → currency risk; INR ECB → lender bears forex risk</td>
+      </tr>
+      <tr>
+        <td><strong>Eligible Borrowers</strong></td>
+        <td>All FDI-eligible entities + Port Trusts, SEZ units, SIDBI, EXIM Bank</td>
+        <td>Same + Registered micro-finance entities, NGOs, societies</td>
+        <td>Start-ups: separate framework (USD 3 mn limit p.a.)</td>
+      </tr>
+      <tr>
+        <td><strong>Min Avg Maturity (MAMP)</strong></td>
+        <td colspan="2">Generally 3 years. Manufacturing co. ≤ USD 50 mn → 1 year. Working capital from equity holder → 5 yrs. General corporate (non-equity holder) → 10 yrs</td>
+        <td>Call/put options not exercisable before MAMP</td>
+      </tr>
+      <tr>
+        <td><strong>All-in-Cost Ceiling</strong></td>
+        <td>Benchmark + <span class="amount">500 bps</span></td>
+        <td>Benchmark + <span class="amount">450 bps</span></td>
+        <td>Includes interest, fees, charges, guarantee fees. Excludes commitment fee, prepayment fee, withholding tax</td>
+      </tr>
+      <tr>
+        <td><strong>Automatic Route Limit</strong></td>
+        <td colspan="2"><span class="amount">USD 750 mn</span> per FY</td>
+        <td>Beyond → Approval Route via RBI through AD Cat-I bank</td>
+      </tr>
+      <tr>
+        <td><strong>ECB Liability-Equity Ratio</strong></td>
+        <td colspan="2"><span class="amount">7:1</span> (from direct foreign equity holder). Not applicable if total ECB ≤ USD 5 mn</td>
+        <td>Exceeding ratio → prior RBI approval required</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="key-rule">
+    <strong>Negative List (End-Uses Prohibited):</strong> Real estate, capital market investment, equity investment, working capital (except for specific categories), general corporate purposes (except specific), repayment of Rupee loans (except specific). <em>These are the most exam-tested prohibitions.</em>
+  </div>
+
+  <div class="decision-box">
+    <div class="dt-title">ECB Reporting Compliance Flow</div>
+    <div><span class="dt-if">STEP 1:</span> Obtain <strong>LRN</strong> (Loan Registration Number) from RBI via AD Cat-I bank before any drawdown</div>
+    <div><span class="dt-if">STEP 2:</span> Monthly <strong>Form ECB-2 Return</strong> → within 7 working days of month-end</div>
+    <div><span class="dt-if">STEP 3:</span> Changes to ECB terms → revised Form ECB within <span class="days">7 days</span> of change</div>
+    <div><span class="dt-if">STEP 4:</span> Late submissions → <strong>Late Submission Fee (LSF)</strong> can regularise delay</div>
+    <div style="margin-top:0.6rem;" class="dt-note">UNTRACEABLE ENTITY: ECB borrower not reachable for 2+ quarters with 6+ documented attempts → written-off from external debt; Enforcement Directorate notified; no fresh ECB</div>
+  </div>
+
+  <div class="cross-link">
+    <div class="cl-title">🔗 Cross-Subject Links — IBS Integration</div>
+    <div class="cross-link-grid">
+      <div class="cl-item">
+        <div class="cl-sub">FR</div>
+        ECB = financial liability under <strong>Ind AS 109</strong> at amortised cost using EIR method. FCCB = compound financial instrument → split into debt and equity components at inception. Hedge accounting under Ind AS 109 for ECB hedges.
+      </div>
+      <div class="cl-item">
+        <div class="cl-sub">Audit</div>
+        Verify LRN, ECB-2 filings, MAMP compliance, hedging requirements. Infrastructure companies → <strong>mandatory 70% hedging</strong> for ECB with MAMP &lt;5 yrs — auditor to verify Board-approved risk management policy.
+      </div>
+      <div class="cl-item">
+        <div class="cl-sub">DT</div>
+        Interest on ECB → TDS under <strong>Sec. 194LC</strong> at 5% (vs. 20% normal). FCCB conversion to equity → tax neutrality at conversion stage. ECB proceeds for capital expenditure → depreciation benefit.
+      </div>
+    </div>
+  </div>
+
+  <div class="nonneg">
+    <div class="nn-title">⚠ Compliance Indicators — Non-Negotiables</div>
+    <ul>
+      <li><strong>No drawdown before LRN</strong> — this is the most common compliance failure point.</li>
+      <li>ECB for working capital → only permitted for certain borrower categories (equity holders, manufacturing etc.)</li>
+      <li>Indian banks <strong>cannot</strong> issue guarantees for ECB obligations.</li>
+      <li>Infrastructure companies: <strong>70% mandatory hedging</strong> if MAMP &lt; 5 years — Board-approved risk policy required.</li>
+      <li>Conversion of ECB to equity → allowed but requires FDI policy compliance, no additional cost, lender's consent, FC-GPR filing.</li>
+    </ul>
+  </div>
+</div>
+<hr class="section-rule">
+
+<!-- ════════════════════════════════════════════════════════════
+  FRAMEWORK 5 — OVERSEAS INVESTMENT
+════════════════════════════════════════════════════════════ -->
+<div class="framework" id="fw5">
+  <div class="fw-sub">Framework 05</div>
+  <div class="framework-header">
+    <div class="fw-number">05</div>
+    <div class="fw-title">The Overseas Investment (OI)<br>Framework [OI Rules 2022]</div>
+  </div>
+  <p class="section-intro">The 2022 OI framework replaced the erstwhile ODI/OPI regulations, consolidating them into OI Rules (CG) and OI Regulations (RBI). Goal: simplification and "Ease of Doing Business."</p>
+
+  <div class="decision-box">
+    <div class="dt-title">ODI vs OPI Classification [Key Threshold: 10%]</div>
+    <div><span class="dt-if">IF</span> investment ≥ 10% of paid-up equity of a <strong>listed</strong> foreign entity → <span class="dt-then">ODI</span></div>
+    <div><span class="dt-if">IF</span> investment &lt; 10% of paid-up equity of listed entity <strong>with control</strong> → <span class="dt-then">ODI</span></div>
+    <div><span class="dt-if">IF</span> investment &lt; 10% of paid-up equity without control → <span class="dt-then">OPI</span></div>
+    <div><span class="dt-if">IF</span> investment in any <strong>unlisted</strong> equity → <span class="dt-then">ODI</span> (regardless of %)</div>
+    <div style="margin-top:0.5rem;" class="dt-note">Once classified as ODI → continues as ODI even if shareholding falls below 10% or control is lost [Reg. 2(1)(q) explanation]</div>
+  </div>
+
+  <table class="strat-table">
+    <thead>
+      <tr><th>Context</th><th>Trigger Point</th><th>Legal Requirement</th><th>Strategic Impact</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ODI by Indian entity — Financial commitment limit</td>
+        <td>Aggregate of all ODI + debt + non-fund commitments</td>
+        <td><span class="amount">400% of net worth</span> (last audited B/S). Maharatna/Navratna in strategic sectors → no limit.</td>
+        <td>Net worth = audited balance sheet; retained earnings from foreign entity excluded from calculation</td>
+      </tr>
+      <tr>
+        <td>OPI by Indian entity</td>
+        <td>All OPI combined</td>
+        <td>Not exceeding <span class="amount">50% of net worth</span></td>
+        <td>Listed Indian companies may reinvest; unlisted → only specific modes (rights, bonus, ESOPs etc.)</td>
+      </tr>
+      <tr>
+        <td>No-objection certificate requirement</td>
+        <td>Before any financial commitment</td>
+        <td>Required if: (i) NPA account, (ii) Wilful defaulter classification, (iii) Under CBI/ED/SFIO investigation</td>
+        <td>Bank/regulator must respond within 60 days → else deemed NOC</td>
+      </tr>
+      <tr>
+        <td>Minimum ODI holding period before disinvestment</td>
+        <td>Transfer of ODI</td>
+        <td>Must hold for <span class="days">at least 1 year</span> from ODI date before disinvestment</td>
+        <td>Exception: merger, demerger, amalgamation between wholly-owned entities</td>
+      </tr>
+      <tr>
+        <td>Restructuring of loss-making foreign entity</td>
+        <td>Entity with losses for past 2 years (audited)</td>
+        <td>Diminution &gt; USD 10 mn or &gt;20% of outstanding dues → <strong>registered valuer certificate</strong> required (≤6 months old)</td>
+        <td>Valuer certification date matters — staleness of certificate = non-compliance</td>
+      </tr>
+      <tr>
+        <td>ODI prohibition — restricted activities</td>
+        <td>Investment in any of these</td>
+        <td>Prohibited: Real estate, Gambling, Financial products linked to INR (without RBI approval)</td>
+        <td>Townships/roads/bridges NOT considered "real estate" — permitted</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cross-link">
+    <div class="cl-title">🔗 Cross-Subject Links — IBS Integration</div>
+    <div class="cross-link-grid">
+      <div class="cl-item">
+        <div class="cl-sub">FR</div>
+        ODI in subsidiary → <strong>consolidation under Ind AS 110</strong>. ODI in associate → equity method (Ind AS 28). OPI → FVTPL/FVOCI under Ind AS 109. Annual Performance Report (APR) → feeds into IND AS 107 disclosures.
+      </div>
+      <div class="cl-item">
+        <div class="cl-sub">Audit</div>
+        Annual Performance Report (APR) by Dec 31 each year — based on <strong>audited financials</strong> of foreign entity. Annual Return on FLA to RBI. Auditor checks UIN, AD bank designation, evidence of investment (share certs within 6 months).
+      </div>
+      <div class="cl-item">
+        <div class="cl-sub">DT</div>
+        Dividends from foreign subsidiaries → taxed in India as "income from other sources." <strong>Sec. 80C/115A</strong> not applicable for ODI income. Transfer pricing implications for related-party transactions with ODI entities.
+      </div>
+    </div>
+  </div>
+
+  <div class="nonneg">
+    <div class="nn-title">⚠ Compliance Indicators — Non-Negotiables</div>
+    <ul>
+      <li><strong>UIN before remittance</strong> — Unique Identification Number must be obtained from RBI before any outward remittance for ODI.</li>
+      <li><strong>Evidence of investment within 6 months</strong> — share certificates or equivalent documents to AD bank.</li>
+      <li><strong>No further commitment if reporting delayed</strong> — restriction applies until delay is regularised.</li>
+      <li>ODI in start-ups abroad: only from <strong>internal accruals</strong> — individual's own funds only, no borrowed funds.</li>
+      <li>Pakistan and CG-notified jurisdictions → <strong>prior CG approval</strong> mandatory for all OI.</li>
+    </ul>
+  </div>
+</div>
+<hr class="section-rule">
+
+<!-- ════════════════════════════════════════════════════════════
+  FRAMEWORK 6 — EXPORT REALISATION
+════════════════════════════════════════════════════════════ -->
+<div class="framework" id="fw6">
+  <div class="fw-sub">Framework 06</div>
+  <div class="framework-header">
+    <div class="fw-number">06</div>
+    <div class="fw-title">The Export Realisation &amp;<br>Repatriation Framework [Sec. 7 &amp; 8]</div>
+  </div>
+  <p class="section-intro">Every exporter is obligated to realise and repatriate export proceeds — foreign exchange belongs to the nation, not merely the individual exporter.</p>
+
+  <table class="strat-table">
+    <thead>
+      <tr><th>Context</th><th>Trigger Point</th><th>Legal Requirement</th><th>Strategic Impact</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Normal export of goods/software/services</td>
+        <td>Date of export / invoice</td>
+        <td>Realise and repatriate within <span class="days">9 months</span></td>
+        <td>Non-realisation = contravention u/s 13</td>
+      </tr>
+      <tr>
+        <td>Export to overseas warehouse</td>
+        <td>Date of shipment</td>
+        <td>Realise within <span class="days">15 months</span></td>
+        <td>RBI permission required to establish overseas warehouse</td>
+      </tr>
+      <tr>
+        <td>Export documents submission</td>
+        <td>Date of export / SOFTEX certification</td>
+        <td>Submit to AD bank within <span class="days">21 days</span></td>
+        <td>AD bank may accept late submission for reasons beyond exporter's control</td>
+      </tr>
+      <tr>
+        <td>Advance received from buyer</td>
+        <td>Date of receipt of advance payment</td>
+        <td>Shipment within <span class="days">1 year</span>. Interest: max Benchmark + 100 bps. Refund if unable: before 1 year (else RBI approval)</td>
+        <td>Exception: export agreement provides for shipment beyond 1 year</td>
+      </tr>
+      <tr>
+        <td>Import payment settlement</td>
+        <td>Date of shipment</td>
+        <td>Pay within <span class="days">6 months</span>. AD can extend up to <span class="days">6 months at a time</span> (max 3 years for disputes)</td>
+        <td>Deferred payment for capital goods: up to 3 years; non-capital: up to 1 year or operating cycle</td>
+      </tr>
+      <tr>
+        <td>Gift exports exemption</td>
+        <td>Gift of goods</td>
+        <td>No declaration required if value ≤ <span class="amount">₹5 lakhs</span></td>
+        <td>Trade samples, personal effects, ship stores also exempt</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="cross-link">
+    <div class="cl-title">🔗 Cross-Subject Links — IBS Integration</div>
+    <div class="cross-link-grid">
+      <div class="cl-item">
+        <div class="cl-sub">FR</div>
+        Export proceeds receivable = financial asset (Ind AS 109). Impairment of export receivables if realisation beyond 9 months is doubtful. EEFC account balances → disclosed as cash equivalents or forex assets per Ind AS 7.
+      </div>
+      <div class="cl-item">
+        <div class="cl-sub">Audit</div>
+        CARO 2020 Clause 18 — report on default in repayment of dues. Export realisation non-compliance must be flagged. SA 250 — FEMA violations = qualified or emphasis-of-matter paragraph.
+      </div>
+      <div class="cl-item">
+        <div class="cl-sub">IDT / GST</div>
+        Export of goods/services = Zero-rated under GST (Sec. 16, IGST Act). Advance payment → time of supply = date of advance or invoice, whichever earlier. Non-realisation in forex → refund of ITC may be reversed.
+      </div>
+    </div>
+  </div>
+
+  <div class="nonneg">
+    <div class="nn-title">⚠ Compliance Indicators — Non-Negotiables</div>
+    <ul>
+      <li><strong>9-month rule is critical</strong> — failure to realise within 9 months = contravention, even if RBI hasn't given specific direction.</li>
+      <li><strong>EDF form for physical exports; SOFTEX for software</strong> — specific forms, specific authorities.</li>
+      <li>Import settlement: <strong>6 months from date of shipment</strong> (not from date of invoice).</li>
+      <li>Extension of import dues beyond 1 year: outstanding must not exceed <strong>USD 1 mn or 10%</strong> of average import remittances (2 FYs), whichever lower.</li>
+      <li>Omission of RBI to give directions <strong>does not absolve</strong> the exporter of compliance obligations.</li>
+    </ul>
+  </div>
+</div>
+<hr class="section-rule">
+
+<!-- ════════════════════════════════════════════════════════════
+  FRAMEWORK 7 — AUTHORISED PERSONS
+════════════════════════════════════════════════════════════ -->
+<div class="framework" id="fw7">
+  <div class="fw-sub">Framework 07</div>
+  <div class="framework-header">
+    <div class="fw-number">07</div>
+    <div class="fw-title">The Authorised Person (AP)<br>Regulatory Framework [Sec. 10-12]</div>
+  </div>
+  <p class="section-intro">All forex dealings must route through <strong>Authorised Persons</strong> — the RBI-designated intermediary gatekeepers of FEMA compliance.</p>
+
+  <div class="key-rule">
+    <strong>Types of Authorised Persons:</strong> (i) Authorised Dealer (AD Cat-I, Cat-II), (ii) Money Changer, (iii) Off-Shore Banking Unit (OBU — in SEZ), (iv) Any other RBI-authorised person.
+  </div>
+
+  <div class="key-rule">
+    <strong>OBU Restriction:</strong> An Off-Shore Banking Unit (branch of Indian bank in SEZ) — <span class="bold-keyword">cannot deal with residents in India</span>. May deal with SEZ units and with other ADs on principal-to-principal basis only.
+  </div>
+
+  <table class="strat-table">
+    <thead>
+      <tr><th>Context</th><th>Trigger Point</th><th>Legal Requirement</th><th>Penalty</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>AP contravenes RBI direction or fails to file return</td>
+        <td>Any direction non-compliance</td>
+        <td>Hear before penalty imposition (reasonable opportunity)</td>
+        <td>Up to <span class="amount">₹10,000</span> + <span class="amount">₹2,000/day</span> for continuing contravention [Sec. 11]</td>
+      </tr>
+      <tr>
+        <td>AP must refuse transaction</td>
+        <td>Person refuses to furnish declaration or info</td>
+        <td>Refuse in writing. If contravention suspected → <strong>report to RBI</strong></td>
+        <td>AP's liability if it facilitates a non-compliant transaction</td>
+      </tr>
+      <tr>
+        <td>Revocation of authorisation</td>
+        <td>Non-compliance / public interest</td>
+        <td>Must give <strong>reasonable opportunity of representation</strong> before revocation (except public interest ground)</td>
+        <td>Loss of licence to deal in forex</td>
+      </tr>
+      <tr>
+        <td>RBI inspection of AP</td>
+        <td>Any time RBI deems necessary</td>
+        <td>AP must produce books and furnish statements. Directors/partners have equal duty.</td>
+        <td>Obstruction of inspection = contravention</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="nonneg">
+    <div class="nn-title">⚠ Compliance Indicators — Non-Negotiables</div>
+    <ul>
+      <li>Every forex transaction must route through AP — direct dealings between PRII and PROI in foreign currency = <strong>prohibited</strong> (Section 3).</li>
+      <li>Person acquires forex and misuses it (different purpose / doesn't surrender) = <strong>deemed contravention</strong>.</li>
+      <li>OBU is NOT an Authorised Dealer under FEMA — distinct category.</li>
+    </ul>
+  </div>
+</div>
+<hr class="section-rule">
+
+<!-- ════════════════════════════════════════════════════════════
+  FRAMEWORK 8 — PENALTIES & APPEAL
+════════════════════════════════════════════════════════════ -->
+<div class="framework" id="fw8">
+  <div class="fw-sub">Framework 08</div>
+  <div class="framework-header">
+    <div class="fw-number">08</div>
+    <div class="fw-title">The Enforcement, Penalties &amp;<br>Appellate Framework [Sec. 13–19, 35–37]</div>
+  </div>
+  <p class="section-intro">FEMA is a <strong>civil law</strong> (not criminal, unlike erstwhile FERA). Penalties are monetary; imprisonment is for <em>non-payment</em> of penalty, not for the contravention itself (except Sec. 13(1C) cases).</p>
+
+  <!-- Penalties Table -->
+  <table class="strat-table">
+    <thead>
+      <tr><th>Section</th><th>Contravention</th><th>Quantum of Penalty</th><th>Strategic Impact</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Sec. 11</strong></td>
+        <td>AP contravenes RBI direction / fails to file return</td>
+        <td><span class="amount">≤ ₹10,000</span> + <span class="amount">₹2,000/day</span> continuing</td>
+        <td>Reasonable opportunity before penalty imposition</td>
+      </tr>
+      <tr>
+        <td><strong>Sec. 13(1)</strong></td>
+        <td>Any contravention of FEMA provisions, rules, regulations</td>
+        <td>Quantifiable: <span class="amount">≤ 3× amount involved</span><br>Not quantifiable: <span class="amount">≤ ₹2 lakhs</span><br>Continuing: + <span class="amount">₹5,000/day</span></td>
+        <td>Adjudicating Authority may also order confiscation of property/forex</td>
+      </tr>
+      <tr>
+        <td><strong>Sec. 13(1A)</strong></td>
+        <td>Acquisition of foreign exchange/security/immovable property outside India exceeding threshold under Sec. 37A</td>
+        <td><span class="amount">≤ 3× amount involved</span> + confiscation of equivalent Indian assets</td>
+        <td>PMLA/FEMA overlap — joint Enforcement Directorate action</td>
+      </tr>
+      <tr>
+        <td><strong>Sec. 13(1C)</strong></td>
+        <td>Repeat contraventions related to Sec. 13(1A)</td>
+        <td>13(1A) penalties + <strong>imprisonment up to 5 years + fine</strong></td>
+        <td>Only criminal element in FEMA — rare but high impact</td>
+      </tr>
+      <tr>
+        <td><strong>Sec. 14</strong></td>
+        <td>Non-payment of penalty within 90 days</td>
+        <td>Civil imprisonment: <span class="amount">≤ 3 years</span> (demand &gt; ₹1 crore); <span class="amount">≤ 6 months</span> (others)</td>
+        <td>Release = immediate on payment. Arrears survive release.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Timeline Table -->
+  <table class="strat-table" style="margin-top:1rem;">
+    <thead>
+      <tr><th>Proceeding Stage</th><th>Time Limit</th><th>Authority</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Payment of penalty</td><td><span class="days">90 days</span> from notice</td><td>Adjudicating Authority</td></tr>
+      <tr><td>Compounding of contravention</td><td><span class="days">180 days</span> from application receipt</td><td>Director of Enforcement / RBI (as authorised by CG)</td></tr>
+      <tr><td>Adjudicating Authority to dispose complaint</td><td>Endeavour: <span class="days">1 year</span> from receipt</td><td>Adjudicating Authority</td></tr>
+      <tr><td>Appeal to Special Director (Appeals)</td><td><span class="days">45 days</span> from order</td><td>Special Director (Appeals) — against orders of Asst. Dir. / Dy. Dir. only</td></tr>
+      <tr><td>Appeal to Appellate Tribunal (ATFEMA)</td><td><span class="days">45 days</span> from order</td><td>Appellate Tribunal (constituted under SAFEMA)</td></tr>
+      <tr><td>ATFEMA disposal target</td><td>Endeavour: <span class="days">180 days</span></td><td>Appellate Tribunal</td></tr>
+      <tr><td>Appeal to High Court</td><td><span class="days">60 days</span> from ATFEMA order (only on <strong>questions of law</strong>)</td><td>High Court (where aggrieved party resides/operates)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="key-rule">
+    <strong>Compounding [Sec. 15]:</strong> Voluntary settlement of contravention. Once compounded → no further proceedings. [Sterlite Industries case]. Compounding closes the matter permanently.
+  </div>
+
+  <div class="key-rule">
+    <strong>Corporate Liability [Sec. 42]:</strong> Company commits contravention → Every person "in charge of and responsible for conduct of business" = guilty, UNLESS proves: (i) no knowledge, or (ii) due diligence exercised. Directors, managers, company secretaries with consent/connivance → personally liable.
+  </div>
+
+  <div class="key-rule">
+    <strong>Death / Insolvency [Sec. 43]:</strong> Proceedings do not abate. Obligations devolve on legal representative / official receiver. Legal representative's liability = limited to extent of estate inherited.
+  </div>
+
+  <div class="cross-link">
+    <div class="cl-title">🔗 Cross-Subject Links — IBS Integration</div>
+    <div class="cross-link-grid">
+      <div class="cl-item">
+        <div class="cl-sub">FR</div>
+        Penalty provisions → <strong>contingent liabilities</strong> disclosure under Ind AS 37. Ongoing FEMA proceedings = "possible obligation" → disclose but don't provide. Compounded amounts = definite liability → provide in financials.
+      </div>
+      <div class="cl-item">
+        <div class="cl-sub">Audit</div>
+        SA 250 — if FEMA contravention discovered, auditor must assess materiality. Compounding history = KYC risk indicator. Director liability under Sec. 42 → going concern assessment may be affected.
+      </div>
+      <div class="cl-item">
+        <div class="cl-sub">DT / IDT</div>
+        Penalty paid under FEMA → <strong>not deductible</strong> u/s 37(1) (expenditure of illegal nature). Enforcement Directorate and PMLA overlap → asset attachment under PMLA can precede FEMA adjudication.
+      </div>
+    </div>
+  </div>
+
+  <div class="nonneg">
+    <div class="nn-title">⚠ Compliance Indicators — Non-Negotiables</div>
+    <ul>
+      <li><strong>90 days to pay penalty</strong> — non-payment = civil imprisonment (not criminal).</li>
+      <li><strong>FEMA = Civil law</strong> — burden of proof: "balance of probabilities" not "beyond reasonable doubt."</li>
+      <li>Appeal to High Court only on <strong>question of law</strong> — not on facts.</li>
+      <li>Compounding application = 180 days to process — contravener must apply proactively.</li>
+      <li>Section 42 personal liability of directors — <strong>"due diligence" defence</strong> is available.</li>
+      <li>BCCI case — Associations/Societies ≠ "company" under Sec. 42 explanation — cannot be penalised as company.</li>
+    </ul>
+  </div>
+</div>
+<hr class="section-rule">
+
+<!-- ════════════════════════════════════════════════════════════
+  IRAC TEMPLATE
+════════════════════════════════════════════════════════════ -->
+<div class="framework" id="irac">
+  <div class="fw-sub">Ready-to-Use Template</div>
+  <div class="framework-header">
+    <div class="fw-number">→</div>
+    <div class="fw-title">IRAC Answer Template — Most<br>High-Yield Section: LRS &amp; Schedule III</div>
+  </div>
+  <p class="section-intro">The Liberalised Remittance Scheme (LRS) under Schedule III appears in virtually every IBS case study involving NRI/resident transactions. Use this template as a structural guide.</p>
+
+  <div class="irac-box">
+    <div class="irac-title">IRAC Framework — LRS / Schedule III Remittance Problem</div>
+
+    <div class="irac-row">
+      <div class="irac-label">ISSUE</div>
+      <div class="irac-text">Whether [Name], a Person Resident in India (PRII), is permitted to remit USD [X] for [purpose: studies/medical/gift/travel] without prior approval of the Reserve Bank of India under the Foreign Exchange Management Act, 1999, and if so, to what extent.</div>
+    </div>
+
+    <div class="irac-row">
+      <div class="irac-label">RULE</div>
+      <div class="irac-text">Under Section 5 of FEMA read with Schedule III of the FEM (Current Account Transactions) Rules, 2000, an individual PRII may remit up to <strong>USD 2,50,000 per financial year (April–March)</strong> for permissible current account transactions without RBI prior approval. For [studies/medical treatment], the individual may further remit in excess of this limit, without RBI approval, based on an estimate/requirement certificate from the [university/hospital] abroad. Any amount beyond the LRS ceiling for other purposes requires RBI's prior approval.</div>
+    </div>
+
+    <div class="irac-row">
+      <div class="irac-label">APPLICATION</div>
+      <div class="irac-text">In the present case, [Name]'s cumulative remittances in FY [XXXX] amount to USD [Y]. The proposed remittance of USD [X] for [purpose] falls [within / outside] the USD 2,50,000 LRS ceiling. [If applicable: Since purpose is studies/medical, the excess beyond USD 2,50,000 is also permitted based on the institute/hospital estimate.] [If LRS already utilised: Since USD [Y] has already been remitted this FY, only USD [2,50,000 – Y] remains available, and RBI prior approval is required for the balance of USD [Z].]</div>
+    </div>
+
+    <div class="irac-row">
+      <div class="irac-label">CONCLUSION</div>
+      <div class="irac-text">[Name] [is / is not] required to obtain RBI's prior approval. The remittance [is freely permitted within LRS / requires RBI approval for the amount exceeding USD 2,50,000 / is partially permissible up to the LRS ceiling]. All transactions must be routed through an Authorised Person (Authorised Dealer) as required under Section 10 of FEMA, 1999.</div>
+    </div>
+  </div>
+
+  <div style="background: rgba(184,134,11,0.08); border: 1px solid var(--gold); padding: 1rem 1.4rem; margin-top: 1rem; font-size: 13.5px;">
+    <strong style="color: var(--teal); font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 1px; text-transform: uppercase;">IBS Case Study Pro-Tips</strong>
+    <ul style="margin-top: 0.5rem; padding-left: 1.4rem;">
+      <li>Always <strong>aggregate all remittances in the FY</strong> — the question often gives multiple remittances to test whether LRS ceiling is breached.</li>
+      <li>For <strong>medical/education</strong>: LRS ceiling is a soft limit — can go beyond with institution's estimate certificate.</li>
+      <li>Check if <strong>RFC/EEFC account</strong> exempts from Schedule II/III requirements — this is a frequent differentiator.</li>
+      <li>Identify if the "person" is an <strong>individual or corporate</strong> — LRS applies only to individuals; corporates use ODI route.</li>
+      <li>In capital account scenarios, always establish <strong>PRII or PROI status first</strong> — the entire analysis flows from this.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div style="margin-top: 3rem; border-top: 2px solid var(--rule); padding-top: 1.5rem; font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: rgba(13,13,15,0.4); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+  <div>FEMA Strategic Framework · CA Final IBS · Anthropic Claude</div>
+  <div>Chapter 1 · Economic Laws · ICAI Study Material</div>
+</div>
+
+</div><!-- end .content -->
+</body>
+</html>

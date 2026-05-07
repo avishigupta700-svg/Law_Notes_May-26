@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CA Final | Securities Laws — Strategic Framework</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;600&family=Epilogue:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #0d0f14;
+    --paper:     #f7f4ef;
+    --cream:     #ede9e0;
+    --gold:      #c9922a;
+    --gold-lt:   #f5e4c0;
+    --red:       #b5282c;
+    --red-lt:    #fde8e8;
+    --teal:      #1a6b70;
+    --teal-lt:   #d3eff0;
+    --navy:      #1c2b4a;
+    --navy-lt:   #dde4f0;
+    --green:     #2a6b40;
+    --green-lt:  #d4eddd;
+    --purple:    #5b2d8e;
+    --purple-lt: #ede0fa;
+    --border:    #d4cfc5;
+    --muted:     #6b6560;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    background: var(--paper);
+    color: var(--ink);
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: var(--navy);
+    color: #fff;
+    padding: 60px 48px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      -45deg, transparent, transparent 24px,
+      rgba(255,255,255,.03) 24px, rgba(255,255,255,.03) 25px
+    );
+  }
+  .cover-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: .16em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 18px;
+    position: relative;
+  }
+  .cover h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 5vw, 48px);
+    line-height: 1.1; margin-bottom: 12px;
+    position: relative;
+  }
+  .cover h1 em {
+    font-style: italic; color: var(--gold);
+  }
+  .cover-sub {
+    font-size: 13px; font-weight: 300;
+    color: rgba(255,255,255,.65);
+    max-width: 560px; position: relative;
+    margin-bottom: 36px;
+  }
+  .cover-tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    position: relative;
+  }
+  .cover-tag {
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.18);
+    color: rgba(255,255,255,.85);
+    padding: 4px 12px; border-radius: 2px;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: .06em;
+  }
+
+  /* ── NAV BAR ── */
+  .toc-bar {
+    background: var(--ink); color: #fff;
+    padding: 0 48px;
+    display: flex; overflow-x: auto;
+    gap: 2px;
+    scrollbar-width: none;
+  }
+  .toc-bar::-webkit-scrollbar { display: none; }
+  .toc-link {
+    display: inline-flex; align-items: center;
+    padding: 12px 16px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: rgba(255,255,255,.55);
+    text-decoration: none; white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color .2s, border-color .2s;
+  }
+  .toc-link:hover, .toc-link.active {
+    color: var(--gold); border-bottom-color: var(--gold);
+  }
+
+  /* ── LAYOUT ── */
+  .container {
+    max-width: 1100px; margin: 0 auto; padding: 0 24px;
+  }
+
+  /* ── FRAMEWORK SECTION ── */
+  .framework {
+    padding: 56px 0 0;
+  }
+  .framework + .framework { padding-top: 48px; }
+
+  .section-header {
+    display: flex; align-items: flex-start; gap: 18px;
+    padding: 0 0 24px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 32px;
+  }
+  .section-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: .12em; color: var(--muted);
+    text-transform: uppercase;
+    margin-top: 4px; flex-shrink: 0;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(20px, 3vw, 28px);
+    line-height: 1.1;
+  }
+  .section-title span {
+    display: block; font-size: 13px;
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 500; color: var(--muted);
+    margin-top: 4px;
+    font-style: normal;
+  }
+
+  /* ── GRID SYSTEMS ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  @media(max-width:720px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .card-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px; font-weight: 600;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 10px;
+  }
+  .card h3 {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 14px; font-weight: 700;
+    margin-bottom: 10px; color: var(--ink);
+  }
+
+  /* ── ACCENT CARDS ── */
+  .card-gold  { border-left: 4px solid var(--gold);  background: var(--gold-lt); }
+  .card-red   { border-left: 4px solid var(--red);   background: var(--red-lt); }
+  .card-teal  { border-left: 4px solid var(--teal);  background: var(--teal-lt); }
+  .card-navy  { border-left: 4px solid var(--navy);  background: var(--navy-lt); }
+  .card-green { border-left: 4px solid var(--green); background: var(--green-lt); }
+  .card-purple{ border-left: 4px solid var(--purple);background: var(--purple-lt); }
+
+  /* ── TABLE ── */
+  .strat-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 20px 0; }
+  .strat-table thead tr {
+    background: var(--ink); color: #fff;
+  }
+  .strat-table thead th {
+    padding: 10px 14px; text-align: left;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase;
+  }
+  .strat-table tbody tr { border-bottom: 1px solid var(--border); }
+  .strat-table tbody tr:nth-child(even) { background: var(--cream); }
+  .strat-table td { padding: 9px 14px; vertical-align: top; }
+  .strat-table td:first-child { font-weight: 700; font-size: 12px; }
+
+  /* ── DECISION TREE ── */
+  .dtree { margin: 16px 0; }
+  .dtree-node {
+    display: flex; gap: 12px; margin-bottom: 4px;
+    align-items: flex-start;
+  }
+  .dtree-bullet {
+    width: 26px; height: 26px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px; font-weight: 700;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .dt-trigger { background: var(--gold);    color: var(--ink); }
+  .dt-if      { background: var(--navy);    color: #fff; }
+  .dt-then    { background: var(--green);   color: #fff; }
+  .dt-else    { background: var(--red);     color: #fff; }
+  .dt-result  { background: var(--teal);    color: #fff; }
+  .dtree-line { padding-left: 38px; border-left: 2px solid var(--border); margin-left: 12px; }
+  .dtree-text { font-size: 13px; line-height: 1.5; padding-top: 3px; }
+  .dtree-text strong { color: var(--navy); }
+
+  /* ── IRAC BLOCK ── */
+  .irac {
+    background: var(--navy); color: #fff;
+    border-radius: 4px; overflow: hidden; margin: 24px 0;
+  }
+  .irac-header {
+    background: var(--gold); color: var(--ink);
+    padding: 10px 20px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: .18em; text-transform: uppercase;
+  }
+  .irac-body { padding: 20px; }
+  .irac-row {
+    display: grid; grid-template-columns: 80px 1fr;
+    gap: 12px; margin-bottom: 14px; align-items: start;
+  }
+  .irac-row:last-child { margin-bottom: 0; }
+  .irac-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--gold); padding-top: 2px;
+  }
+  .irac-content { font-size: 13px; line-height: 1.55; color: rgba(255,255,255,.88); }
+
+  /* ── CROSS-SUBJECT LINK ── */
+  .xlink {
+    background: var(--cream); border: 1px solid var(--border);
+    border-radius: 4px; padding: 16px 20px; margin: 16px 0;
+  }
+  .xlink-header {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 12px;
+  }
+  .xlink-icon {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--ink); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700;
+  }
+  .xlink-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ink);
+  }
+  .xlink-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+  }
+  @media(max-width:720px) { .xlink-grid { grid-template-columns: 1fr 1fr; } }
+  .xlink-pill {
+    padding: 8px 10px; border-radius: 3px;
+    font-size: 11.5px; line-height: 1.4;
+  }
+  .xlink-pill strong {
+    display: block; font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .xlink-fr   { background: var(--navy-lt);   border-left: 3px solid var(--navy); }
+  .xlink-au   { background: var(--teal-lt);   border-left: 3px solid var(--teal); }
+  .xlink-dt   { background: var(--gold-lt);   border-left: 3px solid var(--gold); }
+  .xlink-idt  { background: var(--red-lt);    border-left: 3px solid var(--red); }
+
+  /* ── COMPLIANCE BADGE ── */
+  .badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 3px 9px; border-radius: 2px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: .08em;
+  }
+  .badge-red    { background: var(--red-lt);  color: var(--red); }
+  .badge-gold   { background: var(--gold-lt); color: #7a4e00; }
+  .badge-green  { background: var(--green-lt);color: var(--green); }
+  .badge-teal   { background: var(--teal-lt); color: var(--teal); }
+  .badge-navy   { background: var(--navy-lt); color: var(--navy); }
+
+  /* ── KEY INDICATORS ── */
+  .indicator-box {
+    background: var(--ink); color: #fff;
+    border-radius: 4px; padding: 22px 24px; margin: 20px 0;
+  }
+  .indicator-box h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; font-weight: 700; letter-spacing: .16em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 14px;
+  }
+  .indicator-list { list-style: none; }
+  .indicator-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin-bottom: 10px; font-size: 13px;
+    color: rgba(255,255,255,.88); line-height: 1.45;
+  }
+  .indicator-list li::before {
+    content: '⚑';
+    color: var(--gold); font-size: 12px; flex-shrink: 0; margin-top: 2px;
+  }
+
+  /* ── PENALTY TABLE ── */
+  .penalty-grid {
+    display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 0;
+    border: 1px solid var(--border); border-radius: 4px;
+    overflow: hidden; margin: 16px 0;
+    font-size: 12.5px;
+  }
+  @media(max-width:660px) { .penalty-grid { grid-template-columns: 1fr; } }
+  .penalty-grid-hd {
+    background: var(--red); color: #fff; padding: 8px 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9.5px; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .penalty-grid-cell {
+    padding: 9px 12px; border-top: 1px solid var(--border);
+    vertical-align: top;
+  }
+  .penalty-grid-cell:nth-child(3n+1) { font-weight: 700; background: var(--cream); }
+
+  /* ── TIMELINE STRIP ── */
+  .timeline {
+    display: flex; overflow-x: auto; gap: 0;
+    border: 1px solid var(--border); border-radius: 4px;
+    margin: 16px 0;
+    scrollbar-width: thin;
+  }
+  .tl-step {
+    min-width: 140px; padding: 14px 16px;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+  .tl-step:last-child { border-right: none; }
+  .tl-step::after {
+    content: '→';
+    position: absolute; right: -10px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted); font-size: 14px; z-index: 2;
+  }
+  .tl-step:last-child::after { display: none; }
+  .tl-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; color: var(--muted); margin-bottom: 4px;
+  }
+  .tl-title { font-size: 12px; font-weight: 700; color: var(--ink); }
+  .tl-sub { font-size: 11px; color: var(--muted); margin-top: 3px; }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight {
+    background: var(--gold-lt);
+    border: 1px solid var(--gold);
+    border-radius: 4px; padding: 14px 18px; margin: 12px 0;
+    font-size: 13px; line-height: 1.5;
+  }
+  .highlight strong { color: #7a4e00; }
+
+  /* ── FLOW STEP ── */
+  .flow {
+    display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; align-items: center;
+  }
+  .flow-step {
+    background: #fff; border: 1.5px solid var(--border);
+    border-radius: 3px; padding: 7px 14px;
+    font-size: 12.5px; font-weight: 600;
+    position: relative;
+  }
+  .flow-arrow {
+    font-size: 16px; color: var(--muted);
+  }
+  .flow-step.highlight-step {
+    background: var(--navy); color: #fff;
+    border-color: var(--navy);
+  }
+
+  /* ── DIVIDER ── */
+  hr.section-div {
+    border: none; border-top: 1px solid var(--border);
+    margin: 40px 0;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--ink); color: rgba(255,255,255,.4);
+    padding: 24px 48px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; letter-spacing: .08em;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    margin-top: 64px;
+  }
+
+  b { font-weight: 700; }
+  ul.plain { list-style: none; }
+  ul.plain li { padding: 2px 0; font-size: 13px; }
+  ul.plain li::before { content: '• '; color: var(--gold); font-weight: 700; }
+  p { margin-bottom: 8px; font-size: 13.5px; }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════ COVER -->
+<div class="cover">
+  <div class="cover-label">CA Final · Paper 6 IBS · Corporate &amp; Economic Laws</div>
+  <h1>Securities Laws —<br><em>Strategic Framework</em></h1>
+  <p class="cover-sub">
+    SEBI Act 1992 · LODR 2015 · ICDR 2018 · SAST 2011 · PIT 2015<br>
+    Structured for Integrated Business Solutions · Decision-Tree Logic · IBS Cross-Subject Links
+  </p>
+  <div class="cover-tags">
+    <span class="cover-tag">5 Compliance Frameworks</span>
+    <span class="cover-tag">Penalty Tables</span>
+    <span class="cover-tag">Decision Trees</span>
+    <span class="cover-tag">IRAC Template</span>
+    <span class="cover-tag">FR · Audit · DT · IDT Links</span>
+  </div>
+</div>
+
+<!-- ── NAV -->
+<nav class="toc-bar">
+  <a class="toc-link" href="#fw1">01 · SEBI Act</a>
+  <a class="toc-link" href="#fw2">02 · LODR</a>
+  <a class="toc-link" href="#fw3">03 · ICDR</a>
+  <a class="toc-link" href="#fw4">04 · SAST</a>
+  <a class="toc-link" href="#fw5">05 · PIT</a>
+  <a class="toc-link" href="#penaltytable">06 · Master Penalty Table</a>
+  <a class="toc-link" href="#irac">07 · IRAC</a>
+</nav>
+
+<div class="container">
+
+<!-- ══════════════════════════════════════════════════════════
+     FRAMEWORK 1 — SEBI ACT GOVERNANCE FRAMEWORK
+     ══════════════════════════════════════════════════════════ -->
+<section class="framework" id="fw1">
+  <div class="section-header">
+    <div class="section-num">Framework 01</div>
+    <div class="section-title">The SEBI Governance &amp; Enforcement Framework
+      <span>SEBI Act, 1992 · Sections 3–34A</span>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <!-- Board Composition -->
+    <div class="card card-navy">
+      <div class="card-label">Board Composition · S.4</div>
+      <h3>Management Structure</h3>
+      <ul class="plain">
+        <li><b>1 Chairman</b> — nominated by Central Government</li>
+        <li><b>2 Members</b> — officers from Ministry of CG</li>
+        <li><b>1 Member</b> — from RBI</li>
+        <li><b>5 Members</b> — nominated by CG; at least <b>3 whole-time</b></li>
+      </ul>
+      <div style="margin-top:10px; font-size:12.5px; color:var(--muted);">
+        <b>Term:</b> max 5 years · eligible for reappointment · retirement at <b>65 years</b>
+        <br><b>Termination:</b> 3 months' notice or 3 months' salary in lieu
+      </div>
+    </div>
+
+    <!-- Powers at a Glance -->
+    <div class="card card-teal">
+      <div class="card-label">Key Powers · S.11, 11B, 11C</div>
+      <h3>Regulatory Powers (SCPM Snapshot)</h3>
+      <ul class="plain">
+        <li>Suspend trading of any security on recognized exchange</li>
+        <li>Restrain persons from accessing securities market</li>
+        <li>Attach bank accounts / property for <b>max 90 days</b></li>
+        <li>Issue <b>Cease &amp; Desist</b> orders (S.11D)</li>
+        <li>Direct <b>disgorgement</b> of wrongful gains → credited to <b>IPEF</b></li>
+        <li>Levy penalties under S.15A to 15HB after inquiry</li>
+        <li>Powers of a <b>civil court</b> (CPC 1908) for discovery, summons, oaths</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Investigation Decision Tree -->
+  <div class="card" style="margin-top:8px;">
+    <div class="card-label">Decision-Tree · S.11C — Investigation Trigger</div>
+    <h3>When Does SEBI Initiate Investigation?</h3>
+    <div class="dtree">
+      <div class="dtree-node">
+        <div class="dtree-bullet dt-trigger">FACT</div>
+        <div class="dtree-text">SEBI has <strong>reasonable grounds</strong> to believe violation exists</div>
+      </div>
+      <div class="dtree-line">
+        <div class="dtree-node">
+          <div class="dtree-bullet dt-if">IF</div>
+          <div class="dtree-text"><strong>Transactions in securities</strong> are detrimental to investors/market</div>
+        </div>
+        <div class="dtree-node" style="margin-top:4px;">
+          <div class="dtree-bullet dt-if">OR</div>
+          <div class="dtree-text"><strong>Intermediary/associated person</strong> has violated Act, rules, or regulations</div>
+        </div>
+        <div class="dtree-node" style="margin-top:6px;">
+          <div class="dtree-bullet dt-then">THEN</div>
+          <div class="dtree-text">SEBI issues written order → appoints <strong>Investigating Authority (IA)</strong></div>
+        </div>
+        <div class="dtree-line">
+          <div class="dtree-node">
+            <div class="dtree-bullet dt-result">ACT</div>
+            <div class="dtree-text">IA keeps documents for <strong>6 months</strong> · can examine on oath · may impound documents via Magistrate/Designated Court</div>
+          </div>
+          <div class="dtree-node" style="margin-top:4px;">
+            <div class="dtree-bullet dt-else">FAIL</div>
+            <div class="dtree-text">Non-compliance = Imprisonment up to <strong>1 year</strong> + Fine up to <strong>₹1 Crore</strong> + ₹5 Lakh/day</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SAT Framework -->
+  <div class="card card-gold" style="margin-top:4px;">
+    <div class="card-label">Appellate Framework · S.15K–15Z</div>
+    <h3>Securities Appellate Tribunal (SAT)</h3>
+    <div class="grid-2">
+      <div>
+        <p><b>Composition:</b> Presiding Officer + Judicial Members + Technical Members</p>
+        <p><b>Bench:</b> Minimum 1 Judicial + 1 Technical member</p>
+        <p><b>Sits at:</b> Mumbai (primarily)</p>
+        <p><b>Term:</b> 5 years, eligible for one reappointment; retirement at <b>70 years</b></p>
+      </div>
+      <div>
+        <div class="flow">
+          <div class="flow-step">SEBI/AO Order</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">Appeal to SAT<br><span style="font-size:10px;font-weight:400">within <b>45 days</b></span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step highlight-step">SAT Decision<br><span style="font-size:10px">≤ 6 months</span></div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">Supreme Court<br><span style="font-size:10px;font-weight:400">within <b>60 days</b></span></div>
+        </div>
+        <p style="font-size:12px; color:var(--muted); margin-top:4px;">Appeal to SC is on <b>question of law only</b>. No Civil Court jurisdiction.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cross-Subject Links -->
+  <div class="xlink">
+    <div class="xlink-header">
+      <div class="xlink-icon">⊕</div>
+      <div class="xlink-title">IBS Cross-Subject Links — SEBI Act</div>
+    </div>
+    <div class="xlink-grid">
+      <div class="xlink-pill xlink-fr">
+        <strong>FR</strong>
+        Disgorgement → IPEF disclosure in Notes to Accounts. SEBI attachment → contingent liability under Ind AS 37.
+      </div>
+      <div class="xlink-pill xlink-au">
+        <strong>Audit</strong>
+        CARO 2020 Clause 19 — pending litigations / disputed dues. SA 250 — Laws &amp; Regulations. Qualification for non-compliance.
+      </div>
+      <div class="xlink-pill xlink-dt">
+        <strong>DT</strong>
+        Disgorgement is <b>not tax-deductible</b> (Sec 37 — illegal payments). Penalties paid to SEBI: no deduction u/s 37(1).
+      </div>
+      <div class="xlink-pill xlink-idt">
+        <strong>IDT</strong>
+        SEBI fees paid by intermediaries attract GST under Notification 12/2017. Settlement amounts: not subject to GST (no supply).
+      </div>
+    </div>
+  </div>
+
+  <!-- Compliance Indicators -->
+  <div class="indicator-box">
+    <h4>⚑ Critical Compliance Indicators — SEBI Act (High-Yield IBS Points)</h4>
+    <ul class="indicator-list">
+      <li><b>Attachment Rule:</b> Bank accounts attached for max <b>90 days</b>; must get Special Court confirmation within 90 days, else lapses.</li>
+      <li><b>Settlement (S.15JB):</b> Once settled, NO appeal lies under S.15T. Settlement amounts (excluding disgorgement) → Consolidated Fund of India.</li>
+      <li><b>Contravention by Company (S.27):</b> Every person in charge is deemed guilty UNLESS they prove absence of knowledge or due diligence.</li>
+      <li><b>Recovery (S.28A):</b> SEBI's recovery has <b>precedence</b> over all other claims (S.11B direction defaults).</li>
+      <li><b>Immunity (S.24B):</b> Granted only on full &amp; true disclosure + CG recommendation. Automatically revoked if conditions breached or false evidence given.</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="section-div">
+
+<!-- ══════════════════════════════════════════════════════════
+     FRAMEWORK 2 — LODR
+     ══════════════════════════════════════════════════════════ -->
+<section class="framework" id="fw2">
+  <div class="section-header">
+    <div class="section-num">Framework 02</div>
+    <div class="section-title">The Listed Entity Compliance Framework
+      <span>SEBI (LODR) Regulations, 2015 — Effective Dec 1, 2015</span>
+    </div>
+  </div>
+
+  <!-- Board Composition Framework -->
+  <div class="card card-navy">
+    <div class="card-label">Board Composition Framework · Reg 17</div>
+    <h3>Board Composition Decision Tree</h3>
+    <div class="dtree">
+      <div class="dtree-node">
+        <div class="dtree-bullet dt-trigger">BASE</div>
+        <div class="dtree-text"><strong>Any Listed Entity:</strong> ≥50% Non-Executive Directors + At least <b>1 Woman Director</b></div>
+      </div>
+      <div class="dtree-line">
+        <div class="dtree-node">
+          <div class="dtree-bullet dt-if">IF</div>
+          <div class="dtree-text">Chairperson is a <strong>Non-Executive Director</strong></div>
+        </div>
+        <div class="dtree-node">
+          <div class="dtree-bullet dt-then">THEN</div>
+          <div class="dtree-text">At least <strong>1/3 Independent Directors</strong> on Board</div>
+        </div>
+        <div class="dtree-node" style="margin-top:6px;">
+          <div class="dtree-bullet dt-else">ELSE</div>
+          <div class="dtree-text">Chairperson NOT a regular non-exec OR related to promoter → at least <strong>1/2 Independent Directors</strong></div>
+        </div>
+        <div class="dtree-node" style="margin-top:6px;">
+          <div class="dtree-bullet dt-result">PLUS</div>
+          <div class="dtree-text"><b>Top 1000</b> listed entities: Mandatory <b>1 Independent Woman Director</b><br><b>Top 2000</b> listed entities: Minimum <b>6 Directors</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="highlight" style="margin-top:12px;">
+      <strong>Age Limit:</strong> Non-executive director ≥ 75 years requires <b>Special Resolution</b> with explanatory statement justification.
+    </div>
+  </div>
+
+  <!-- Compliance Timelines Table -->
+  <h3 style="margin:20px 0 10px; font-size:15px;">SCPM-Style Compliance Timeline Table</h3>
+  <table class="strat-table">
+    <thead>
+      <tr>
+        <th>Context</th>
+        <th>Trigger Point</th>
+        <th>Legal Requirement</th>
+        <th>Strategic Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Board Meeting Notice<br><span class="badge badge-gold">Reg 29</span></td>
+        <td>Buyback, FPO, dividend proposal, bonus</td>
+        <td><b>2 working days</b> prior intimation to RSE (excluding date of intimation &amp; date of meeting)</td>
+        <td>Insider trading trigger; price-sensitive event — trading window must close</td>
+      </tr>
+      <tr>
+        <td>Record Date<br><span class="badge badge-teal">Reg 42</span></td>
+        <td>Dividend, rights, bonus, corporate actions</td>
+        <td><b>3 working days</b> notice to RSE before record date</td>
+        <td>FR impact: record date determines dividend recognition; ex-dividend treatment</td>
+      </tr>
+      <tr>
+        <td>Financial Results<br><span class="badge badge-navy">Reg 33</span></td>
+        <td>Each quarter-end (except last quarter)</td>
+        <td>Quarterly results within <b>45 days</b> of quarter-end</td>
+        <td>Audit: Limited Review Report required for unaudited results (SA 2410)</td>
+      </tr>
+      <tr>
+        <td>Annual Results<br><span class="badge badge-navy">Reg 33</span></td>
+        <td>Financial year-end</td>
+        <td>Audited annual results within <b>60 days</b> of FY-end</td>
+        <td>Audit Report + SIQAI (if modified opinion) must accompany</td>
+      </tr>
+      <tr>
+        <td>Annual Report<br><span class="badge badge-green">Reg 34</span></td>
+        <td>AGM dispatch</td>
+        <td>Submit to RSE on/before commencement of dispatch; revisions within <b>48 hrs</b> post-AGM</td>
+        <td>BRSR disclosure for top-ranked entities; MD&amp;A, CG Report mandatory</td>
+      </tr>
+      <tr>
+        <td>Shareholding Pattern<br><span class="badge badge-teal">Reg 31</span></td>
+        <td>End of each quarter</td>
+        <td>Within <b>21 days</b> from quarter-end; within <b>10 days</b> if capital restructuring &gt;2%</td>
+        <td>FR: Impact on consolidation; change in promoter holding triggers PIT/SAST</td>
+      </tr>
+      <tr>
+        <td>CG Compliance Report<br><span class="badge badge-navy">Reg 27</span></td>
+        <td>Each quarter</td>
+        <td>Submit within <b>21 days</b> from quarter-end (per latest circular)</td>
+        <td>Secretarial audit basis; non-compliance = stock exchange fine</td>
+      </tr>
+      <tr>
+        <td>Website Update<br><span class="badge badge-gold">Reg 46</span></td>
+        <td>Any change in website content</td>
+        <td>Update within <b>2 working days</b></td>
+        <td>Disclosure obligation for material events/investor access</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Committees Comparison -->
+  <h3 style="margin:20px 0 10px; font-size:15px;">Board Committee Composition — Comparative Table</h3>
+  <table class="strat-table">
+    <thead>
+      <tr>
+        <th>Committee</th>
+        <th>Minimum Members</th>
+        <th>ID Requirement</th>
+        <th>Chairperson</th>
+        <th>Min Meetings/Year</th>
+        <th>Applicability</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Audit Committee<br><span class="badge badge-red">Reg 18</span></td>
+        <td>3 Directors</td>
+        <td>≥ 2/3 must be IDs; all IDs if SR shares listed</td>
+        <td>Independent Director</td>
+        <td><b>4</b> (max 120-day gap)</td>
+        <td>All listed entities</td>
+      </tr>
+      <tr>
+        <td>NRC<br><span class="badge badge-teal">Reg 19</span></td>
+        <td>3 Directors</td>
+        <td>≥ 2/3 IDs; <b>all must be Non-Executive</b></td>
+        <td>Independent Director</td>
+        <td><b>1</b></td>
+        <td>All listed entities</td>
+      </tr>
+      <tr>
+        <td>Stakeholders RC<br><span class="badge badge-gold">Reg 20</span></td>
+        <td>3 Directors (≥1 ID)</td>
+        <td>At least 1 ID</td>
+        <td>Non-Executive Director</td>
+        <td><b>1</b></td>
+        <td>All listed entities</td>
+      </tr>
+      <tr>
+        <td>Risk Management<br><span class="badge badge-navy">Reg 21</span></td>
+        <td>3 members (majority Board)</td>
+        <td>≥1 ID; if SR shares: ≥2/3 IDs</td>
+        <td>Board Member</td>
+        <td><b>2</b> (max 210-day gap)</td>
+        <td>Top 1000 + HVDLE</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- RPT Decision Tree -->
+  <div class="card card-red" style="margin-top:8px;">
+    <div class="card-label">Decision Tree · Reg 23 — Related Party Transactions (RPT)</div>
+    <h3>RPT Approval Framework</h3>
+    <div class="dtree">
+      <div class="dtree-node">
+        <div class="dtree-bullet dt-trigger">START</div>
+        <div class="dtree-text">Transaction involves <strong>Related Party</strong> (≥10% shareholder w.e.f. Apr 2023 OR promoter group)</div>
+      </div>
+      <div class="dtree-line">
+        <div class="dtree-node">
+          <div class="dtree-bullet dt-if">IF</div>
+          <div class="dtree-text">RPT value &lt; <strong>₹1,000 Cr</strong> AND &lt; 10% of consolidated annual turnover</div>
+        </div>
+        <div class="dtree-node">
+          <div class="dtree-bullet dt-then">THEN</div>
+          <div class="dtree-text">Requires only <b>Audit Committee</b> approval (only IDs vote)</div>
+        </div>
+        <div class="dtree-node" style="margin-top:6px;">
+          <div class="dtree-bullet dt-else">ELSE</div>
+          <div class="dtree-text"><strong>Material RPT</strong> → requires <b>Shareholders' Resolution</b> (Related party CANNOT vote)</div>
+        </div>
+        <div class="dtree-node" style="margin-top:6px;">
+          <div class="dtree-bullet dt-result">NOTE</div>
+          <div class="dtree-text">Brand/royalty RPT: material if &gt; <b>5%</b> of consolidated annual turnover. SME Exchange: material if &gt; ₹50 Cr or 10% (w.e.f. Apr 2025)</div>
+        </div>
+      </div>
+    </div>
+    <div class="highlight" style="margin-top:10px;">
+      <b>Exceptions:</b> Government-to-Government company transactions · Wholly-owned subsidiary transactions (accounts consolidated + approved at GM)
+    </div>
+  </div>
+
+  <!-- Cross-Subject Links -->
+  <div class="xlink">
+    <div class="xlink-header">
+      <div class="xlink-icon">⊕</div>
+      <div class="xlink-title">IBS Cross-Subject Links — LODR</div>
+    </div>
+    <div class="xlink-grid">
+      <div class="xlink-pill xlink-fr">
+        <strong>FR</strong>
+        RPT disclosure in Notes (Ind AS 24). Material subsidiary: consolidation required. SIQAI → auditor disclosure of impact of qualifications.
+      </div>
+      <div class="xlink-pill xlink-au">
+        <strong>Audit</strong>
+        Secretarial Audit mandatory for listed entities + material unlisted subs (Peer-Reviewed CS). SA 550 — Related Parties. CARO Clause 42 — RPT arm's length test.
+      </div>
+      <div class="xlink-pill xlink-dt">
+        <strong>DT</strong>
+        RPT pricing → Transfer Pricing implications (Sec 92A-92F). Material subsidiary dividend → dividend taxation u/s 8 &amp; 115BBD (if foreign).
+      </div>
+      <div class="xlink-pill xlink-idt">
+        <strong>IDT</strong>
+        RPT with related parties: GST may apply at Open Market Value (Rule 28 CGST Rules) if price &lt; OMV. Corporate governance fees: input credit eligibility.
+      </div>
+    </div>
+  </div>
+
+  <div class="indicator-box">
+    <h4>⚑ Critical Compliance Indicators — LODR (High-Yield IBS Points)</h4>
+    <ul class="indicator-list">
+      <li><b>Maximum Directorships (Reg 17A):</b> Max <b>7 listed entity</b> directorships. WTD/MD in any listed entity → max <b>3</b> independent directorships elsewhere.</li>
+      <li><b>Committee Membership Limits (Reg 26):</b> Max <b>10 committee memberships</b> + max <b>5 chairmanships</b> across all listed + public companies (Audit &amp; SRC counted only).</li>
+      <li><b>Material Subsidiary (Reg 24):</b> ≥20% of consolidated turnover or net worth → at least 1 ID of listed entity must be on its board; disposal of &gt;50% stake requires Special Resolution.</li>
+      <li><b>Compliance Officer vacancy</b> must be filled within <b>3 months</b>; no interim appointment unless compliant with fresh appointment laws.</li>
+      <li><b>Omnibus Approval for RPT:</b> Valid for <b>1 year only</b>; max ₹1 Crore per transaction if details not foreseeable; quarterly review mandatory.</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="section-div">
+
+<!-- ══════════════════════════════════════════════════════════
+     FRAMEWORK 3 — ICDR
+     ══════════════════════════════════════════════════════════ -->
+<section class="framework" id="fw3">
+  <div class="section-header">
+    <div class="section-num">Framework 03</div>
+    <div class="section-title">The Capital Issuance Framework
+      <span>SEBI (ICDR) Regulations, 2018 — Issue of Capital &amp; Disclosure Requirements</span>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card card-teal">
+      <div class="card-label">IPO Eligibility · Reg 6</div>
+      <h3>Track Record Route (Route 1)</h3>
+      <ul class="plain">
+        <li>Net Tangible Assets ≥ <b>₹3 Cr</b> for 3 preceding years (≤50% monetary)</li>
+        <li>Avg Operating Profit ≥ <b>₹15 Cr</b> for 3 preceding years (profit in each year)</li>
+        <li>Net Worth ≥ <b>₹1 Cr</b> in each of 3 preceding years</li>
+        <li>If name changed in last year: ≥<b>50% revenue</b> from new activity</li>
+      </ul>
+    </div>
+    <div class="card card-gold">
+      <div class="card-label">IPO Eligibility · Reg 6(2)</div>
+      <h3>QIB Route (Route 2)</h3>
+      <ul class="plain">
+        <li>Does NOT satisfy Route 1 conditions</li>
+        <li>Issue must be through <b>Book Building</b> only</li>
+        <li>Undertakes to allot ≥ <b>75%</b> of net offer to <b>QIBs</b></li>
+        <li>Full refund if 75% QIB allotment condition not met</li>
+      </ul>
+      <div class="highlight" style="margin-top:8px; font-size:12px;">
+        <b>Key IPO Ineligibility:</b> Debarred promoters/directors · Wilful defaulters · Fraudulent borrowers · Fugitive economic offenders
+      </div>
+    </div>
+  </div>
+
+  <!-- Lock-in Table -->
+  <h3 style="margin:20px 0 10px; font-size:15px;">Lock-in Framework — SCPM Comparison Table</h3>
+  <table class="strat-table">
+    <thead>
+      <tr>
+        <th>Context</th>
+        <th>Trigger Point</th>
+        <th>Legal Requirement</th>
+        <th>Strategic Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Min Promoter Contribution<br><span class="badge badge-red">Reg 16(a)</span></td>
+        <td>Date of IPO allotment</td>
+        <td>Lock-in for <b>18 months</b> (3 years if majority proceeds for CapEx)</td>
+        <td>FR: Shares locked → restricted transfer; disclose in notes. Pledging allowed only if loan is to issuer company.</td>
+      </tr>
+      <tr>
+        <td>Excess Promoter Holding<br><span class="badge badge-gold">Reg 16(b)</span></td>
+        <td>Date of IPO allotment</td>
+        <td>Lock-in for <b>6 months</b> (1 year if majority proceeds for CapEx)</td>
+        <td>Promoters cannot exit immediately post-IPO; credibility signaling.</td>
+      </tr>
+      <tr>
+        <td>Pre-IPO Shareholders<br><span class="badge badge-navy">Reg 17</span></td>
+        <td>Date of IPO allotment</td>
+        <td>Lock-in for <b>6 months</b> (except ESOP shares, VCF/AIF Cat I &amp; II)</td>
+        <td>VCF/AIF exemption: 6 months from date of purchase.</td>
+      </tr>
+      <tr>
+        <td>Offer for Sale<br><span class="badge badge-teal">Reg 8</span></td>
+        <td>Date of filing DRHP</td>
+        <td>Selling shareholder must have held shares for <b>1 year</b> prior to DRHP</td>
+        <td>M&amp;A: Shares from approved scheme merger &gt;1 yr old: exempt. Bonus on qualifying shares: exempt.</td>
+      </tr>
+      <tr>
+        <td>Minimum Promoter Contribution<br><span class="badge badge-green">Reg 14</span></td>
+        <td>Post-issue capital</td>
+        <td>Promoters must hold ≥ <b>20%</b> of post-issue capital</td>
+        <td>Shortfall: AIF/FVC/Banks/PFI may contribute max 10% without being classified as promoter.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Allocation Decision Tree -->
+  <div class="card card-purple">
+    <div class="card-label">Decision Tree · Reg 129 — Allocation in Book-Built IPO</div>
+    <h3>IPO Investor Category Allocation</h3>
+    <div class="dtree">
+      <div class="dtree-node">
+        <div class="dtree-bullet dt-trigger">NET</div>
+        <div class="dtree-text"><strong>Net Offer</strong> (after Anchor allocation up to 60% of QIB portion)</div>
+      </div>
+      <div class="dtree-line">
+        <div class="dtree-node">
+          <div class="dtree-bullet dt-if">R1</div>
+          <div class="dtree-text"><b>Route 1 (Track Record):</b> QIB ≤50% (5% to MFs) · NII ≥15% · RII ≥35%</div>
+        </div>
+        <div class="dtree-node" style="margin-top:6px;">
+          <div class="dtree-bullet dt-else">R2</div>
+          <div class="dtree-text"><b>Route 2 (QIB Route):</b> QIB ≥75% (5% to MFs) · NII ≤15% · RII ≤10%</div>
+        </div>
+        <div class="dtree-node" style="margin-top:6px;">
+          <div class="dtree-bullet dt-result">NII</div>
+          <div class="dtree-text">NII sub-allocation: <b>1/3</b> for ₹2L–₹10L applications; <b>2/3</b> for &gt;₹10L applications</div>
+        </div>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-top:12px;">
+      <div class="highlight" style="margin:0;">
+        <b>Minimum Subscription:</b> 90% of offer; if not achieved, refund within <b>4 days</b> of closure.
+      </div>
+      <div class="highlight" style="margin:0;">
+        <b>Subscription Period:</b> FPO open ≥3 and ≤10 working days. Price band cap ≤120% of floor (floor ≥105% compliance required).
+      </div>
+    </div>
+  </div>
+
+  <!-- Cross-Subject Links -->
+  <div class="xlink">
+    <div class="xlink-header">
+      <div class="xlink-icon">⊕</div>
+      <div class="xlink-title">IBS Cross-Subject Links — ICDR</div>
+    </div>
+    <div class="xlink-grid">
+      <div class="xlink-pill xlink-fr">
+        <strong>FR</strong>
+        IPO proceeds: Ind AS 32/109 — financial instruments. Share issue costs → deducted from equity (not P&amp;L). Lock-in: restricted shares disclosure (Ind AS 116).
+      </div>
+      <div class="xlink-pill xlink-au">
+        <strong>Audit</strong>
+        CA certificate for promoter contribution (Reg 123). Due diligence certificate (Form C). Monitoring agency report — CA verification. SA 700/720 for offer document.
+      </div>
+      <div class="xlink-pill xlink-dt">
+        <strong>DT</strong>
+        IPO issue at premium: no capital gains on company. Securities Transaction Tax (STT) applies on listed securities. Convertible debentures: tax on conversion (Sec 47).
+      </div>
+      <div class="xlink-pill xlink-idt">
+        <strong>IDT</strong>
+        Securities (shares/debentures) exempt from GST. But services of merchant banker/registrar to issue are taxable @ 18% GST. Green shoe option: financial service.
+      </div>
+    </div>
+  </div>
+
+  <div class="indicator-box">
+    <h4>⚑ Critical Compliance Indicators — ICDR (High-Yield IBS Points)</h4>
+    <ul class="indicator-list">
+      <li><b>Warrant Tenure (Reg 13):</b> Max <b>18 months</b>; 25% of consideration upfront; if not exercised within 3 months of payment → consideration <b>forfeited</b>.</li>
+      <li><b>GCP Cap (Reg 7):</b> General Corporate Purposes + unidentified acquisitions ≤ <b>35%</b> of proceeds; unidentified acquisitions alone ≤ <b>25%</b>.</li>
+      <li><b>Interest on Delay (Reg 146):</b> If securities not allotted or refund not made within stipulated time → <b>15% p.a.</b> interest payable to investors.</li>
+      <li><b>Minimum Allottees (Reg 145):</b> IPO allotment invalid if prospective allottees &lt; <b>1,000</b>.</li>
+      <li><b>Monitoring Agency (Reg 137):</b> Mandatory if issue size (ex-OFS) &gt; <b>₹100 Crore</b>; quarterly report until 100% utilization.</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="section-div">
+
+<!-- ══════════════════════════════════════════════════════════
+     FRAMEWORK 4 — SAST
+     ══════════════════════════════════════════════════════════ -->
+<section class="framework" id="fw4">
+  <div class="section-header">
+    <div class="section-num">Framework 04</div>
+    <div class="section-title">The Takeover &amp; Substantial Acquisition Framework
+      <span>SEBI (SAST) Regulations, 2011 — Effective Oct 22, 2011</span>
+    </div>
+  </div>
+
+  <!-- Trigger Decision Tree -->
+  <div class="card card-red">
+    <div class="card-label">Decision Tree · Reg 3–4 — Open Offer Trigger</div>
+    <h3>When is an Open Offer Mandatory?</h3>
+    <div class="dtree">
+      <div class="dtree-node">
+        <div class="dtree-bullet dt-trigger">CHECK</div>
+        <div class="dtree-text">What is the acquirer's current + proposed combined shareholding (incl. PACs)?</div>
+      </div>
+      <div class="dtree-line">
+        <div class="dtree-node">
+          <div class="dtree-bullet dt-if">IF</div>
+          <div class="dtree-text">Current holding &lt; 25% <b>AND</b> proposed acquisition would take it to ≥ <b>25%</b></div>
+        </div>
+        <div class="dtree-node">
+          <div class="dtree-bullet dt-then">THEN</div>
+          <div class="dtree-text">Mandatory Public Announcement of Open Offer <b>(Reg 3(1))</b></div>
+        </div>
+        <div class="dtree-node" style="margin-top:6px;">
+          <div class="dtree-bullet dt-if">IF</div>
+          <div class="dtree-text">Current holding ≥ 25% but &lt; Max Non-Public Shareholding <b>AND</b> proposes to acquire &gt; <b>5%</b> in a financial year</div>
+        </div>
+        <div class="dtree-node">
+          <div class="dtree-bullet dt-then">THEN</div>
+          <div class="dtree-text">Mandatory Open Offer <b>(Reg 3(2))</b></div>
+        </div>
+        <div class="dtree-node" style="margin-top:6px;">
+          <div class="dtree-bullet dt-if">IF</div>
+          <div class="dtree-text">Acquirer acquires <b>Control</b> irrespective of shareholding percentage</div>
+        </div>
+        <div class="dtree-node">
+          <div class="dtree-bullet dt-then">THEN</div>
+          <div class="dtree-text">Mandatory Open Offer <b>(Reg 4)</b></div>
+        </div>
+        <div class="dtree-node" style="margin-top:6px;">
+          <div class="dtree-bullet dt-result">NOTE</div>
+          <div class="dtree-text">For <b>IGP-listed</b> companies: 25% threshold replaced with <b>49%</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Disclosure Table -->
+  <h3 style="margin:20px 0 10px; font-size:15px;">Disclosure Obligations — Comparative Table</h3>
+  <table class="strat-table">
+    <thead>
+      <tr>
+        <th>Context</th>
+        <th>Trigger Point</th>
+        <th>Legal Requirement</th>
+        <th>Strategic Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Acquisition Disclosure<br><span class="badge badge-red">Reg 29(1)</span></td>
+        <td>Acquirer + PACs acquire ≥ <b>5%</b> in target</td>
+        <td>Disclose aggregate shareholding within <b>2 working days</b> of receipt/allotment</td>
+        <td>PIT interface — triggers obligation to check UPSI. FR: significant shareholding note.</td>
+      </tr>
+      <tr>
+        <td>Change in Shareholding<br><span class="badge badge-gold">Reg 29(2)</span></td>
+        <td>Holding ≥5%; change exceeds <b>2%</b></td>
+        <td>Disclose to RSE + target company within <b>2 working days</b></td>
+        <td>Strategic: even reduction below 5% must be disclosed if triggered from ≥5% level</td>
+      </tr>
+      <tr>
+        <td>Encumbrance Disclosure<br><span class="badge badge-navy">Reg 31</span></td>
+        <td>Promoter pledges / releases / invokes shares</td>
+        <td>Disclose within <b>7 working days</b> to RSE + target company</td>
+        <td>Audit: pledged shares → note disclosure. FR: potential control change — contingency.</td>
+      </tr>
+      <tr>
+        <td>Yearly Declaration<br><span class="badge badge-teal">Reg 31(4)</span></td>
+        <td>End of each financial year</td>
+        <td>Promoter declares no undisclosed encumbrance within <b>7 working days</b> → to RSE + Audit Committee</td>
+        <td>Audit Committee oversight; secretarial compliance item.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Obligations Summary -->
+  <div class="grid-3" style="margin-top:8px;">
+    <div class="card card-navy">
+      <div class="card-label">Target Company Board · Reg 26</div>
+      <h3>Obligations During Offer Period</h3>
+      <ul class="plain" style="font-size:12.5px;">
+        <li>Business in <b>ordinary course</b> consistent with past</li>
+        <li>No alienation of material assets without <b>Special Resolution</b></li>
+        <li>No material borrowings outside ordinary course</li>
+        <li>No issue of new voting-right securities</li>
+        <li>No buy-back of shares</li>
+        <li>Constitute <b>Committee of Independent Directors</b> for recommendations</li>
+        <li>ID committee report: published ≥2 working days before tendering period</li>
+      </ul>
+    </div>
+    <div class="card card-teal">
+      <div class="card-label">Acquirer Obligations · Reg 25</div>
+      <h3>Key Commitments</h3>
+      <ul class="plain" style="font-size:12.5px;">
+        <li>Firm financial arrangements before PA</li>
+        <li>Cannot sell shares of target during offer period</li>
+        <li>If control acquired: cannot alienate material assets for <b>2 years</b> (without special resolution) unless declared in LoO</li>
+        <li>Jointly &amp; severally liable with PACs</li>
+        <li>Contents of PA/DPS/LoO must be true, fair &amp; adequate</li>
+      </ul>
+    </div>
+    <div class="card card-gold">
+      <div class="card-label">Director Appointment · Reg 24</div>
+      <h3>During Offer Period</h3>
+      <ul class="plain" style="font-size:12.5px;">
+        <li>NO acquirer-rep appointed as Director during offer period</li>
+        <li><b>Exception:</b> After 15 working days from DPS, if <b>entire consideration deposited in escrow</b>, appointment possible</li>
+        <li><b>Conditional offer:</b> NO acquirer Director regardless of escrow</li>
+        <li><b>Competing offers:</b> NO new director inducted (except vacancy by death)</li>
+        <li>Existing acquirer-rep Director: cannot vote on open offer matters</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Cross-Subject Links -->
+  <div class="xlink">
+    <div class="xlink-header">
+      <div class="xlink-icon">⊕</div>
+      <div class="xlink-title">IBS Cross-Subject Links — SAST</div>
+    </div>
+    <div class="xlink-grid">
+      <div class="xlink-pill xlink-fr">
+        <strong>FR</strong>
+        Acquisition crossing 20% → Associate, &gt;50% → Subsidiary. Change in consolidation method. Business combination: Ind AS 103. Goodwill recognition on acquisition.
+      </div>
+      <div class="xlink-pill xlink-au">
+        <strong>Audit</strong>
+        SA 600 — audit of group components post-acquisition. Control change → going concern reconsideration. CARO: change in group structure disclosure. Forensic audit triggers (UPSI).
+      </div>
+      <div class="xlink-pill xlink-dt">
+        <strong>DT</strong>
+        Open offer payments: capital gains for tendering shareholders (Sec 112A if STT paid). Acquirer: cost of acquisition for future gains. IBC-approved resolution plan: SAST exemption.
+      </div>
+      <div class="xlink-pill xlink-idt">
+        <strong>IDT</strong>
+        Transfer of securities: not a supply under GST. Stamp duty on share transfer. Open offer management fees (merchant banker): taxable @ 18% GST.
+      </div>
+    </div>
+  </div>
+
+  <div class="indicator-box">
+    <h4>⚑ Critical Compliance Indicators — SAST (High-Yield IBS Points)</h4>
+    <ul class="indicator-list">
+      <li><b>PAC Presumption:</b> Holding company + subsidiaries + same management companies are automatically deemed PACs. Rebuttable only with strong contrary evidence.</li>
+      <li><b>5% Annual Creeping Acquisition:</b> Gross acquisitions count; intermittent disposals don't reduce the counter. Fresh issue by target → difference in % = acquisition quantity.</li>
+      <li><b>IBC Exemption:</b> Resolution plan under S.31 IBC is <b>exempt from open offer obligations</b> — key IBS case study point.</li>
+      <li><b>Voluntary Open Offer (Reg 6):</b> Holder of ≥25% but &lt;Max Non-Public Shareholding can make voluntary offer to acquire further shares — no mandatory trigger.</li>
+      <li><b>Escrow Account:</b> Full consideration must be in escrow before acquirer can appoint Directors on target's board (after 15 WDs from DPS).</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="section-div">
+
+<!-- ══════════════════════════════════════════════════════════
+     FRAMEWORK 5 — PIT
+     ══════════════════════════════════════════════════════════ -->
+<section class="framework" id="fw5">
+  <div class="section-header">
+    <div class="section-num">Framework 05</div>
+    <div class="section-title">The Insider Trading Prevention Framework
+      <span>SEBI (PIT) Regulations, 2015 — Effective May 15, 2015</span>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <!-- UPSI Definition -->
+    <div class="card card-red">
+      <div class="card-label">Core Concept · Reg 2(1)(n)</div>
+      <h3>What is UPSI? (14-Category Test)</h3>
+      <ul class="plain" style="font-size:12.5px;">
+        <li>Financial results (quarterly/annual)</li>
+        <li>Dividends</li>
+        <li>Change in capital structure</li>
+        <li>Mergers, de-mergers, acquisitions, delistings</li>
+        <li>Change in KMP (other than superannuation); Auditor resignation</li>
+        <li>Change in credit rating (excl. ESG ratings)</li>
+        <li>Fund raising proposed</li>
+        <li>Agreements impacting management/control</li>
+        <li>Fraud/defaults/arrest of KMP, promoter or director</li>
+        <li>Resolution plan / OTS with banks</li>
+        <li>IBC proceedings (winding-up, CIRP admission, resolution plan)</li>
+        <li>Initiation/outcome of forensic audit</li>
+        <li>Regulatory/judicial orders against company</li>
+        <li>Outcome of material litigation/disputes</li>
+      </ul>
+    </div>
+
+    <!-- Insider Decision Tree -->
+    <div class="card card-navy">
+      <div class="card-label">Decision Tree · Reg 2(1)(g) — Insider Definition</div>
+      <h3>Who is an Insider?</h3>
+      <div class="dtree">
+        <div class="dtree-node">
+          <div class="dtree-bullet dt-trigger">TEST</div>
+          <div class="dtree-text">Is the person a <strong>Connected Person</strong>?</div>
+        </div>
+        <div class="dtree-line">
+          <div class="dtree-node">
+            <div class="dtree-bullet dt-if">CP</div>
+            <div class="dtree-text">Connected = any person associated with company in last <b>6 months</b> who has/expected to have access to UPSI (directors, employees, contractors, bankers, auditors, etc.)</div>
+          </div>
+          <div class="dtree-node" style="margin-top:4px;">
+            <div class="dtree-bullet dt-then">YES</div>
+            <div class="dtree-text">→ <strong>Insider</strong> by connection</div>
+          </div>
+          <div class="dtree-node" style="margin-top:6px;">
+            <div class="dtree-bullet dt-else">OR</div>
+            <div class="dtree-text">Person is NOT connected but is <b>in possession of UPSI</b> (however obtained)</div>
+          </div>
+          <div class="dtree-node">
+            <div class="dtree-bullet dt-then">YES</div>
+            <div class="dtree-text">→ Still <strong>Insider</strong> (possession-based)</div>
+          </div>
+          <div class="dtree-node" style="margin-top:6px;">
+            <div class="dtree-bullet dt-result">KEY</div>
+            <div class="dtree-text"><b>Onus of proof</b> is on the person levelling the charge; but person who traded while in possession of UPSI must demonstrate innocence</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIT Framework Table -->
+  <h3 style="margin:20px 0 10px; font-size:15px;">PIT Compliance Architecture — SCPM Summary Table</h3>
+  <table class="strat-table">
+    <thead>
+      <tr>
+        <th>Context</th>
+        <th>Trigger Point</th>
+        <th>Legal Requirement</th>
+        <th>Strategic Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Insider Trading — Dealing<br><span class="badge badge-red">Penalty S.15G</span></td>
+        <td>Trade in listed securities while possessing UPSI</td>
+        <td>Prohibited absolutely; Penalty: <b>₹10 Lakh to ₹25 Crore</b> or <b>3× profits</b> (whichever higher)</td>
+        <td>DT: Penalty not deductible (Sec 37); FR: contingent liability if regulatory action pending</td>
+      </tr>
+      <tr>
+        <td>Communication of UPSI<br><span class="badge badge-red">Penalty S.15G</span></td>
+        <td>Communicating UPSI to any person (except ordinary course of business)</td>
+        <td>Prohibited; includes tipping, counselling, procuring trades</td>
+        <td>Audit: SA 250 — evaluate legal compliance. Connected person at CA firm: professional risk</td>
+      </tr>
+      <tr>
+        <td>Trading Plans<br><span class="badge badge-teal">PIT Reg</span></td>
+        <td>Insider wants to trade (even if aware of UPSI)</td>
+        <td>Pre-approved trading plan submitted to compliance officer; disclosed on RSE</td>
+        <td>Strategic exit mechanism for insiders; cannot be cancelled/altered arbitrarily</td>
+      </tr>
+      <tr>
+        <td>Structured Digital Database<br><span class="badge badge-navy">PIT Reg</span></td>
+        <td>Any UPSI shared internally or with third parties</td>
+        <td>Maintain SDD with details of persons sharing UPSI; tamper-proof &amp; auditable</td>
+        <td>Audit: SDD records subject to audit review. IT systems must protect data integrity.</td>
+      </tr>
+      <tr>
+        <td>Code of Conduct<br><span class="badge badge-gold">PIT Reg</span></td>
+        <td>All listed entities, intermediaries, fiduciaries</td>
+        <td>Mandatory Code of Conduct; trading window restrictions; pre-clearance for designated persons</td>
+        <td>HR/Governance: designated person must pre-clear &gt; threshold trades; 6-month holding for reversals</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Generally Available Information -->
+  <div class="highlight">
+    <b>Generally Available Information (GAI):</b> Information accessible to public on a <b>non-discriminatory basis</b>. Unverified media reports do NOT qualify as GAI. Website of stock exchange = ordinarily GAI. Once UPSI becomes GAI → trading restriction lifted.
+  </div>
+
+  <!-- Cross-Subject Links -->
+  <div class="xlink">
+    <div class="xlink-header">
+      <div class="xlink-icon">⊕</div>
+      <div class="xlink-title">IBS Cross-Subject Links — PIT</div>
+    </div>
+    <div class="xlink-grid">
+      <div class="xlink-pill xlink-fr">
+        <strong>FR</strong>
+        Material events → prompt disclosure reduces insider trading window. Ind AS 10 — events after reporting period triggering UPSI (e.g., merger announcement). Fair value impact on trading.
+      </div>
+      <div class="xlink-pill xlink-au">
+        <strong>Audit</strong>
+        Auditor = connected person if in possession of financial results (pre-publication). SA 240 — fraud risk. CARO 2020: reporting on outstanding regulatory orders. Engagement quality check.
+      </div>
+      <div class="xlink-pill xlink-dt">
+        <strong>DT</strong>
+        Penalty under PIT (S.15G): not deductible (illegal payment). Profits from insider trading: taxable as capital gains/business income; disgorged profits reduce net taxable gain.
+      </div>
+      <div class="xlink-pill xlink-idt">
+        <strong>IDT</strong>
+        Securities transactions: exempt from GST. Compliance services (legal/secretarial) for PIT Code of Conduct: taxable @ 18%. SEBI investigation: no GST on penalty payments.
+      </div>
+    </div>
+  </div>
+
+  <div class="indicator-box">
+    <h4>⚑ Critical Compliance Indicators — PIT (High-Yield IBS Points)</h4>
+    <ul class="indicator-list">
+      <li><b>Connected Person Lookback:</b> Any person associated with the company in last <b>6 months</b> is presumed connected — includes former employees, ex-advisors.</li>
+      <li><b>Possession Test:</b> Trading while in possession of UPSI is prohibited <b>even if UPSI did not influence the decision</b> — it is a near-strict liability offense.</li>
+      <li><b>UPSI Communication Exception:</b> Communication in "ordinary course of business" is permitted. Example: sharing results with statutory auditors before publication is permitted.</li>
+      <li><b>Structured Digital Database (SDD):</b> Mandatory from Jan 2021; must record all persons with whom UPSI shared; cannot be modified; subject to SEBI inspection.</li>
+      <li><b>Trading Plan Mechanism:</b> The only "safe harbor" for an insider to trade — pre-approved, publicly disclosed plan with no deviation permitted for 12 months.</li>
+    </ul>
+  </div>
+</section>
+
+<hr class="section-div">
+
+<!-- ══════════════════════════════════════════════════════════
+     MASTER PENALTY TABLE
+     ══════════════════════════════════════════════════════════ -->
+<section class="framework" id="penaltytable">
+  <div class="section-header">
+    <div class="section-num">Table 06</div>
+    <div class="section-title">Master Penalty Reference Table
+      <span>SEBI Act, 1992 · Sections 15A to 15HB</span>
+    </div>
+  </div>
+
+  <table class="strat-table">
+    <thead>
+      <tr>
+        <th>Section</th>
+        <th>Default Type</th>
+        <th>Minimum Penalty</th>
+        <th>Maximum Penalty</th>
+        <th>IBS Alert</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>15A</td>
+        <td>Failure to furnish documents / returns / maintain books</td>
+        <td>₹1 Lakh</td>
+        <td>₹1 Lakh/day → <b>₹1 Crore</b></td>
+        <td>Most common in case studies; applies to listed companies failing LODR filings</td>
+      </tr>
+      <tr>
+        <td>15B</td>
+        <td>Failure to enter into client agreements (intermediary)</td>
+        <td>₹1 Lakh</td>
+        <td>₹1 Lakh/day → <b>₹1 Crore</b></td>
+        <td>Brokers, portfolio managers, advisers</td>
+      </tr>
+      <tr>
+        <td>15C</td>
+        <td>Failure to redress investor grievances after SEBI call</td>
+        <td>₹1 Lakh</td>
+        <td>₹1 Lakh/day → <b>₹1 Crore</b></td>
+        <td>IBS: company + intermediary both liable; check if SEBI formally called upon them</td>
+      </tr>
+      <tr>
+        <td>15D</td>
+        <td>CIS/MF defaults (no CoR, T&amp;C violations, dispatch/refund failures)</td>
+        <td>₹1 Lakh</td>
+        <td>₹1 Lakh/day → <b>₹1 Crore</b></td>
+        <td>Multiple defaults = separate penalties per failure category</td>
+      </tr>
+      <tr>
+        <td>15E</td>
+        <td>AMC failure to comply with activity restrictions</td>
+        <td>₹1 Lakh</td>
+        <td>₹1 Lakh/day → <b>₹1 Crore</b></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>15EA</td>
+        <td>AIF / InvIT / REIT defaults</td>
+        <td>₹1 Lakh</td>
+        <td><b>Higher of: ₹1 Crore OR 3× gains</b></td>
+        <td>Enhanced penalty — gains multiplier applies. IBS note: fund structures.</td>
+      </tr>
+      <tr>
+        <td>15EB</td>
+        <td>Investment Adviser / Research Analyst defaults</td>
+        <td>₹1 Lakh</td>
+        <td>₹1 Lakh/day → <b>₹1 Crore</b></td>
+        <td>RA conflicts with IBS advisory cases</td>
+      </tr>
+      <tr>
+        <td>15F(a)</td>
+        <td>Stock broker — failure to issue contract notes</td>
+        <td>₹1 Lakh</td>
+        <td>Up to <b>₹1 Crore per contract note</b></td>
+        <td>Per transaction-based penalty — significant for high-volume brokers</td>
+      </tr>
+      <tr>
+        <td>15F(b)</td>
+        <td>Stock broker — failure to deliver securities/payments</td>
+        <td>₹1 Lakh</td>
+        <td>₹1 Lakh/day → <b>₹1 Crore</b></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>15F(c)</td>
+        <td>Stock broker — excess brokerage charged</td>
+        <td>₹1 Lakh</td>
+        <td><b>5× excess brokerage charged</b></td>
+        <td>Comparison-based penalty — not time-based</td>
+      </tr>
+      <tr>
+        <td><b>15G</b></td>
+        <td><b>Insider Trading</b></td>
+        <td><b>₹10 Lakh</b></td>
+        <td><b>Higher of: ₹25 Crore OR 3× profits</b></td>
+        <td>🔴 Highest impact. Covers dealing, tipping, counselling. Criminal also possible (S.24).</td>
+      </tr>
+      <tr>
+        <td><b>15H</b></td>
+        <td><b>Takeover disclosures / open offer failures</b></td>
+        <td><b>₹10 Lakh</b></td>
+        <td><b>Higher of: ₹25 Crore OR 3× profits</b></td>
+        <td>🔴 SAST violations — non-disclosure, failure to make PA/open offer</td>
+      </tr>
+      <tr>
+        <td><b>15HA</b></td>
+        <td><b>Fraudulent &amp; Unfair Trade Practices</b></td>
+        <td><b>₹5 Lakh</b></td>
+        <td><b>Higher of: ₹25 Crore OR 3× profits</b></td>
+        <td>🔴 Market manipulation, price rigging, rumour-spreading</td>
+      </tr>
+      <tr>
+        <td>15HAA</td>
+        <td>Tampering with SEBI regulatory database / electronic records</td>
+        <td>₹1 Lakh</td>
+        <td><b>Higher of: ₹10 Crore OR 3× profits</b></td>
+        <td>Cyber security and data integrity — covers computer virus introduction, unauthorized access</td>
+      </tr>
+      <tr>
+        <td>15HB</td>
+        <td>Any other violation (residual clause)</td>
+        <td>₹1 Lakh</td>
+        <td><b>₹1 Crore</b></td>
+        <td>Catch-all provision — mention in IBS where no specific section applies</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="grid-2" style="margin-top:16px;">
+    <div class="card card-red">
+      <div class="card-label">Criminal Liability · S.24</div>
+      <h3>Over &amp; Above Civil Penalties</h3>
+      <ul class="plain">
+        <li>Any contravention: imprisonment up to <b>10 years</b> + fine up to <b>₹25 Crore</b> or both</li>
+        <li>Failure to pay penalty/comply with directions: imprisonment min <b>1 month</b> to max <b>10 years</b></li>
+        <li>Court cognizance only on <b>SEBI complaint</b></li>
+        <li>Tried by <b>Special Court</b> (Sessions Judge level)</li>
+        <li>Compoundable offences: can be compounded by SAT/court (except imprisonment-only offences)</li>
+      </ul>
+    </div>
+    <div class="card card-gold">
+      <div class="card-label">Adjudication Framework · S.15-I &amp; 15J</div>
+      <h3>Quantum of Penalty — Factors</h3>
+      <ul class="plain">
+        <li>Amount of <b>disproportionate gain</b> / unfair advantage</li>
+        <li>Amount of <b>loss caused</b> to investors</li>
+        <li><b>Repetitive</b> nature of the default</li>
+      </ul>
+      <div style="margin-top:10px; font-size:12.5px;">
+        <b>Review by SEBI:</b> Can enhance penalty within <b>3 months</b> of AO order (or disposal of appeal, whichever earlier). <b>Settlement (S.15JB):</b> application-based; order not appealable.
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-div">
+
+<!-- ══════════════════════════════════════════════════════════
+     IRAC TEMPLATE
+     ══════════════════════════════════════════════════════════ -->
+<section class="framework" id="irac">
+  <div class="section-header">
+    <div class="section-num">Template 07</div>
+    <div class="section-title">Ready-to-Use IRAC Answer Templates
+      <span>Issue → Rule → Application → Conclusion · For IBS Case Studies</span>
+    </div>
+  </div>
+
+  <!-- IRAC 1 — Insider Trading -->
+  <div class="irac">
+    <div class="irac-header">IRAC Template A — Insider Trading (Most High-Yield Topic)</div>
+    <div class="irac-body">
+      <div class="irac-row">
+        <div class="irac-label">ISSUE</div>
+        <div class="irac-content">Whether [Name], a [designation/connected person], has violated the SEBI (Prohibition of Insider Trading) Regulations, 2015 by trading in securities of [Company] while possessing Unpublished Price-Sensitive Information (UPSI).</div>
+      </div>
+      <div class="irac-row">
+        <div class="irac-label">RULE</div>
+        <div class="irac-content">Under Regulation 2(1)(g), an "insider" includes a connected person or any person in possession of UPSI. Under the SEBI (PIT) Regulations, 2015, no insider shall deal in securities of a listed company when in possession of UPSI. Penalty under Section 15G of the SEBI Act is not less than ₹10 Lakh, extending to the higher of ₹25 Crore or 3× profits. Criminal liability under Section 24 (up to 10 years imprisonment) operates simultaneously.</div>
+      </div>
+      <div class="irac-row">
+        <div class="irac-label">APPLICATION</div>
+        <div class="irac-content">[Name] was [describe connection — director/employee/auditor/banker] of [Company] and thus a connected person. The [event — quarterly results / merger / KMP change] constitutes UPSI as it was not generally available and would materially affect the price of securities. The trading occurred on [date], prior to public announcement of the UPSI on [date]. Therefore, [Name] traded while in possession of UPSI, meeting the requisite conditions for violation of PIT Regulations.</div>
+      </div>
+      <div class="irac-row">
+        <div class="irac-label">CONCLUSION</div>
+        <div class="irac-content">[Name] has violated SEBI (PIT) Regulations, 2015 and is liable to civil penalty under Section 15G of the SEBI Act and criminal prosecution under Section 24. The company must also review its Code of Conduct and Structured Digital Database (SDD) for adequacy.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IRAC 2 — SAST Open Offer -->
+  <div class="irac">
+    <div class="irac-header">IRAC Template B — SAST Open Offer Obligation</div>
+    <div class="irac-body">
+      <div class="irac-row">
+        <div class="irac-label">ISSUE</div>
+        <div class="irac-content">Whether [Acquirer] is required to make a Public Announcement of an Open Offer under SEBI (SAST) Regulations, 2011 upon acquiring [X%] shares of [Target Company].</div>
+      </div>
+      <div class="irac-row">
+        <div class="irac-label">RULE</div>
+        <div class="irac-content">Under Regulation 3(1) of SAST, any acquirer whose holdings (together with PACs) would equal or exceed 25% of voting rights must make a Public Announcement. Under Regulation 3(2), an acquirer holding ≥25% cannot acquire more than 5% additional voting rights in any financial year without a PA. Penalty for non-disclosure under Section 15H: minimum ₹10 Lakh to higher of ₹25 Crore or 3× profits.</div>
+      </div>
+      <div class="irac-row">
+        <div class="irac-label">APPLICATION</div>
+        <div class="irac-content">[Acquirer] currently holds [Y%] shares. The proposed acquisition of [Z%] additional shares would take the aggregate holding (including PACs — [list PACs]) to [X%], which [equals/exceeds] the 25% threshold. Accordingly, Regulation 3(1) is triggered and a Public Announcement of an Open Offer for at least 26% of total shares is mandatory before completing the acquisition.</div>
+      </div>
+      <div class="irac-row">
+        <div class="irac-label">CONCLUSION</div>
+        <div class="irac-content">[Acquirer] must make a Public Announcement and comply with open offer requirements under SAST including escrow deposit, appointment of manager to offer, and letter of offer to shareholders. Non-compliance attracts penalty under Section 15H of the SEBI Act.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IRAC 3 — RPT -->
+  <div class="irac">
+    <div class="irac-header">IRAC Template C — LODR Related Party Transaction Approval</div>
+    <div class="irac-body">
+      <div class="irac-row">
+        <div class="irac-label">ISSUE</div>
+        <div class="irac-content">Whether the proposed transaction between [Listed Entity] and [Related Party] requires shareholder approval under SEBI (LODR) Regulations, 2015.</div>
+      </div>
+      <div class="irac-row">
+        <div class="irac-label">RULE</div>
+        <div class="irac-content">Under Regulation 23 of SEBI (LODR) Regulations, all RPTs require prior approval of the Audit Committee (only IDs vote). A transaction is "material" if it exceeds the lower of ₹1,000 Crore or 10% of annual consolidated turnover, requiring further Shareholders' Approval by resolution. The related party is prohibited from voting on such resolution.</div>
+      </div>
+      <div class="irac-row">
+        <div class="irac-label">APPLICATION</div>
+        <div class="irac-content">[Related Party] holds [X%] in [Listed Entity] [or is part of promoter group], making them a related party under Reg 2(1)(zb). The proposed transaction value is ₹[amount]. The company's consolidated annual turnover is ₹[Y], making 10% = ₹[Z]. Since the transaction value [exceeds / does not exceed] the lower of ₹1,000 Crore and ₹[Z], it [is / is not] a material RPT. [Accordingly, Shareholders' approval is/is not required.]</div>
+      </div>
+      <div class="irac-row">
+        <div class="irac-label">CONCLUSION</div>
+        <div class="irac-content">The transaction requires [Audit Committee approval only / Audit Committee approval + Shareholder approval by ordinary resolution]. The related party [name] cannot vote on this resolution. Disclosure must be made to stock exchanges on a half-yearly basis.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cross-subject synthesis -->
+  <div class="card card-gold" style="margin-top:8px;">
+    <div class="card-label">IBS Synthesis Note — Multi-Subject Integration</div>
+    <h3>How Securities Law Ripples Across IBS</h3>
+    <div class="grid-2">
+      <div>
+        <p><b>Scenario: Company announces merger (UPSI) → Promoter acquires 8% more shares → IPO planned within 6 months</b></p>
+        <ul class="plain">
+          <li><b>PIT:</b> Merger announcement = UPSI; promoter acquisition = insider trading</li>
+          <li><b>SAST:</b> If post-acquisition &gt;5% increase → open offer trigger</li>
+          <li><b>ICDR:</b> Lock-in of promoter shares; eligibility check for IPO</li>
+          <li><b>LODR:</b> UPSI must be disclosed via Reg 30 (material event); trading window must be shut</li>
+        </ul>
+      </div>
+      <div>
+        <p><b>FR / Audit / Tax overlays on the same scenario:</b></p>
+        <ul class="plain">
+          <li><b>FR:</b> Merger → Ind AS 103; promoter acquisition → consolidation reconsideration</li>
+          <li><b>Audit:</b> SA 240 fraud risk (insider trading); SA 560 subsequent events (merger)</li>
+          <li><b>DT:</b> Promoter capital gains (STT); UPSI-timed trades → profits potentially disgorged → not deductible</li>
+          <li><b>IDT:</b> Merger services (due diligence, banker fees) → GST @ 18%; securities exempt</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /container -->
+
+<footer class="footer">
+  <span>CA Final · Paper 6 IBS · Securities Laws Strategic Framework</span>
+  <span>SEBI Act 1992 · LODR 2015 · ICDR 2018 · SAST 2011 · PIT 2015</span>
+  <span>Prepared for IBS Integrated Exam Strategy</span>
+</footer>
+
+</body>
+</html>

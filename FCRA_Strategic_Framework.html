@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FCRA 2010 — Strategic Framework | CA Final IBS</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;600&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1b2a;
+    --navy-mid: #1a2f45;
+    --navy-light: #243b55;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-pale: #f5e9c8;
+    --cream: #faf6ee;
+    --red-alert: #c0392b;
+    --red-pale: #fdf0ee;
+    --green: #1a6b4a;
+    --green-pale: #e8f5ee;
+    --blue-link: #1a4f8a;
+    --blue-pale: #eaf0f8;
+    --text-dark: #1c1c1c;
+    --text-mid: #3a3a3a;
+    --text-light: #666;
+    --border: #d8cbb5;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    background: var(--navy);
+    color: white;
+    padding: 56px 60px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border: 2px solid rgba(201,168,76,0.25);
+    border-radius: 50%;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 200px;
+    width: 180px; height: 180px;
+    border: 1px solid rgba(201,168,76,0.15);
+    border-radius: 50%;
+  }
+  .cover-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 1.15;
+    color: white;
+    margin-bottom: 10px;
+  }
+  .cover h1 span { color: var(--gold-light); }
+  .cover-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 8px;
+    font-style: italic;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 28px;
+    margin-top: 32px;
+    flex-wrap: wrap;
+  }
+  .meta-pill {
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold-light);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+  }
+
+  /* ── LAYOUT ── */
+  .page { max-width: 960px; margin: 0 auto; padding: 36px 40px 80px; }
+
+  /* ── TOC ── */
+  .toc {
+    background: var(--navy-mid);
+    color: white;
+    padding: 28px 36px;
+    margin-bottom: 40px;
+    border-left: 4px solid var(--gold);
+  }
+  .toc-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px 32px;
+  }
+  .toc-item {
+    font-size: 12px;
+    color: rgba(255,255,255,0.78);
+    font-style: italic;
+  }
+  .toc-item strong { color: var(--gold-light); font-style: normal; font-family: 'IBM Plex Mono', monospace; font-size: 10px; }
+
+  /* ── SECTION HEADERS ── */
+  .framework-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin: 48px 0 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--navy);
+  }
+  .fw-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    min-width: 48px;
+  }
+  .fw-text {}
+  .fw-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--text-light);
+    text-transform: uppercase;
+  }
+  .fw-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .card-header {
+    background: var(--navy);
+    color: var(--gold-light);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 18px;
+  }
+  .card-body { padding: 18px 20px; }
+
+  /* ── NON-NEGOTIABLE BOX ── */
+  .non-neg {
+    background: var(--red-pale);
+    border: 2px solid var(--red-alert);
+    border-radius: 2px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+  .non-neg-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--red-alert);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .non-neg-title::before { content: '⚡'; font-size: 14px; }
+  .non-neg ul { padding-left: 18px; }
+  .non-neg li { font-size: 13px; margin-bottom: 4px; color: #5a1a1a; }
+
+  /* ── CROSS SUBJECT ── */
+  .cross-link {
+    background: var(--blue-pale);
+    border-left: 4px solid var(--blue-link);
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    border-radius: 0 2px 2px 0;
+  }
+  .cross-link-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--blue-link);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .cross-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .cross-item { font-size: 12px; }
+  .cross-item strong { font-family: 'IBM Plex Mono', monospace; color: var(--navy); font-size: 10px; display: block; margin-bottom: 3px; }
+
+  /* ── TABLES ── */
+  table { width: 100%; border-collapse: collapse; margin-bottom: 20px; font-size: 13px; }
+  thead tr { background: var(--navy); color: white; }
+  thead th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--gold-light);
+  }
+  tbody tr:nth-child(even) { background: #f5f0e8; }
+  tbody tr:nth-child(odd) { background: white; }
+  td { padding: 9px 12px; border: 1px solid var(--border); vertical-align: top; }
+  td strong { color: var(--navy); }
+
+  /* ── DECISION TREE ── */
+  .dtree {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 20px;
+    margin-bottom: 20px;
+    font-size: 13px;
+  }
+  .dtree-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--navy);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .dt-if {
+    background: var(--navy-light);
+    color: white;
+    padding: 6px 14px;
+    margin-bottom: 3px;
+    font-size: 12px;
+    border-radius: 2px;
+  }
+  .dt-if strong { color: var(--gold-light); font-family: 'IBM Plex Mono', monospace; font-size: 10px; }
+  .dt-then {
+    background: var(--green-pale);
+    border-left: 3px solid var(--green);
+    padding: 6px 14px;
+    margin-left: 20px;
+    margin-bottom: 3px;
+    font-size: 12px;
+    color: #1a3a2a;
+  }
+  .dt-then strong { color: var(--green); font-family: 'IBM Plex Mono', monospace; font-size: 10px; }
+  .dt-else {
+    background: var(--red-pale);
+    border-left: 3px solid var(--red-alert);
+    padding: 6px 14px;
+    margin-left: 20px;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: #5a1a1a;
+  }
+  .dt-else strong { color: var(--red-alert); font-family: 'IBM Plex Mono', monospace; font-size: 10px; }
+
+  /* ── IRAC ── */
+  .irac {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: white;
+    padding: 28px;
+    margin-bottom: 24px;
+    border-radius: 2px;
+    position: relative;
+  }
+  .irac::before {
+    content: 'IRAC';
+    position: absolute;
+    top: 12px; right: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 60px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.04);
+    line-height: 1;
+  }
+  .irac-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .irac-row {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 10px;
+    align-items: flex-start;
+  }
+  .irac-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gold-light);
+    min-width: 100px;
+    padding-top: 1px;
+  }
+  .irac-content { font-size: 13px; color: rgba(255,255,255,0.88); }
+
+  /* ── DEFINITION BOX ── */
+  .def-box {
+    background: var(--gold-pale);
+    border: 1px solid var(--gold);
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    font-size: 13px;
+  }
+  .def-box strong { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: #6b4c00; display: block; margin-bottom: 5px; }
+
+  /* ── FLOW STEPS ── */
+  .flow-steps { display: flex; flex-direction: column; gap: 0; margin-bottom: 20px; }
+  .flow-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    background: white;
+    position: relative;
+  }
+  .flow-step::after {
+    content: '↓';
+    position: absolute;
+    bottom: -18px;
+    left: 22px;
+    font-size: 14px;
+    color: var(--navy);
+    font-weight: bold;
+    z-index: 1;
+  }
+  .flow-step:last-child::after { display: none; }
+  .flow-step + .flow-step { margin-top: 8px; }
+  .step-num {
+    background: var(--navy);
+    color: var(--gold-light);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    min-width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-body { font-size: 13px; }
+  .step-body strong { color: var(--navy); }
+
+  /* ── PENALTY TAG ── */
+  .ptag {
+    display: inline-block;
+    background: var(--red-alert);
+    color: white;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .gtag {
+    display: inline-block;
+    background: var(--green);
+    color: white;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* ── 2-COL ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+
+  /* ── MINI LIST ── */
+  .mini-list { list-style: none; padding: 0; font-size: 13px; }
+  .mini-list li { padding: 5px 0; border-bottom: 1px dashed var(--border); display: flex; gap: 8px; }
+  .mini-list li::before { content: '›'; color: var(--gold); font-weight: bold; font-size: 16px; line-height: 1.2; }
+  .mini-list li:last-child { border-bottom: none; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 18px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
+
+  b, strong { font-weight: 600; }
+
+  @media print {
+    body { font-size: 12px; }
+    .cover { padding: 36px; }
+    .page { padding: 20px 30px 40px; }
+    .framework-header { margin: 32px 0 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════ COVER ════════════════════════════ -->
+<div class="cover">
+  <div class="cover-tag">CA Final · Paper 6 · Integrated Business Solutions</div>
+  <h1>The Foreign Contribution<br><span>(Regulation) Act, 2010</span></h1>
+  <div class="cover-sub">Strategic Framework Note-Set · SCPM-Style Analysis</div>
+  <div class="cover-meta">
+    <span class="meta-pill">FCRA + Amendment 2020</span>
+    <span class="meta-pill">MHA Administered</span>
+    <span class="meta-pill">54 Sections · 9 Chapters</span>
+    <span class="meta-pill">IBS Integration Ready</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════ PAGE ════════════════════════════ -->
+<div class="page">
+
+  <!-- TOC -->
+  <div class="toc">
+    <div class="toc-title">Strategic Frameworks in This Note-Set</div>
+    <div class="toc-grid">
+      <div class="toc-item"><strong>FW-01 </strong> Source & Contribution Classification Framework</div>
+      <div class="toc-item"><strong>FW-02 </strong> Prohibition & Restriction Framework</div>
+      <div class="toc-item"><strong>FW-03 </strong> Registration & Permission Framework</div>
+      <div class="toc-item"><strong>FW-04 </strong> Account & Reporting Framework</div>
+      <div class="toc-item"><strong>FW-05 </strong> Lifecycle Management Framework (Suspension → Cancellation)</div>
+      <div class="toc-item"><strong>FW-06 </strong> Adjudication, Appeal & Penalty Framework</div>
+    </div>
+  </div>
+
+  <!-- ════════ FRAMEWORK 01 ════════ -->
+  <div class="framework-header">
+    <div class="fw-number">01</div>
+    <div class="fw-text">
+      <div class="fw-label">Framework One</div>
+      <div class="fw-title">Source & Contribution Classification Framework</div>
+    </div>
+  </div>
+
+  <div class="non-neg">
+    <div class="non-neg-title">Compliance Indicators — High-Yield for IBS Case Studies</div>
+    <ul>
+      <li>NRI (Indian Passport) ≠ Foreign Source. Person of Indian Origin (Foreign Passport) = Foreign Source.</li>
+      <li>Gift in kind from foreign source ≤ ₹1,00,000 for personal use → <strong>NOT</strong> Foreign Contribution (FC).</li>
+      <li>Interest on FC deposited in FCRA account → <strong>IS</strong> FC (Explanation 2).</li>
+      <li>Commercial earnings (fee for services) from a foreign client → <strong>NOT</strong> FC (Explanation 3).</li>
+      <li>UN, World Bank, IMF → <strong>Excluded</strong> from definition of "Foreign Source."</li>
+      <li>100% subsidiary of foreign company ≤ FEMA limits → <strong>NOT</strong> a foreign source.</li>
+    </ul>
+  </div>
+
+  <div class="dtree">
+    <div class="dtree-title">Decision Tree — Is it "Foreign Contribution"?</div>
+
+    <div class="dt-if"><strong>IF</strong> Transfer/donation/delivery is made by a "Foreign Source"</div>
+    <div class="dt-then"><strong>THEN →</strong> Proceed to check nature of transfer</div>
+
+    <div class="dt-if"><strong>IF</strong> Nature = Article (in-kind gift for personal use) AND Market Value ≤ ₹1,00,000</div>
+    <div class="dt-else"><strong>ELSE (NOT FC) →</strong> Below threshold gift exemption. No FCRA applicability.</div>
+    <div class="dt-then"><strong>THEN (IS FC) →</strong> Article exceeds ₹1,00,000. Registration/Prior Permission needed.</div>
+
+    <div class="dt-if"><strong>IF</strong> Nature = Fee for services / commercial transaction / salary / scholarship</div>
+    <div class="dt-else"><strong>ELSE (NOT FC) →</strong> Explanation 3 exclusion. Governed by FEMA, not FCRA.</div>
+
+    <div class="dt-if"><strong>IF</strong> Nature = Interest earned on FC already deposited in FCRA Account</div>
+    <div class="dt-then"><strong>THEN (IS FC) →</strong> Explanation 2: income on FC = FC. Must be tracked & reported.</div>
+
+    <div class="dt-if"><strong>IF</strong> Transfer is from an NRI (Indian passport holder)</div>
+    <div class="dt-else"><strong>ELSE (NOT FC) →</strong> NRI = Indian citizen. Section 4 exemption. Inform CG if &gt; ₹10L/year from relatives via FC-1.</div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Context</th><th>Entity Type</th><th>FCRA Status</th><th>Strategic Impact</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Indian working abroad (NRI)</td><td>Indian Citizen (Indian Passport)</td><td><strong>NOT Foreign Source</strong></td><td>Donation not FC; FEMA rules apply</td></tr>
+      <tr><td>Person of Indian Origin (PIO) – foreign passport</td><td>Foreign Citizen</td><td><strong>IS Foreign Source</strong></td><td>Donation is FC; FCRA applies fully</td></tr>
+      <tr><td>100% subsidiary of MNC — FEMA compliant</td><td>Indian Company (FDI within limits)</td><td><strong>NOT Foreign Source</strong></td><td>Can donate to Section 8 Company freely</td></tr>
+      <tr><td>International Agency (IMF, World Bank, UN)</td><td>Exempt International Body</td><td><strong>NOT Foreign Source</strong></td><td>Funds received = not FC</td></tr>
+      <tr><td>Foreign trust mainly financed by foreign govt.</td><td>Foreign Trust/Foundation</td><td><strong>IS Foreign Source</strong></td><td>Recipient must have FCRA registration</td></tr>
+      <tr><td>MNC with subsidiaries in 2+ countries</td><td>Multi-National Corporation</td><td><strong>IS Foreign Source</strong></td><td>Donations trigger FCRA compliance</td></tr>
+    </tbody>
+  </table>
+
+  <div class="cross-link">
+    <div class="cross-link-title">Cross-Subject Links — FW-01</div>
+    <div class="cross-grid">
+      <div class="cross-item"><strong>FR (Financial Reporting)</strong> Disclosures in financial statements of NPOs receiving FC. Separate FC fund balance to be shown. Interest on FC treated as FC income — impacts Statement of Income & Expenditure.</div>
+      <div class="cross-item"><strong>Audit</strong> Auditor verifies source classification. CARO 2020 & SA 250 (Compliance with Laws) triggered. Chartered Accountant certification required with Form FC-4 annual return.</div>
+      <div class="cross-item"><strong>DT / IDT</strong> FC received by Section 8 Company or trust may qualify for Section 11/12 exemption under Income Tax Act — but only if used for charitable purposes. FC ≠ Income for tax if applied to objects.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ════════ FRAMEWORK 02 ════════ -->
+  <div class="framework-header">
+    <div class="fw-number">02</div>
+    <div class="fw-text">
+      <div class="fw-label">Framework Two</div>
+      <div class="fw-title">Prohibition & Restriction Framework</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-header">Section 3 — Absolute Prohibitions (Cannot Accept FC)</div>
+      <div class="card-body">
+        <ul class="mini-list">
+          <li>Candidate for election</li>
+          <li>Correspondent/Editor/Publisher of registered newspaper</li>
+          <li>Public Servant, Judge, Government Servant</li>
+          <li>Employee of Govt. corporation/body</li>
+          <li>Member of any Legislature</li>
+          <li>Political party or office-bearer thereof</li>
+          <li>Organisation of political nature (notified u/s 5)</li>
+          <li>Association/company in audio/visual news broadcasting</li>
+          <li>Cartoonist/Editor of such broadcasting association</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">Section 4 — Exceptions (FC Allowed Even for Prohibited Persons)</div>
+      <div class="card-body">
+        <ul class="mini-list">
+          <li>Salary/wages from foreign source in ordinary business</li>
+          <li>International trade / business outside India</li>
+          <li>As agent of foreign source for Govt. transactions</li>
+          <li>Gift as member of Indian delegation (per CG rules)</li>
+          <li><strong>From a Relative</strong> (FC exempt; but if &gt; ₹10L/yr → inform CG via FC-1 within 3 months)</li>
+          <li>Remittance via official banking channels (FEMA)</li>
+          <li>Scholarship, stipend, or similar payment</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">Section 6 — Foreign Hospitality: Who Needs Prior CG Permission?</div>
+    <div class="card-body">
+      <div class="two-col">
+        <div>
+          <p style="font-size:13px; margin-bottom:10px;"><strong>Persons requiring prior CG permission before accepting Foreign Hospitality abroad:</strong></p>
+          <ul class="mini-list">
+            <li>Members of Legislature</li>
+            <li>Office-bearers of political parties</li>
+            <li>Judges</li>
+            <li>Government servants</li>
+            <li>Employees of Govt. corporations/bodies</li>
+          </ul>
+        </div>
+        <div>
+          <div class="def-box">
+            <strong>Foreign Hospitality [S.2(1)(i)]</strong>
+            Any non-casual offer by a foreign source covering travel costs, boarding, lodging, transport or <strong>medical treatment</strong> to any foreign country.
+          </div>
+          <div class="def-box" style="background: var(--green-pale); border-color: var(--green);">
+            <strong style="color: var(--green);">Emergency Exception</strong>
+            No prior permission needed for emergent (sudden) medical illness during foreign visit. BUT intimation to CG within <strong>1 month</strong> required — except if value ≤ ₹1,00,000.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Context</th><th>Trigger Point</th><th>Legal Requirement</th><th>Strategic Impact</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>FC from relative</td><td>Receipt of any amount</td><td>No restriction on receipt; FC-1 filing if &gt;₹10L/year within 3 months</td><td>Political office-bearers can still receive from relatives</td></tr>
+      <tr><td>Indirect FC acceptance</td><td>Resident Indian acting as conduit for prohibited person</td><td>Section 3(2): Absolute prohibition on indirect acceptance</td><td>Increases compliance scope for intermediaries</td></tr>
+      <tr><td>Political organisations (notified)</td><td>CG notification u/s 5</td><td>Treated as political party — FC fully barred</td><td>NGOs with political alignment face bar risk</td></tr>
+      <tr><td>Section 7 — Transfer of FC</td><td>Any registered person receives FC</td><td><strong>2020 Amendment: Blanket ban</strong> on transferring FC to any other person</td><td>Sub-granting models completely dismantled</td></tr>
+      <tr><td>Admin expenses cap</td><td>Each financial year</td><td>Max <strong>20%</strong> of FC received. Excess requires prior CG approval</td><td>Operational viability concern for small NGOs</td></tr>
+    </tbody>
+  </table>
+
+  <div class="non-neg">
+    <div class="non-neg-title">Compliance Indicators — Section 7 & 8 (2020 Amendment Impact)</div>
+    <ul>
+      <li><strong>Section 7 (Transfer Ban):</strong> Even transferring to another FCRA-registered body is now <em>prohibited</em>. This is a 2020 amendment — a favourite exam trick.</li>
+      <li><strong>Section 8 (Admin Cap):</strong> Reduced from 50% to <strong>20%</strong>. Speculative investments (mutual funds, shares) = absolutely prohibited from FC funds.</li>
+      <li><strong>Debt-based secure investment</strong> is NOT treated as speculative — a key distinction for IBS case facts.</li>
+    </ul>
+  </div>
+
+  <div class="cross-link">
+    <div class="cross-link-title">Cross-Subject Links — FW-02</div>
+    <div class="cross-grid">
+      <div class="cross-item"><strong>FR</strong> Admin expense % calculation → impacts NPO accounting policy disclosures. Unspent admin expenses can be carried forward (Form FC-4).</div>
+      <div class="cross-item"><strong>Audit</strong> SA 250: Auditor must verify transfer compliance. Section 7 violation = material irregularity. FC-4 must be certified by CA.</div>
+      <div class="cross-item"><strong>DT</strong> If FC utilised for speculative purposes (mutual funds) → income may lose Section 11 exemption and become taxable as "income applied not for charitable purposes."</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ════════ FRAMEWORK 03 ════════ -->
+  <div class="framework-header">
+    <div class="fw-number">03</div>
+    <div class="fw-text">
+      <div class="fw-label">Framework Three</div>
+      <div class="fw-title">Registration & Permission Framework</div>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <div class="card-header">Mode I — Certificate of Registration [S.11(1)]</div>
+      <div class="card-body">
+        <ul class="mini-list">
+          <li>Entity must have a <strong>definite cultural/economic/educational/religious/social programme</strong></li>
+          <li>Must have been in existence for <strong>3 years</strong></li>
+          <li>Must have audited financials for last 3 years</li>
+          <li>Must have spent at least <strong>₹15 lakhs</strong> (excl. admin) for stated objectives</li>
+          <li>Apply in <strong>Form FC-3A</strong> (electronic) with Proforma AA affidavit</li>
+          <li>Certificate valid for <strong>5 years</strong></li>
+          <li>Renewal: Apply within <strong>6 months before expiry</strong> (Form FC-3C); Fee ₹5,000</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">Mode II — Prior Permission [S.11(2)]</div>
+      <div class="card-body">
+        <ul class="mini-list">
+          <li>For <strong>new/formative-stage</strong> organisations not yet eligible for registration</li>
+          <li>Specific amount + specific donor + specific project</li>
+          <li>Apply in <strong>Form FC-3B</strong> (electronic) with Proforma AA affidavit</li>
+          <li>Valid only for the <strong>specific purpose / specific amount</strong> approved</li>
+          <li>If FC value &gt; ₹1 crore → CG may allow receipt in <strong>instalments</strong></li>
+          <li>2nd instalment released only after <strong>75% utilisation proof</strong> + field inquiry</li>
+          <li>No second application within <strong>6 months</strong> of first application for same project</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="dtree">
+    <div class="dtree-title">Decision Tree — Which Entities Can Apply?</div>
+
+    <div class="dt-if"><strong>IF</strong> Entity = Individual or HUF</div>
+    <div class="dt-then"><strong>THEN →</strong> Eligible for Prior Permission. Individual must have no criminal conviction or pending prosecution.</div>
+
+    <div class="dt-if"><strong>IF</strong> Entity = Private Limited Company registered as Section 8 (Companies Act 2013)</div>
+    <div class="dt-then"><strong>THEN →</strong> Eligible for Registration or Prior Permission.</div>
+
+    <div class="dt-if"><strong>IF</strong> Entity = Partnership Firm</div>
+    <div class="dt-else"><strong>ELSE (NOT ELIGIBLE) →</strong> Partnership Firm cannot obtain registration or prior permission under FCRA.</div>
+
+    <div class="dt-if"><strong>IF</strong> Entity = Govt. body whose accounts are compulsorily audited by C&AG</div>
+    <div class="dt-else"><strong>ELSE (EXEMPT) →</strong> Such bodies are exempted from all FCRA provisions.</div>
+
+    <div class="dt-if"><strong>IF</strong> Person's Certificate is currently SUSPENDED</div>
+    <div class="dt-else"><strong>ELSE (NOT ELIGIBLE) →</strong> Cannot apply for new certificate or prior permission while suspension continues.</div>
+  </div>
+
+  <div class="flow-steps">
+    <div class="flow-step"><div class="step-num">1</div><div class="step-body">Apply in <strong>FC-3A / FC-3B</strong> electronically. Must have FCRA Account (SBI NDMB) opened and mentioned in application. Provide <strong>Aadhaar</strong> of all office bearers / directors (residents). Foreigners → copy of Passport or OCI Card [S.12A].</div></div>
+    <div class="flow-step"><div class="step-num">2</div><div class="step-body">CG conducts inquiry, verifies <strong>Section 12(4) conditions</strong>: entity not fictitious/benami, no communal conviction, no fund misuse, no sedition, no FCRA contravention history, acceptance will not affect sovereignty/integrity/public interest.</div></div>
+    <div class="flow-step"><div class="step-num">3</div><div class="step-body">CG to grant certificate / prior permission <strong>ordinarily within 90 days</strong>. If not granted within 90 days → reasons must be communicated to applicant.</div></div>
+    <div class="flow-step"><div class="step-num">4</div><div class="step-body">On rejection → CG records reasons in its order and furnishes copy to applicant. Exception: reasons need not be communicated if information is exempt under <strong>RTI Act, 2005</strong>.</div></div>
+    <div class="flow-step"><div class="step-num">5</div><div class="step-body"><strong>Certificate valid for 5 years.</strong> If FC value at time of prior permission &gt; ₹1 crore → instalment-based receipt allowed. 2nd instalment only after 75% utilisation proof + field inquiry.</div></div>
+  </div>
+
+  <div class="cross-link">
+    <div class="cross-link-title">Cross-Subject Links — FW-03</div>
+    <div class="cross-grid">
+      <div class="cross-item"><strong>FR</strong> Section 8 company classification in financial statements. Registration status affects consolidation (subsidiary vs. associate) if foreign parent is involved.</div>
+      <div class="cross-item"><strong>Audit</strong> SA 265: Auditor must report non-compliance with registration to those charged with governance. Non-FCRA registered entity receiving FC = significant risk area.</div>
+      <div class="cross-item"><strong>DT</strong> Section 12A Aadhaar requirement — Aadhaar linkage also required for various Direct Tax compliances. Cross-verification possible by authorities.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ════════ FRAMEWORK 04 ════════ -->
+  <div class="framework-header">
+    <div class="fw-number">04</div>
+    <div class="fw-text">
+      <div class="fw-label">Framework Four</div>
+      <div class="fw-title">Account & Reporting Framework</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">Section 17 — The Three-Tier FCRA Banking Structure (2020 Amendment)</div>
+    <div class="card-body">
+      <div class="three-col">
+        <div>
+          <div class="def-box">
+            <strong>TIER 1 — Receipt Account</strong>
+            Mandatory FCRA Account at <strong>SBI, New Delhi Main Branch (NDMB)</strong>. ALL foreign contribution must first be received here. No local/domestic funds allowed in this account.
+          </div>
+        </div>
+        <div>
+          <div class="def-box">
+            <strong>TIER 2 — Holding Account</strong>
+            Another "FCRA Account" may be opened at any <strong>scheduled bank of choice</strong> to keep/utilise FC transferred from Tier 1 SBI account.
+          </div>
+        </div>
+        <div>
+          <div class="def-box">
+            <strong>TIER 3 — Utilisation Accounts</strong>
+            One or more accounts at any scheduled bank(s) for actual <strong>utilisation</strong> of FC transferred from Tier 1/2. Intimation in <strong>Form FC-6D</strong> to MHA within <strong>15 days</strong> of opening.
+          </div>
+        </div>
+      </div>
+      <p style="font-size:12px; color: var(--red-alert); margin-top:6px;">⚡ <strong>Critical:</strong> No funds other than FC shall be received/deposited in any FCRA account. Mixing = FCRA violation.</p>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Reporting Obligation</th><th>Form</th><th>Deadline</th><th>Who Certifies</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Annual return of FC received & utilised</td><td><strong>FC-4</strong></td><td>Within <strong>9 months</strong> from close of financial year (i.e., by 31 Dec)</td><td>Chartered Accountant + Bank Officer</td></tr>
+      <tr><td>FC in articles only</td><td><strong>FC-1</strong></td><td>As prescribed</td><td>Chartered Accountant</td></tr>
+      <tr><td>FC in foreign securities</td><td><strong>FC-1</strong></td><td>As prescribed</td><td>Chartered Accountant</td></tr>
+      <tr><td>FC from relative &gt; ₹10L/year</td><td><strong>FC-1</strong></td><td>Within <strong>3 months</strong> of receipt</td><td>Self (electronic submission)</td></tr>
+      <tr><td>FC received by election candidate</td><td><strong>FC-1</strong></td><td>Within <strong>45 days</strong> of nomination</td><td>Self (electronic form)</td></tr>
+      <tr><td>New bank account opened (Utilisation)</td><td><strong>FC-6D</strong></td><td>Within <strong>15 days</strong> of opening</td><td>Self (electronic submission)</td></tr>
+      <tr><td>NIL Return (no FC received)</td><td><strong>FC-4 (NIL)</strong></td><td>Within 9 months of year-end</td><td>No CA certificate required if NIL</td></tr>
+      <tr><td>Bank reporting to CG</td><td>Prescribed format</td><td>Within <strong>48 hours</strong> of any FC transaction</td><td>Bank Officer</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card">
+    <div class="card-header">Section 19 & 20 — Maintenance & Audit of Accounts</div>
+    <div class="card-body">
+      <div class="two-col">
+        <div>
+          <ul class="mini-list">
+            <li>Separate set of accounts exclusively for FC</li>
+            <li>Records of utilisation manner must be maintained</li>
+            <li>Accounting statements preserved for <strong>6 years</strong></li>
+            <li>Annual FC-4 accompanied by bank statement certified by bank officer</li>
+          </ul>
+        </div>
+        <div>
+          <div class="def-box" style="background: var(--red-pale); border-color: var(--red-alert);">
+            <strong style="color: var(--red-alert);">CG Audit Powers [S.20]</strong>
+            If intimation not furnished OR contravention suspected → CG authorises Gazetted Officer (Group A) to audit books. Officers may enter premises between <strong>sunrise and sunset</strong>. Audit information is <strong>confidential</strong>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cross-link">
+    <div class="cross-link-title">Cross-Subject Links — FW-04</div>
+    <div class="cross-grid">
+      <div class="cross-item"><strong>FR</strong> Separate Fund-Based Accounting for FC receipts. Restricted Fund disclosure in NPO financial statements. Assets purchased from FC → must be in association's name, not individual's.</div>
+      <div class="cross-item"><strong>Audit</strong> CA certifies FC-4 return — creates professional liability. SA 580 (Written Representations) — management to confirm FC utilisation was for approved purposes only.</div>
+      <div class="cross-item"><strong>DT</strong> Income from FCRA account (interest) = FC under Explanation 2. If invested speculatively → income tax liability may arise. GST: Services funded through FC — place of supply and zero-rating implications.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ════════ FRAMEWORK 05 ════════ -->
+  <div class="framework-header">
+    <div class="fw-number">05</div>
+    <div class="fw-text">
+      <div class="fw-label">Framework Five</div>
+      <div class="fw-title">Lifecycle Management Framework</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Stage</th><th>Section</th><th>Trigger</th><th>Duration / Limit</th><th>Key Consequence</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Active</strong></td><td>S.11/12</td><td>Certificate granted</td><td><strong>5 years</strong></td><td>Full FC receipt & utilisation allowed</td></tr>
+      <tr><td><strong>Suspension</strong></td><td>S.13</td><td>Cancellation under consideration</td><td>Initially <strong>180 days</strong>; extendable by further 180 days</td><td>Cannot receive FC. Can utilise up to <strong>25% of unspent FC</strong> with CG approval. Remaining 75% only after revocation.</td></tr>
+      <tr><td><strong>Cancellation</strong></td><td>S.14</td><td>False statements / violations / public interest / 2 years inactivity</td><td>Permanent (until re-registration)</td><td>Cooling period of <strong>3 years</strong> before fresh application. FC/assets vest with banking authority.</td></tr>
+      <tr><td><strong>Surrender</strong></td><td>S.14A</td><td>Voluntary application by entity</td><td>From date CG accepts request</td><td>CG inquiry first. FC/assets vest with authority u/s 15. Apply in <strong>Form FC-7</strong>.</td></tr>
+      <tr><td><strong>Renewal</strong></td><td>S.16</td><td>Apply within 6 months before expiry</td><td>Renewed for <strong>5 years</strong>. CG to act within 90 days.</td><td>If renewal not applied with fee → certificate ceases on expiry. Late fee ₹5,000 accepted up to 1 year after expiry if grounds provided.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="dtree">
+    <div class="dtree-title">Decision Tree — What Happens After Cancellation?</div>
+
+    <div class="dt-if"><strong>IF</strong> Certificate is cancelled u/s 14</div>
+    <div class="dt-then"><strong>THEN →</strong> FC + assets vest with banking authority (SBI NDMB) till CG gives further directions [S.15]</div>
+
+    <div class="dt-if"><strong>IF</strong> 3 years cooling period has NOT elapsed since cancellation</div>
+    <div class="dt-else"><strong>ELSE (CANNOT APPLY) →</strong> Fresh registration / prior permission barred. Must wait.</div>
+    <div class="dt-then"><strong>THEN (CAN APPLY) →</strong> Apply freshly as per Rule 9 procedures for new registration.</div>
+
+    <div class="dt-if"><strong>IF</strong> Entity subsequently gets re-registered</div>
+    <div class="dt-then"><strong>THEN →</strong> Vested FC and assets SHALL be returned by the authority [S.15(3)].</div>
+  </div>
+
+  <div class="non-neg">
+    <div class="non-neg-title">Compliance Indicators — Lifecycle Framework</div>
+    <ul>
+      <li><strong>3-Year Cooling Period:</strong> After cancellation, no registration or prior permission possible. A 2.5-year gap is insufficient (Toastea Ltd. illustration-type case).</li>
+      <li><strong>Suspension ≠ Cancellation:</strong> During suspension, 25% of unspent FC usable with CG permission; 75% frozen until revocation.</li>
+      <li><strong>Renewal Fee:</strong> ₹5,000. No fee + no application = certificate deemed lapsed. Late applications (with grounds) accepted up to 1 year post-expiry with ₹5,000 additional late fee.</li>
+      <li><strong>Section 14(2):</strong> No cancellation without giving reasonable opportunity of being heard (natural justice).</li>
+    </ul>
+  </div>
+
+  <div class="cross-link">
+    <div class="cross-link-title">Cross-Subject Links — FW-05</div>
+    <div class="cross-grid">
+      <div class="cross-item"><strong>FR</strong> On cancellation: FC balance vests with banking authority → contingent liability note in financial statements. Assets created from FC may need write-off or transfer disclosure.</div>
+      <div class="cross-item"><strong>Audit</strong> Going concern assessment (SA 570) if entity's certificate is suspended/cancelled. Auditor must disclose regulatory non-compliance in audit report.</div>
+      <div class="cross-item"><strong>DT</strong> Assets vested with banking authority → Section 45 capital gains implications. Deemed transfer? IBS integration point: income recognition on vesting of assets.</td></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ════════ FRAMEWORK 06 ════════ -->
+  <div class="framework-header">
+    <div class="fw-number">06</div>
+    <div class="fw-text">
+      <div class="fw-label">Framework Six</div>
+      <div class="fw-title">Adjudication, Appeal & Penalty Framework</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Section</th><th>Offence</th><th>Penalty</th><th>IBS Trigger</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>S.33</strong></td><td>Knowingly gives false intimation (S.9c / S.18) OR seeks registration by fraud/concealment</td><td>Imprisonment up to <strong>6 months</strong> OR fine OR both</td><td>Certification by CA — CA's professional risk</td></tr>
+      <tr><td><strong>S.34</strong></td><td>Violates prohibitory order u/s 10 (deals with frozen FC assets)</td><td>Imprisonment up to <strong>3 years</strong> + fine + additional fine = market value of article/currency</td><td>Management liability in case study</td></tr>
+      <tr><td><strong>S.35</strong></td><td>Accepts / assists in accepting FC in contravention of FCRA</td><td>Imprisonment up to <strong>5 years</strong> OR fine OR both</td><td>Highest imprisonment — often tested</td></tr>
+      <tr><td><strong>S.36</strong></td><td>Acts/omissions rendering FC articles/currency liable to confiscation</td><td>Fine up to <strong>5× value</strong> OR ₹1,000, whichever higher. Fine = additional to other fines.</td><td>Valuation exercise for penalty quantification</td></tr>
+      <tr><td><strong>S.37</strong></td><td>Non-compliance with any FCRA provision (no specific penalty elsewhere)</td><td>Imprisonment up to <strong>1 year</strong> OR fine OR both</td><td>Catch-all provision — technical violations</td></tr>
+      <tr><td><strong>S.38</strong></td><td>Repeat offence (S.35 or S.37) relating to FC acceptance/utilisation</td><td><strong>Cannot accept FC for 5 years</strong> from date of subsequent conviction</td><td>Organisational continuity risk</td></tr>
+    </tbody>
+  </table>
+
+  <div class="card">
+    <div class="card-header">Adjudication & Confiscation — Sections 28, 29, 30</div>
+    <div class="card-body">
+      <div class="two-col">
+        <div>
+          <p style="font-size:13px; margin-bottom:8px;"><strong>Who can adjudge confiscation?</strong></p>
+          <ul class="mini-list">
+            <li><strong>Court of Session</strong> — Without limit (within local jurisdiction of seizure)</li>
+            <li><strong>Officer ≥ Asst. Sessions Judge</strong> — Only if value ≤ <strong>₹10,00,000</strong></li>
+          </ul>
+          <p style="font-size:12px; margin-top:10px; color: var(--text-light);">Reasonable opportunity of representation must be given before confiscation order [S.30].</p>
+        </div>
+        <div>
+          <p style="font-size:13px; margin-bottom:8px;"><strong>Appeal structure [S.31]</strong></p>
+          <table style="font-size:12px;">
+            <thead><tr><th>Order by</th><th>Appeal to</th><th>Time Limit</th></tr></thead>
+            <tbody>
+              <tr><td>Court of Session</td><td>High Court</td><td>1 month (extendable by 1 month)</td></tr>
+              <tr><td>Asst. Sessions Judge</td><td>Court of Session</td><td>1 month (extendable by 1 month)</td></tr>
+              <tr><td>CG order (S.5/12/14)</td><td>High Court (where appellant resides/HO)</td><td><strong>60 days</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">Section 32 — Revision by Central Government</div>
+    <div class="card-body">
+      <div class="two-col">
+        <div>
+          <ul class="mini-list">
+            <li>CG may revise <strong>suo motu</strong> OR on application by registered person</li>
+            <li>Suo motu: Only if order is <strong>not more than 1 year old</strong></li>
+            <li>Application: Must be filed within <strong>1 year</strong> from communication of order (whichever earlier)</li>
+            <li>CG may condone delay for sufficient cause</li>
+          </ul>
+        </div>
+        <div>
+          <div class="def-box" style="background: var(--green-pale); border-color: var(--green);">
+            <strong style="color: var(--green);">Section 41 — Compounding</strong>
+            Non-imprisonment offences may be compounded before prosecution. Compounding NOT available within <strong>3 years</strong> of a previous compounding for similar offence. After 3 years → treated as first offence again. Fee: ₹3,000 (via FCRA Online portal).
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="non-neg">
+    <div class="non-neg-title">Compliance Indicators — Penalty Framework</div>
+    <ul>
+      <li><strong>Section 40 Bar:</strong> No court can take cognizance of FCRA offences without prior sanction of CG or authorised officer.</li>
+      <li><strong>Section 35 carries highest penalty (5 years)</strong> — covers both accepting and <em>assisting</em> in accepting FC in violation.</li>
+      <li><strong>Company officers' liability [S.39]:</strong> Directors, managers, secretaries liable along with company unless they prove ignorance + due diligence.</li>
+      <li><strong>Compounding not available</strong> if offence is punishable with imprisonment only. IBS case: Check nature of offence before advising compounding.</li>
+    </ul>
+  </div>
+
+  <div class="cross-link">
+    <div class="cross-link-title">Cross-Subject Links — FW-06</div>
+    <div class="cross-grid">
+      <div class="cross-item"><strong>FR</strong> Penalty provision triggers contingent liability disclosure per AS 29 / Ind AS 37. Confiscated assets → derecognise from books and disclose as exceptional item.</div>
+      <div class="cross-item"><strong>Audit</strong> SA 250: Auditor must consider FCRA violations. Qualified opinion or emphasis of matter may be warranted if material violation discovered during audit.</div>
+      <div class="cross-item"><strong>DT</strong> Penalties paid under S.34/35 → NOT deductible u/s 37 of IT Act (penalty/fine = not business expenditure). Company-level prosecution: potential impact on MAT computation.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ════════ IRAC TEMPLATE ════════ -->
+  <div class="framework-header">
+    <div class="fw-number" style="color: var(--navy);">✦</div>
+    <div class="fw-text">
+      <div class="fw-label">IBS Exam Tool</div>
+      <div class="fw-title">IRAC Templates — Ready-to-Use Answer Frameworks</div>
+    </div>
+  </div>
+
+  <div class="irac">
+    <div class="irac-title">IRAC Template 1 — Transfer of Foreign Contribution [Section 7]</div>
+    <div class="irac-row">
+      <div class="irac-label">ISSUE</div>
+      <div class="irac-content">Whether an FCRA-registered association (X) can transfer its received foreign contribution to another FCRA-registered organisation (Y)?</div>
+    </div>
+    <div class="irac-row">
+      <div class="irac-label">RULE</div>
+      <div class="irac-content">Section 7 of FCRA, 2010 as amended by the Foreign Contribution (Regulation) Amendment Act, 2020, imposes a <strong>blanket prohibition</strong> on transfer of foreign contribution by any registered person to any other person, irrespective of the recipient's registration status.</div>
+    </div>
+    <div class="irac-row">
+      <div class="irac-label">APPLICATION</div>
+      <div class="irac-content">Since the 2020 amendment, even transferring to another registered entity is prohibited. Prior to 2020, CG approval-based transfers were permissible. On the given facts, X intends to transfer FC to Y — this clearly violates Section 7 regardless of Y's FCRA status.</div>
+    </div>
+    <div class="irac-row">
+      <div class="irac-label">CONCLUSION</div>
+      <div class="irac-content"><strong>X cannot transfer the foreign contribution to Y.</strong> Doing so would constitute a contravention of Section 7, exposing X to penalty under Section 35 (imprisonment up to 5 years) and potential cancellation of registration under Section 14.</div>
+    </div>
+  </div>
+
+  <div class="irac">
+    <div class="irac-title">IRAC Template 2 — Speculative Investment of FC [Section 8]</div>
+    <div class="irac-row">
+      <div class="irac-label">ISSUE</div>
+      <div class="irac-content">Whether XYZ Foundation (FCRA registered) can invest maturity proceeds from FC bank deposits into Mutual Funds?</div>
+    </div>
+    <div class="irac-row">
+      <div class="irac-label">RULE</div>
+      <div class="irac-content">Section 8(1)(a) of FCRA, 2010 prohibits utilisation of FC for speculative business. Rule 4(1) of FCR Rules 2011 defines speculative business to include <strong>investment in mutual funds or shares</strong> (instruments with risk of appreciation/depreciation). Further, Explanation 2 to S.2(1)(h) deems interest on FC deposits as FC itself.</div>
+    </div>
+    <div class="irac-row">
+      <div class="irac-label">APPLICATION</div>
+      <div class="irac-content">The interest earned on FC bank deposits becomes part of FC corpus. Investing this amount in mutual funds = using FC for speculative purposes. The fact that mutual funds are regulated or "safe" is irrelevant — the element of market-linked risk suffices to classify it as speculative under Rule 4.</div>
+    </div>
+    <div class="irac-row">
+      <div class="irac-label">CONCLUSION</div>
+      <div class="irac-content"><strong>XYZ Foundation cannot invest FC or interest on FC in mutual funds.</strong> Debt-based secure instruments would not attract this bar. This restriction applies to the FC corpus as well as all income arising from it.</div>
+    </div>
+  </div>
+
+  <div class="irac">
+    <div class="irac-title">IRAC Template 3 — Cancellation Cooling Period [Section 14(3)]</div>
+    <div class="irac-row">
+      <div class="irac-label">ISSUE</div>
+      <div class="irac-content">Can Toastea Ltd., whose FCRA registration was cancelled 2.5 years ago in public interest, now apply for fresh registration or prior permission?</div>
+    </div>
+    <div class="irac-row">
+      <div class="irac-label">RULE</div>
+      <div class="irac-content">Section 14(3) of FCRA, 2010 mandates a mandatory cooling period of <strong>3 years</strong> from the date of cancellation of certificate before the entity can be eligible for fresh registration or prior permission. No exceptions.</div>
+    </div>
+    <div class="irac-row">
+      <div class="irac-label">APPLICATION</div>
+      <div class="irac-content">Only 2.5 years have elapsed since cancellation. The statutory 3-year cooling period has not been completed. A written declaration of future compliance is not a recognised ground for waiver of this period under FCRA.</div>
+    </div>
+    <div class="irac-row">
+      <div class="irac-label">CONCLUSION</div>
+      <div class="irac-content"><strong>Toastea Ltd. is not yet eligible.</strong> It must wait until the 3-year cooling period (from the cancellation date) is fully completed before applying for fresh registration under Rule 9 of FCR Rules, 2011.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- MASTER SUMMARY TABLE -->
+  <div class="framework-header">
+    <div class="fw-number" style="color: var(--navy);">∑</div>
+    <div class="fw-text">
+      <div class="fw-label">Master Reference</div>
+      <div class="fw-title">Critical Timeframes & Limits — At a Glance</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr><th>Parameter</th><th>Limit / Timeframe</th><th>Section / Rule</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Gift in kind (personal use) — FC exemption threshold</td><td><strong>≤ ₹1,00,000</strong></td><td>Rule 6A, FCRR 2011</td></tr>
+      <tr><td>FC from relatives — CG intimation threshold</td><td><strong>&gt; ₹10 Lakh/year → FC-1 within 3 months</strong></td><td>Rule 6, FCRR 2011</td></tr>
+      <tr><td>Emergency medical hospitality — intimation exemption</td><td><strong>≤ ₹1,00,000 → No intimation needed</strong></td><td>Rule 7(4), FCRR 2011</td></tr>
+      <tr><td>Foreign hospitality — application to CG before journey</td><td><strong>At least 2 weeks before departure</strong></td><td>Rule 7(3), FCRR 2011</td></tr>
+      <tr><td>Admin expenses cap from FC</td><td><strong>Max 20%</strong> of FC received per financial year</td><td>Section 8(1)(b)</td></tr>
+      <tr><td>CG registration/prior permission decision timeline</td><td><strong>Ordinarily within 90 days</strong></td><td>Section 12(3)</td></tr>
+      <tr><td>Certificate of registration validity</td><td><strong>5 years</strong> from date of issue</td><td>Section 12(5)</td></tr>
+      <tr><td>Renewal application filing window</td><td><strong>Within 6 months before expiry</strong></td><td>Section 16(1)</td></tr>
+      <tr><td>Renewal fee</td><td><strong>₹5,000</strong> (late fee additional ₹5,000)</td><td>Rule 12, FCRR 2011</td></tr>
+      <tr><td>Suspension period (initial + extended)</td><td><strong>180 days + 180 days = max 360 days</strong></td><td>Section 13(1)</td></tr>
+      <tr><td>FC usable during suspension (with CG approval)</td><td><strong>25% of unspent FC</strong></td><td>Rule 14, FCRR 2011</td></tr>
+      <tr><td>Cooling period after cancellation</td><td><strong>3 years</strong></td><td>Section 14(3)</td></tr>
+      <tr><td>Annual FC return filing deadline</td><td><strong>Within 9 months</strong> of financial year end</td><td>Rule 17, FCRR 2011</td></tr>
+      <tr><td>Accounting records preservation period</td><td><strong>6 years</strong></td><td>Rule 17(7), FCRR 2011</td></tr>
+      <tr><td>Bank reporting of FC transactions to CG</td><td><strong>Within 48 hours</strong></td><td>Rule 16, FCRR 2011</td></tr>
+      <tr><td>New utilisation account intimation to MHA</td><td><strong>Within 15 days</strong> of opening (Form FC-6D)</td><td>Section 11(3A)</td></tr>
+      <tr><td>Election candidate FC intimation</td><td><strong>Within 45 days</strong> of nomination (Form FC-1)</td><td>Rule 18, FCRR 2011</td></tr>
+      <tr><td>S.29 confiscation limit for lower authority</td><td><strong>≤ ₹10,00,000</strong></td><td>Rule 19, FCRR 2011</td></tr>
+      <tr><td>Appeal against confiscation order</td><td><strong>Within 1 month</strong> (extendable by 1 month)</td><td>Section 31(1)</td></tr>
+      <tr><td>Appeal against CG refusal / cancellation</td><td><strong>Within 60 days</strong> to High Court</td><td>Section 31(2)</td></tr>
+      <tr><td>Revision by CG — suo motu time limit</td><td><strong>Order not more than 1 year old</strong></td><td>Section 32(2)</td></tr>
+      <tr><td>Application for revision — time limit</td><td><strong>Within 1 year</strong> of order communication</td><td>Section 32(3)</td></tr>
+      <tr><td>Second application after first application</td><td><strong>Not within 6 months</strong> of first application</td><td>Section 12, FCRR 2011</td></tr>
+      <tr><td>Instalment release condition (Prior Permission &gt; ₹1Cr)</td><td><strong>75% utilisation proof</strong> of previous instalment</td><td>Rule 9A, FCRR 2011</td></tr>
+    </tbody>
+  </table>
+
+</div><!-- /page -->
+
+<div class="footer">
+  FCRA 2010 · Strategic Framework · CA Final IBS Notes · © Institute of Chartered Accountants of India · For Educational Use
+</div>
+
+</body>
+</html>
